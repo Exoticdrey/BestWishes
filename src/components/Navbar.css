@@ -1,0 +1,36 @@
+nav {
+  background-color: var(--background-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 30px;
+}
+.nav-logo img {
+  height: 50px;
+  width: 50px;
+}
+.nav-container ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
+}
+.nav-container ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.nav-shop-icon svg {
+  width: 1.8rem;
+}

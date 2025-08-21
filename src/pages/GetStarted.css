@@ -1,0 +1,125 @@
+.get-started-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  top: 0;
+}
+
+.get-started {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Life Savers", serif;
+  font-optical-sizing: auto;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-subtitle);
+  margin-bottom: 30px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 260px;
+
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-gifter {
+  border: 2px solid var(--secondary-color);
+}
+.card-gifter .btn {
+  background-color: var(--secondary-color);
+}
+.card-vendor {
+  border: 2px solid var(--primary-color);
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  margin-bottom: 10px;
+}
+.gifter-icon svg {
+  width: 2rem;
+  text-align: center;
+  color: var(--text-subtitle);
+}
+
+.card-title {
+  letter-spacing: 1.3px;
+  font-size: 1.5rem;
+
+  margin: 10px 0;
+  font-family: "Life Savers", serif;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.links a {
+  font-size: 0.85rem;
+  color: #a300d6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #a300d6;
+}
+
+.signin {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+.signin a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
