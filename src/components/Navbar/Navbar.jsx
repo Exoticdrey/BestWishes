@@ -21,7 +21,7 @@ function Navbar() {
             <a href="/">Pricing</a>
           </li>
           <li>
-            <a href="/">Spin & Wheel</a>
+            <a href="/">Spin & Win</a>
           </li>
         </ul>
 

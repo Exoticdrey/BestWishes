@@ -1,0 +1,21 @@
+import { Link } from 'react-router-dom';
+import './RealTime.css';
+
+const RealTime = () => {
+    return (
+        <section className="see-cards">
+            <div className="see-cards-head">
+                <h3>See Cards In Real Time</h3>
+                <p>Every card tells a story, explore the latest card trends, favorite <br />designs we have for you</p>
+
+                <div className="click-here-card">
+                <Link to="/create-card" className="create">CLick Here</Link>
+            </div>
+            </div>
+
+            
+      </section>
+    );
+};
+
+export default RealTime;
