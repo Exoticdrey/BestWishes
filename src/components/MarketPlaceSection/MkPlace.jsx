@@ -12,7 +12,7 @@ const MkPlace = () => {
 
             <div className="marketplace-cards">
                 <div className="marketplace-cards-1">
-                    <img src="" alt="" className="marketplace-cards-image" />
+                    <img src="/cake1.png" alt="" className="marketplace-cards-image" />
                     <p className="card-title">
                         Candled Birthday Cake
                     </p>
@@ -28,7 +28,7 @@ const MkPlace = () => {
                 </div>
 
                 <div className="marketplace-cards-2">
-                    <img src="" alt="" className="marketplace-cards-image" />
+                    <img src="/cake2.png" alt="" className="marketplace-cards-image" />
                     <p className="card-title">
                         Candled Birthday Cake
                     </p>
@@ -44,7 +44,7 @@ const MkPlace = () => {
                 </div>
 
                 <div className="marketplace-cards-3">
-                    <img src="" alt="" className="marketplace-cards-image" />
+                    <img src="/cke3.png" alt="" className="marketplace-cards-image" />
                     <p className="card-title">
                         Candled Birthday Cake
                     </p>

@@ -5,7 +5,7 @@ const Callta = () => {
     return (
         <section className="callta">
             <div className="card-image">
-                <img src="" alt="" className="card-image-img" />
+                <img src="/ctaimg.png" alt="" className="card-image-img" />
             </div>
 
             <div className="callta-text">

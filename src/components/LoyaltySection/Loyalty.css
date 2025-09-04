@@ -1,0 +1,31 @@
+.loyalty{
+     border: 1px solid #FF9AFF;
+     margin-top: 20px;
+     background: #FEF2FF;
+}
+.loyalty-title{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* text-align: center; */
+    padding: 10px;
+}
+.loyalty-title-text{
+    text-align: left;
+}
+.loyalty-title-text h3{
+    font-size: 30px;
+    font-family: 'Life Savers';
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.loyalty-title-text p{
+    font-size: 14px;
+}
+.loyalty-cards{
+    /* border: 1px solid black; */
+    /* width: 4dvh; */
+}
+.loyalty-cards1{
+    margin-right: 10px;
+}
