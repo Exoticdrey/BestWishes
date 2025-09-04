@@ -23,3 +23,9 @@ body {
   padding: 0;
   color: var(--text-color);
 }
+input {
+  font-size: 15px;
+}
+label {
+  font-weight: 600;
+}

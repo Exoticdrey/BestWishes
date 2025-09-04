@@ -1,0 +1,42 @@
+.schedule-card3 {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 3rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #d600a3;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: none;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #d600a3;
+}
+
+.error {
+  color: #ff4d4f;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}

@@ -1,0 +1,47 @@
+.schedule-card-section {
+  width: 100%;
+}
+.schedule-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  text-align: left;
+  width: 500px;
+  min-width: 100px;
+}
+.schedule-flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.schedule-form input {
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  background: none;
+  width: 100%;
+  outline-color: #d600a3;
+  border-radius: 8px;
+}
+
+.schedule-form select {
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  background: none;
+  width: 100%;
+  border-radius: 8px;
+}
+.schedule-form-btn {
+  text-align: right;
+  margin-top: 1rem;
+}
+.schedule-form-btn .schedule-next-btn {
+  background: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 3rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

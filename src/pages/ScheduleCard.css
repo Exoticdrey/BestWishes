@@ -1,0 +1,14 @@
+.schedule {
+  padding-top: 5rem;
+}
+.schedule-headline {
+  background-color: #ffd4ff;
+  padding: 2rem;
+}
+
+.schedule-headline h2 {
+  font-family: "Life Savers", serif;
+  color: #d600a3;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}

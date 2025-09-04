@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-// import CardStep1 from "../components/cards/CardStep0";
-import CardStep1 from "../components/cards/CardStep1";
-import CardStep2 from "../components/cards/CardStep2";
-import CardStep3 from "../components/cards/CardStep3";
+import ScheduleCard1 from "../components/schedule/ScheduleCard1";
+import ScheduleCard2 from "../components/schedule/ScheduleCard2";
+import ScheduleCard3 from "../components/schedule/ScheduleCard3";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
-import "./CreateCard.css";
+import "./ScheduleCard.css";
 
-function CreateCard() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({});
+function ScheduleCard() {
+  const [currentScheduleStep, setCurrentScheduleStep] = useState(0);
+  const [scheduleFormData, setScheduleFormData] = useState({});
 
   const {
     register,
@@ -20,45 +19,45 @@ function CreateCard() {
     watch,
     setValue,
   } = useForm({
-    defaultValues: formData, // preload any saved data
+    defaultValues: scheduleFormData, // preload any saved data
   });
 
   // Watch form fields and update formData in real-time
   useEffect(() => {
     const subscription = watch((values) => {
-      setFormData((prev) => ({ ...prev, ...values }));
+      setScheduleFormData((prev) => ({ ...prev, ...values }));
     });
     return () => subscription.unsubscribe();
   }, [watch]);
 
   // Reset form fields ONLY when changing steps
   useEffect(() => {
-    reset(formData);
-  }, [currentStep]); // removed formData from dependencies
+    reset(scheduleFormData);
+  }, [currentScheduleStep]); // removed formData from dependencies
 
   const steps = [
-    { title: "Details", Component: CardStep1 },
-    { title: "Info", Component: CardStep2 },
-    { title: "Preview Selection", Component: CardStep3 },
+    { title: "Anniversary Details", Component: ScheduleCard1 },
+    { title: "Additional Info", Component: ScheduleCard2 },
+    { title: "Preview Selection", Component: ScheduleCard3 },
     // { title: "Confirmation", Component: CardStep4 },
   ];
 
-  const isLastStep = currentStep === steps.length - 1;
-  const isFirstStep = currentStep === 0;
+  const isLastStep = currentScheduleStep === steps.length - 1;
+  const isFirstStep = currentScheduleStep === 0;
 
   // Go to next step and save current data
   const goNext = (data) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    if (!isLastStep) setCurrentStep((s) => s + 1);
-    else finalize({ ...formData, ...data }); // if last step, submit
+    setScheduleFormData((prev) => ({ ...prev, ...data }));
+    if (!isLastStep) setCurrentScheduleStep((s) => s + 1);
+    else finalize({ ...scheduleFormData, ...data }); // if last step, submit
   };
 
   // Go back to previous step
-  const goBack = () => setCurrentStep((s) => Math.max(0, s - 1));
+  const goBack = () => setCurrentScheduleStep((s) => Math.max(0, s - 1));
 
   // Final form submission
   const finalize = (data) => {
-    const finalData = { ...formData, ...data };
+    const finalData = { ...scheduleFormData, ...data };
     console.log("Final submission:", finalData);
     alert("Form submitted successfully!");
   };
@@ -67,15 +66,15 @@ function CreateCard() {
   const onNext = () => handleSubmit(goNext)();
   const onFinish = () => handleSubmit(finalize)();
 
-  const { Component } = steps[currentStep];
+  const { Component } = steps[currentScheduleStep];
 
   return (
     <>
       <Navbar />
 
-      <div className="create-card">
-        <div className="create-card-headline">
-          <h2>Personalize your card</h2>
+      <div className="schedule">
+        <div className="schedule-headline">
+          <h2>Schedule your Card</h2>
           <p>
             Express your emotions through personalized cards with images, music
             and a lot more features to create a special experience
@@ -86,7 +85,7 @@ function CreateCard() {
           register={register}
           errors={errors}
           watch={watch}
-          formData={formData}
+          scheduleFormData={scheduleFormData}
           onNext={onNext}
           onBack={goBack}
           onFinish={onFinish}
@@ -101,4 +100,4 @@ function CreateCard() {
   );
 }
 
-export default CreateCard;
+export default ScheduleCard;
