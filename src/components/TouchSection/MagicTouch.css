@@ -1,0 +1,91 @@
+.magic-touch{
+    /* border: 1px solid orange; */
+    margin-top: 30px;
+}
+.magic-touch-number h1{
+    font-size: 170px;
+    font-family: 'Nohemi';
+    /* border: 1px solid green; */
+    width: 61%;
+    color: #ffffff;
+    margin-left: 19%;
+    background: #fbc8eb;
+}
+.magic-touch-middle{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 61%;
+    /* border: 1px solid yellow; */
+    margin-left: 19%;
+    background: #fbc8eb;
+}
+.images-container{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    padding-left: 28%;
+    padding-top: 30px;
+    /* position: relative; */
+}
+.magic-touch-image-left, .magic-touch-image-right{
+    width: 320px;
+    height: auto;
+    /* border-radius: 12px; */
+    /* border: 1px solid red; */
+}
+.images-container .magic-touch-image-left{
+    z-index: 2;
+    position: relative;
+    margin-right: -70px;
+    /* box-shadow: 0 4px 20px rgba(0,0,0,0.15); */
+       width: 900px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* border-radius: 12px; */
+    /* border: 1px solid orange; */
+    bottom: 20px;
+
+}
+
+.images-container .magic-touch-image-right {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    display: block;
+    top: 20px;
+    /* border-radius: 12px; */
+    /* border: 1px solid orange; */
+    z-index: 1;
+    position: relative;
+    /* border: 1px solid black; */
+    margin-right: 30%;
+}
+.magic-touch-image-left .left-img{
+    width: 100%;
+    /* border: 1px solid green; */
+}
+.magic-touch-image-right .right-img{
+    width: 100%;
+}
+
+
+.magic-touch-bottom{
+    /* border: 1px solid red; */
+    width: 61%;
+    margin-left: 19%;
+    background: #fbc8eb;
+    padding: 50px;
+}
+.magic-touch-bottom h3{
+    font-family: 'Life Savers';
+    font-size: 45px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.magic-touch-bottom p{
+    font-size: 15px;
+    font-weight: bold;
+}

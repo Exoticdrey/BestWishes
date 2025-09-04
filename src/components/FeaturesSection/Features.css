@@ -1,0 +1,109 @@
+.features-container{
+    /* border: 1px solid blue; */
+    /* justify-items: center; */
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.features-header{
+    /* border: 1px solid pink; */
+    width: 50%;
+    text-align: left;
+    /* padding-left: 20px; */
+    margin-top: 20px;
+    margin-left: 20%;
+}
+.features-title{
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
+}
+.features-title u{
+    color: black;
+}
+.sub-features-title{
+    font-size: 16px;
+}
+.sub-features-title .blue-highlight{
+    color: #aecde1;
+}
+
+.features-main{
+    display: flex;
+}
+.features-list-container{
+    /* border: 1px solid green; */
+    width: 20%;
+    text-align: left;
+    /* padding-left: 20px; */
+    margin-top: 20px;
+    margin-left: 20%;
+}
+.features-list{
+    list-style-type: none;
+    font-size: 22px;
+}
+.feature-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    margin-bottom: 15px;
+}
+
+.music-content{
+    background: #aecde1;
+    /* border: 1px solid orange; */
+    margin-right: 15px;
+    border-radius: 10px;
+    padding-bottom: 3%;
+    margin-bottom: 14px;
+}
+.music-name{
+    padding: 8px;
+}
+.feature-description{
+    background: rgb(32, 32, 32);
+    font-size: 16px;
+    padding: 12px;
+    color: white;
+    margin: 10px;
+    border-radius: 10px;
+}
+.music-tags{
+    /* border: 1px solid white; */
+}
+.music-tag{
+    /* border: 1px solid orange; */
+    background: white;
+    color: var(--text-color);
+    margin-left: 5px;
+    border-radius: 50px;
+    padding: 4px;
+    font-size: 7px;
+}
+.plus-btn{
+    border: none;
+    background: rgb(201, 199, 199);
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.minus-btn{
+    border: none;
+    background: rgb(201, 199, 199);
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.music-card{
+    /* border: 1px solid orange; */
+    height: 500px;
+    margin-top: 20px;
+    width: 40%;
+}
+.music-card .img{
+    width: 80%;
+    /* border: 1px solid pink; */
+    margin-top: 50px;
+    height: 450px;
+}

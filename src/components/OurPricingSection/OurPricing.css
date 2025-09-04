@@ -1,0 +1,203 @@
+.pricing-container{
+    /* border: 1px solid black; */
+    margin-top: 30px;
+}
+.pricing-head{
+    /* border: 1px solid red; */
+}
+.pricing-head h3{
+    font-size: 45px;
+    font-family: 'Life Savers';
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.pricing-head p{
+    font-size: 14px;
+}
+.price-container{
+    /* border: 1px solid blue; */
+    margin-top: 60px;
+    display: flex;
+    gap: 10rem;
+    justify-content: center;
+    /* align-items: center; */
+}
+.free-trial{
+    /* border: 1px solid orange; */
+    /* padding: 20px; */
+    text-align: left;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    height: 320px;
+    transition: transform 0.3s ease;
+}
+.free-trial:hover{
+    transform: scale(1.1);
+}
+.free-trial-top{
+    /* border: 1px solid red; */
+    background: var(--primary-color);
+    padding: 20px;
+    display: flex;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.free-trial-top h4{
+    font-size: 17px;
+    color: white;
+    margin-bottom: 7px;
+}
+.free-trial-top p{
+    font-size: 11px;
+    color: white;
+}
+.free-week p{
+    font-size: 11px;
+    background: #007AFF;
+    padding: 2px 3px;
+    border-radius: 20px;
+    color: white;
+}
+
+.free-trial-bottom{
+    background: white;
+    padding: 20px;
+    padding-bottom: 25px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /* height: 100%; */
+}
+.free-trial-bottom h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.free-trial-bottom span{
+    font-size: 12px;
+    color: #606773;
+}
+.features-list{
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+    /* padding-bottom: 10px; */
+}
+.features-list li{
+    font-size: 14px;
+    color: #606773;
+    /* border: 1px solid black; */
+    margin-bottom: 6px;
+}
+.tick-icon{
+    color: var(--primary-color);
+    font-size: 13px;
+}
+.start-button{
+    background: var(--primary-color);
+    padding: 10px 4.2rem;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Life Savers';
+    text-decoration: none;
+}
+
+.premium{
+    /* border: 1px solid orange; */
+    /* padding: 20px; */
+    text-align: left;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    /* height: 500px; */
+    /* width: 300px; */
+    transition: transform 0.3s ease;
+}
+.premium:hover{
+    transform: scale(1.1);
+}
+.premium-top{
+    /* border: 1px solid red; */
+    background: #BA68C8;
+    padding: 20px;
+    display: flex;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    /* width: 100%; */
+}
+.premium-top h4{
+    font-size: 17px;
+    color: white;
+    margin-bottom: 7px;
+    margin-right: 30px;
+}
+.premium-top p{
+    font-size: 11px;
+    color: white;
+}
+.premium-week p{
+    font-size: 11px;
+    background: #34C759;
+    padding: 2px 3px;
+    border-radius: 20px;
+    color: white;
+}
+
+.premium-bottom{
+    background: white;
+    padding: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.premium-bottom h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.premium-bottom span{
+    font-size: 12px;
+    color: #606773;
+}
+.features-list{
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+    /* display: flex; */
+}
+.features-list li{
+    font-size: 14px;
+    color: #606773;
+    /* border: 1px solid black; */
+    margin-left: 10px;
+    margin-bottom: 8px;
+}
+.row1, .row2{
+    display: flex;
+}
+.tick-icon{
+    color: var(--primary-color);
+    font-size: 13px;
+}
+.currency{
+    font-size: 13px;
+    font-weight: bold;
+    color: #606773;
+}
+.eqv{
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+.usd, .zar, .try, .lira{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+hr{
+    opacity: 0.5;
+}
+.go-button{
+    background: #BA68C8;
+    padding: 10px 4.2rem;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Life Savers';
+    text-decoration: none;
+}

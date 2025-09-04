@@ -1,19 +1,18 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreateCard from "./pages/CreateCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Marketplace from "./pages/Marketplace";
+import Pricing from "./pages/Pricing";
 import GetStarted from "./pages/GetStarted";
-import "./App.css";
+import CreateCard from "./pages/CreateCard";
 import ScheduleCard from "./pages/ScheduleCard";
-// import Login from "./pages/Signup";
-import Signup from "./pages/Signup";
+import "./App.css";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<GetStarted />} />
-        <Route path="/signup" element={<Signup />} />
-
         <Route path="/create-card" element={<CreateCard />} />
-        <Route path="/schedule-card" element={<ScheduleCard />} />
       </Routes>
     </BrowserRouter>
   );

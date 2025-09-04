@@ -1,0 +1,81 @@
+.marketplace{
+    /* border: 1px solid blue; */
+    padding-top: 20px;
+}
+.marketplace-head{
+    /* border: 1px solid green; */
+}
+.marketplace-head h3{
+    font-size: 45px;
+    color: var(--primary-color);
+    font-family: 'Life Savers';
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.marketplace-head p{
+    font-size: 13px;
+    color: var(--text-color);
+}
+
+.marketplace-cards{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5rem;
+    margin-top: 50px;
+    text-align: left;
+    /* padding: 12px; */
+}
+.marketplace-cards-1, .marketplace-cards-2, .marketplace-cards-3{
+    /* border: 1px solid blue; */
+    border-radius: 12px;
+    box-shadow: 0 4px 7px;
+    padding: 15px;
+}
+.marketplace-cards-image{
+    /* padding: 15px; */
+    border-radius: 12px;
+    /* border: 1px solid red; */
+}
+.marketplace-cards-1 .card-title, .marketplace-cards-2 .card-title, .marketplace-cards-3 .card-title{
+    font-family: 'Lato';
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.marketplace-cards-1 .card-subtitle, .marketplace-cards-2 .card-subtitle, .marketplace-cards-3 .card-subtitle{
+    /* border: 1px solid red; */
+    margin-top: -10px;
+    font-size: 12px;
+    color: var(--text-subtitle);
+    margin-bottom: 3px;
+}
+.marketplace-cards-1 .card-price, .marketplace-cards-2 .card-price, .marketplace-cards-3 .card-price{
+    color: #29CC6A;
+    font-size: 14px;
+}
+.marketplace-cards-1 .add-to-cart, .marketplace-cards-2 .add-to-cart, .marketplace-cards-3 .add-to-cart{
+    background: #F8EAF4;
+    text-align: center;
+    padding: 6px;
+    border-radius: 12px;
+    font-family: 'Life Savers';
+    color: var(--primary-color);
+    margin-top: 6px;
+}
+
+.view-marketplace{
+    /* border: 1px solid red; */
+    margin-top: 90px;
+    padding: 20px;
+}
+.view-marketplace-button{
+    text-decoration: none;
+    color: white;
+    font-family: 'Life Savers';
+    background: var(--primary-color);
+    padding: 10px 25px;
+    border-radius: 12px;
+}

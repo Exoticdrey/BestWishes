@@ -1,0 +1,67 @@
+.products{
+    /* border: 1px solid black; */
+    margin-top: 30px;
+}
+.products-filter{
+    /* border: 1px solid red; */
+}
+.filter-item{
+    /* border: 1px solid blue; */
+    /* margin-right: 12%; */
+    margin-bottom: 30px;
+}
+.filter-item button{
+    margin-left: 40px;
+    background: #FEF2FF;
+    border:1px solid #f3c4f7;
+    padding: 8px;
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-family: 'Life Savers';
+    font-weight: bold;
+}
+.filter-item .all-gifts{
+    background: var(--primary-color);
+    color: white;
+}
+.filter-button{
+    display: flex;
+    margin-left: 23%;
+}
+.filter-button p{
+    margin-right: 10px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+.filter-button button{
+    border: 1px solid grey;
+    padding: 7px;
+    font-family: 'Life Savers';
+    font-weight: bold;
+    border-radius: 10px;
+}
+.filter-button .in-stock{
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    margin-right: 10px;
+}
+
+.products-column{
+    /* border: 1px solid black; */
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 200px;
+    padding-top: 20px;
+    margin-bottom: -170px;
+    
+}
+.marketplace-cards-1{
+    width: 300px;
+    /* border: 1px solid black; */
+    margin-left: 30px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    text-align: left;
+}

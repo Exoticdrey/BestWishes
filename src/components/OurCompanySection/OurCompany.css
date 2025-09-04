@@ -1,0 +1,68 @@
+.our-company{
+    /* border: 1px solid red; */
+    margin-top: 30px;
+}
+.company-container{
+    /* border: 1px solid black; */
+    margin-top: 30px;
+}
+.company-title{
+    /* border: 1px solid red; */
+    margin-top: 60px;
+    margin-bottom: 8%;
+}
+.company-title h3{
+    font-size: 45px;
+    font-family: 'Life Savers';
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.marquee{
+    /* border: 1px solid black; */
+    overflow: hidden;
+    width: 100%;
+    /* display: flex; */
+}
+.marquee-content{
+    display: flex;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+}
+.profile-card {
+  width: 180px;
+  min-width: 180px;
+  background: white;
+  margin: 0 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+  flex-shrink: 0;
+  height: 160px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.profile-card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: gray;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

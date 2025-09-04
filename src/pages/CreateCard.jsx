@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 // import CardStep1 from "../components/cards/CardStep0";
@@ -6,6 +7,10 @@ import CardStep2 from "../components/cards/CardStep2";
 import CardStep3 from "../components/cards/CardStep3";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
+=======
+import Navbar from "../components/Navbar/Navbar";
+import SlideUp from "../ui/SlideUp";
+>>>>>>> 4c4234198d831f53d4a13acbdbb991e7334b2e64
 import "./CreateCard.css";
 
 function CreateCard() {

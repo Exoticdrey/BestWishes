@@ -1,0 +1,47 @@
+.our-mission{
+    /* border: 1px solid blue; */
+    margin-top: 30px;
+    background: linear-gradient(#FFFFFFA1 63%, #FFD4FF26 15%);
+    padding-bottom: 30px;
+}
+.mission-container{
+    /* border: 1px solid red; */
+    margin-top: 30px;
+}
+.mission-title{
+    /* border: 1px solid orange; */
+    margin-bottom: 80px;
+}
+.mission-title h3{
+    font-size: 45px;
+    font-family: 'Life Savers';
+    font-weight: bold;
+    color: var(--primary-color);
+    padding-top: 30px;
+}
+.mission-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.mission-writeup{
+    width: 40%;
+    text-align: left;
+    margin-left: 30px;
+}
+.mission-writeup h3{
+    font-size: 43px;
+    font-family: 'Life Savers';
+    margin-bottom: 20px;
+}
+.mission-writeup span{
+    color: var(--primary-color);
+}
+.mission-image{
+    /* border: 1px solid red; */
+    width: 30%;
+}
+.mission-image img{
+    width: 100%;
+}

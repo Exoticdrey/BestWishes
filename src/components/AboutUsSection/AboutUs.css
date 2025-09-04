@@ -1,0 +1,61 @@
+.about-us{
+    /* border: 1px solid red; */
+}
+.about-container{
+    /* border: 1px solid yellow; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 10px;
+}
+.about-writeup{
+    /* border: 1px solid blue; */
+    width: 30%;
+    text-align: left;
+}
+.about-writeup h3{
+    font-size: 45px;
+    font-family: 'Life Savers';
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+.about-writeup span{
+    color: var(--primary-color);
+}
+.about-image{
+    /* border: 1px solid blue; */
+    width: 32%;
+    height: 40%;
+    /* display: flex; */
+    /* gap: 3rem; */
+    overflow: hidden;
+}
+.carousel-track{
+    display: flex;
+    gap: 2rem;
+}
+.carousel-track img{
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    animation: scrollUp 9s linear infinite;
+}
+
+.carousel-track .scrolldown{
+    animation: scrollDown 9s linear infinite;
+}
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);}
+    100% {
+        transform: translateY(-600px);}
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-600px);}
+    100% {
+        transform: translateY(0);}
+}

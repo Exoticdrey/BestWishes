@@ -1,0 +1,103 @@
+.hero{
+    /* border: 2px solid blue; */
+    margin-top: 75px;
+    background: radial-gradient(circle at center, #ffe3f8 0%, #f7c8fc 30%, #ebd7f9 60%, white 100%);
+    padding-bottom: 30px;
+    position: relative;
+    text-align: center;
+}
+.star, .planet, .love{
+    position: absolute;
+    width: 200px;
+    opacity: 0.8;
+    z-index: 1;
+}
+.top-left{
+    /* top: 20px; */
+    left: 20px;
+}
+.top-right{
+    top: 30px;
+    right: 30px;
+}
+.bottom-right{
+    bottom: -1px;
+    right: 30px;
+}
+.sendlove-image{
+    /* border: 1px solid gainsboro; */
+    width: 80px;
+}
+.hero-content{
+    /* margin-top: 5%; */
+    padding-top: 80px;
+    /* border: 1px solid blue; */
+    position: relative;
+    /* z-index: 2; */
+}
+.hero-content h5{
+    font-family: 'Life Savers', serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+}
+.hero-content h5 span{
+    color: var(--primary-color);
+}
+.hero-content p{
+    margin-top: 15px;
+    font-size: 17px;
+}
+.hero .cta{
+    margin-top: 20px;
+    /* border: 1px solid pink; */
+    position: relative;
+    z-index: 2;
+}
+.hero .cta .create{
+    /* border: 1px solid green; */
+    margin-right: 15px;
+    background: var(--primary-color);
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #dc62c6, 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+.hero .cta .schedule{
+    /* border: 1px solid green; */
+    margin-right: 15px;
+    background: #b3e0ff;
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 5px;
+    border-radius: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #89b2cd, 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+.hero .giftbox{
+    margin-top: -3.3%;
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    /* border: 1px solid green; */
+}
+.hero .giftbox img{
+    /* border: 1px solid black; */
+    width: 30%;
+    display: inline-block;
+}
+
+.hero .giftbox .top-img{
+    position: absolute;
+    top: 70px;
+    /* left: 30px; */
+    width: 200px;
+    z-index: 10;
+    /* border: 1px solid orange; */
+}
