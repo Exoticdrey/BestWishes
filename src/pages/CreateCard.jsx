@@ -1,16 +1,11 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-// import CardStep1 from "../components/cards/CardStep0";
+// import CardStep0 from "../components/cards/CardStep0";
 import CardStep1 from "../components/cards/CardStep1";
 import CardStep2 from "../components/cards/CardStep2";
 import CardStep3 from "../components/cards/CardStep3";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
-=======
-import Navbar from "../components/Navbar/Navbar";
-import SlideUp from "../ui/SlideUp";
->>>>>>> 4c4234198d831f53d4a13acbdbb991e7334b2e64
 import "./CreateCard.css";
 
 function CreateCard() {
@@ -25,10 +20,9 @@ function CreateCard() {
     watch,
     setValue,
   } = useForm({
-    defaultValues: formData, // preload any saved data
+    defaultValues: formData,
   });
 
-  // Watch form fields and update formData in real-time
   useEffect(() => {
     const subscription = watch((values) => {
       setFormData((prev) => ({ ...prev, ...values }));
@@ -36,10 +30,9 @@ function CreateCard() {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  // Reset form fields ONLY when changing steps
   useEffect(() => {
     reset(formData);
-  }, [currentStep]); // removed formData from dependencies
+  }, [currentStep]);
 
   const steps = [
     { title: "Details", Component: CardStep1 },
@@ -51,24 +44,20 @@ function CreateCard() {
   const isLastStep = currentStep === steps.length - 1;
   const isFirstStep = currentStep === 0;
 
-  // Go to next step and save current data
   const goNext = (data) => {
     setFormData((prev) => ({ ...prev, ...data }));
     if (!isLastStep) setCurrentStep((s) => s + 1);
-    else finalize({ ...formData, ...data }); // if last step, submit
+    else finalize({ ...formData, ...data });
   };
 
-  // Go back to previous step
   const goBack = () => setCurrentStep((s) => Math.max(0, s - 1));
 
-  // Final form submission
   const finalize = (data) => {
     const finalData = { ...formData, ...data };
     console.log("Final submission:", finalData);
     alert("Form submitted successfully!");
   };
 
-  // Helpers for buttons
   const onNext = () => handleSubmit(goNext)();
   const onFinish = () => handleSubmit(finalize)();
 

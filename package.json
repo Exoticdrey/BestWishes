@@ -13,14 +13,10 @@
     "motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-<<<<<<< HEAD
     "react-hook-form": "^7.62.0",
     "react-router-dom": "^7.8.1",
-    "swiper": "^11.2.10"
-=======
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.8.1"
->>>>>>> 4c4234198d831f53d4a13acbdbb991e7334b2e64
+    "swiper": "^11.2.10",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
