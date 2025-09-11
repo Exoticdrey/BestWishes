@@ -1,8 +1,16 @@
 .login-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+    /* border: 1px solid red; */
+    /* margin-top: 75px; */
+    /* height: 50%; */
+  /* min-height: 100vh; */
+  /* margin-bottom: -3px; */
+}
 
-  min-height: 100vh;
+.sign-in{
+  /* border: 1px solid black; */
+  margin-top: 75px;
 }
 
 .login-card {
@@ -206,6 +214,10 @@
   transform: translateY(0);
 }
 
+.login-btn{
+  color: var(--primary-color);
+}
+
 .divider {
   position: relative;
   text-align: center;
@@ -264,6 +276,7 @@
 .facebook-btn {
   color: #1877f2;
 }
+
 
 /* Responsive Design */
 @media (max-width: 480px) {

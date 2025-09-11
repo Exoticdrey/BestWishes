@@ -1,29 +1,20 @@
-import "./Navbar.css";
+import "./Navbar2.css";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar2() {
   return (
-    <nav className="navbar">
+    <nav className="navbar2">
       <div className="nav-container">
         <a href="/" className="nav-logo">
           <img src="/bwlogo.png" alt="Best Wishes Logo" />
         </a>
+
         <ul className="nav-links">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/About">About</a>
-          </li>
-          <li>
-            <a href="/Marketplace">Marketplace</a>
-          </li>
-          <li>
-            <a href="/Pricing">Pricing</a>
-          </li>
-          <li>
-            <a href="/spinwin">Spin & Win</a>
-          </li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/About">About</a></li>
+          <li><a href="/Marketplace">Marketplace</a></li>
+          <li><a href="/Pricing">Pricing</a></li>
+          <li><a href="/spinwin">Spin & Win</a></li>
         </ul>
 
         <div className="nav-icons">
@@ -68,4 +59,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar2;

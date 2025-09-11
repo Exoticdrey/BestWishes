@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar2 from "../components/Navbar/Navbar2";
 import Hero from "../components/HeroSection/Hero";
 import Features from "../components/FeaturesSection/Features";
 import Works from "../components/WorksSection/Works";
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
     
-    <Navbar />
+    <Navbar2 />
     <Hero />
     <Features />
     <Works />

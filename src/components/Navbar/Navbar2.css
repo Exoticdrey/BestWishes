@@ -1,0 +1,52 @@
+.navbar2 {
+  position: absolute; /* sits on top of hero */
+  top: 30px; /* adjust spacing from top */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent pill */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px; /* makes it pill-shaped */
+  padding: 12px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  /* width: auto; */
+  width: 70%;      /* controls pill width */
+  max-width: 900px; /* keeps it from being too wide on big screens */
+  min-width: 300px; /* makes sure it doesn’t shrink too much */
+  margin-top: 20px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-icons svg {
+  width: 1.5rem;
+  /* border: 1px solid black; */
+  margin-left: 13px;
+  color: var(--text-color);
+  background: #F8EAF4;
+  border-radius: 12px;
+    
+}

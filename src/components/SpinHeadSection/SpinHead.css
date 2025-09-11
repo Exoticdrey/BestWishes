@@ -1,0 +1,18 @@
+.spin-head{
+    /* border: 1px solid red; */
+    margin-top: 7%;
+}
+.head-container{
+    /* border: 1px solid orange; */
+    padding: 10px;
+}
+.head-container h3{
+    font-size: 45px;
+    color: var(--primary-color);
+    font-family: 'Life Savers';
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.head-container p{
+    font-size: 14px;
+}
