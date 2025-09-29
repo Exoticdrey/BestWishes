@@ -28,7 +28,7 @@ function Navbar() {
 
         <div className="nav-icons">
           {/* Cart Icon */}
-          <Link to="/cart">
+          <Link to="/Cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,7 +46,7 @@ function Navbar() {
           </Link>
 
           {/* Profile Icon */}
-          <Link to="/signup">
+          <Link to="/Signup">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

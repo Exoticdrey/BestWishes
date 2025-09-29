@@ -9,6 +9,8 @@ import SpinWin from "./pages/SpinWin";
 import SignUp from "./pages/Signup";
 import SignIn from "./pages/Signin";
 import ScheduleCard from "./pages/ScheduleCard";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import "./App.css";
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/create-card" element={<CreateCard />} />
         <Route path="/schedule-card" element={<ScheduleCard />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );

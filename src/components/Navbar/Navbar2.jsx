@@ -10,16 +10,26 @@ function Navbar2() {
         </a>
 
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/About">About</a></li>
-          <li><a href="/Marketplace">Marketplace</a></li>
-          <li><a href="/Pricing">Pricing</a></li>
-          <li><a href="/spinwin">Spin & Win</a></li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/About">About</a>
+          </li>
+          <li>
+            <a href="/Marketplace">Marketplace</a>
+          </li>
+          <li>
+            <a href="/Pricing">Pricing</a>
+          </li>
+          <li>
+            <a href="/spinwin">Spin & Win</a>
+          </li>
         </ul>
 
         <div className="nav-icons">
           {/* Cart Icon */}
-          <Link to="/cart">
+          <Link to="/Cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -37,7 +47,7 @@ function Navbar2() {
           </Link>
 
           {/* Profile Icon */}
-          <Link to="/signup">
+          <Link to="/Signup">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

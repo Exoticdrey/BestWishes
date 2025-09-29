@@ -1,0 +1,29 @@
+.cartloyalty {
+  border: 1px solid #ff9aff;
+  margin-top: 20px;
+  background: #fef2ff;
+}
+.cartloyalty-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* text-align: center; */
+  padding: 10px;
+}
+.cartloyalty-title-text {
+  text-align: center;
+}
+.cartloyalty-title-text h3 {
+  color: #d600a3;
+  font-size: 30px;
+  font-family: "Life Savers";
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.cartloyalty-title-text p {
+  font-size: 14px;
+}
+
+.cartloyalty-cards1 {
+  margin-right: 10px;
+}
