@@ -7,19 +7,16 @@ import Mission from "../components/OurMissionSection/OurMission";
 import Company from "../components/OurCompanySection/OurCompany";
 import Footer from "../components/Footer/Footer";
 
-
 const About = () => {
   return (
     <>
-    
-    <Navbar />
-    <div style={{height: "60px"}}></div>
-    <Loyalty />
-    <AboutUs />
-    <Mission />
-    <Company />
-    <Footer />
-      
+      <Navbar />
+      <div style={{ height: "60px" }}></div>
+      <Loyalty />
+      <AboutUs />
+      <Mission />
+      <Company />
+      <Footer />
     </>
   );
 };

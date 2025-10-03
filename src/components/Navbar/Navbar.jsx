@@ -39,9 +39,15 @@ function Navbar() {
           </li>
         </ul>
 
+
         {/* Desktop Icons */}
         <div className="nav-icons desktop-nav">
           <Link to="/cart">
+
+        {/* <div className="nav-icons"> */}
+          {/* Cart Icon */}
+          {/* <Link to="/Cart"> */}
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -58,7 +64,12 @@ function Navbar() {
             </svg>
           </Link>
 
+
           <Link to="/signup">
+
+          {/* Profile Icon */}
+          {/* <Link to="/Signup"> */}
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
