@@ -315,3 +315,23 @@
     margin-bottom: 20px;
   }
 }
+
+
+
+@media (min-width: 200px) and (max-width: 480px) {
+  .auth-image{
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .auth-image{
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .auth-image{
+    display: none;
+  }
+}

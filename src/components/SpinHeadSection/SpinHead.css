@@ -16,3 +16,46 @@
 .head-container p{
     font-size: 14px;
 }
+
+
+@media (min-width: 200px) and (max-width: 480px) {
+    .spin-head{
+        /* border: 1px solid red; */
+        margin-top: 23%;
+        width: 100vw;
+    }
+    .head-container h3{
+        font-size: 30px;
+    }
+    .head-container p{
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .spin-head{
+        /* border: 1px solid red; */
+        margin-top: 13%;
+        width: 100vw;
+    }
+    .head-container h3{
+        font-size: 30px;
+    }
+    .head-container p{
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .spin-head{
+        /* border: 1px solid red; */
+        margin-top: 13%;
+        width: 100vw;
+    }
+    .head-container h3{
+        font-size: 30px;
+    }
+    .head-container p{
+        font-size: 11px;
+    }
+}

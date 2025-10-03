@@ -201,3 +201,31 @@ hr{
     font-family: 'Life Savers';
     text-decoration: none;
 }
+
+
+
+@media (min-width: 200px) and (max-width: 480px) {
+    .pricing-head h3{
+        font-size: 30px;
+    }
+    .pricing-head p{
+        font-size: 11px;
+    }
+    .price-container{
+        gap: 4rem;
+        flex-direction: column;
+        width: 100vw;
+        /* margin: 20px; */
+        align-items: center;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .price-container{
+        gap: 6rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+}

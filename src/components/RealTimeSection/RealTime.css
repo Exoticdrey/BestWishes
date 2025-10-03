@@ -35,3 +35,40 @@
   font-size: 20px;
   font-family: 'Life Savers';
 }
+
+@media (min-width: 200px) and (max-width: 480px) {
+  .see-cards-head h3{
+    font-size: 30px;
+  }
+  .see-cards-head p{
+    font-size: 11px;
+  }
+  .realtime-middle{
+    /* border: 1px solid green; */
+    width: 100vw;
+  }
+  .click-card a{
+    /* border: 1px solid blue; */
+  }
+  .see-cards{
+    /* border: 1px solid red; */
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .see-cards-head h3{
+    font-size: 40px;
+  }
+  .see-cards-head p{
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .see-cards-head h3{
+    font-size: 40px;
+  }
+  .see-cards-head p{
+    font-size: 13px;
+  }
+}

@@ -29,3 +29,54 @@
 .loyalty-cards1{
     margin-right: 10px;
 }
+
+@media (min-width: 200px) and (max-width: 480px) {
+    .loyalty{
+        width: 100vw;
+    }
+    .loyalty-title{
+        /* border: 1px solid red; */
+    }
+    .loyalty-title-text h3{
+        font-size: 23px;
+    }
+    .loyalty-cards{
+        /* border: 1px solid red; */
+        display: none;
+        /* width: 20px; */
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .loyalty{
+        width: 100vw;
+    }
+    .loyalty-title{
+        /* border: 1px solid red; */
+    }
+    .loyalty-title-text h3{
+        font-size: 23px;
+    }
+    .loyalty-cards{
+        /* border: 1px solid red; */
+        display: flex;
+        /* width: 20px; */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .loyalty{
+        width: 100vw;
+    }
+    .loyalty-title{
+        /* border: 1px solid red; */
+    }
+    .loyalty-title-text h3{
+        font-size: 23px;
+    }
+    .loyalty-cards{
+        /* border: 1px solid red; */
+        display: flex;
+        /* width: 20px; */
+    }
+}

@@ -74,3 +74,113 @@
     color: var(--primary-color);
     font-weight: bold;
 }
+
+
+@media (min-width:200px) and (max-width: 480px) {
+   .works-head{
+    /* border: 1px solid blue; */
+  }
+  .how-it-works{
+    /* border: 1px solid red; */
+    width: 100vw;
+  }
+  .works-title{
+    /* border: 1px solid red; */
+    margin-left: 1px;
+    padding-right: 80px;
+    height: 280px;
+  }
+  .works-title-subtext{
+    font-size: 13px;
+    /* border: 1px solid red; */
+    width: 100px;
+    margin-top: 30px;
+  }
+  .works-head .works-number{
+    /* border: 1px solid green; */
+    width: 48.9%;
+  }
+  .works-head .works-number h1{
+    margin-left: 0;
+    font-size: 150px;
+    margin-top: 20px;
+  }
+  .works-middle img{
+    /* width: 99.5vw; */
+    margin-right: 0;
+    /* border: 1px solid black; */
+    width: 100%;
+  }
+  .works-middle{
+    /* border: 1px solid red; */
+    justify-content: center;
+    align-items: center;
+
+  }
+  .works-bottom{
+    width: 99.5vw;
+    margin-left: 0;
+  }
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+   .works-head{
+    /* border: 1px solid blue; */
+  }
+  .works-title{
+    /* border: 1px solid red; */
+    margin-left: 12px;
+  }
+  .works-title-subtext{
+    font-size: 22px;
+    /* border: 1px solid red; */
+  }
+  .works-head .works-number{
+    /* border: 1px solid red; */
+    width: 36.4%;
+  }
+  .works-head .works-number h1{
+    /* margin-left: 70px; */
+  }
+  .works-middle img{
+    width: 96.5%;
+    margin-left: 13px;
+    /* border: 1px solid black; */
+  }
+  .works-bottom{
+    width: 96.5%;
+    margin-left: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width:1024px) {
+  .works-head{
+    /* border: 1px solid blue; */
+  }
+  .works-title{
+    /* border: 1px solid red; */
+    margin-left: 12px;
+    padding-right: 90px;
+  }
+  .works-title-subtext{
+    font-size: 22px;
+    /* border: 1px solid red; */
+  }
+  .works-head .works-number{
+    /* border: 1px solid red; */
+    width: 45%;
+  }
+  .works-head .works-number h1{
+    margin-left: 70px;
+  }
+  .works-middle img{
+    width: 96.5%;
+    margin-left: 13px;
+    /* border: 1px solid black; */
+  }
+  .works-bottom{
+    width: 96.5%;
+    margin-left: 13px;
+  }
+}

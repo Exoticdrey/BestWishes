@@ -14,11 +14,11 @@
     z-index: 1;
 }
 .top-left{
-    /* top: 20px; */
+    top: 60px;
     left: 20px;
 }
 .top-right{
-    top: 30px;
+    top: 150px;
     right: 30px;
 }
 .bottom-right{
@@ -31,7 +31,7 @@
 }
 .hero-content{
     /* margin-top: 5%; */
-    padding-top: 80px;
+    padding-top: 50px;
     /* border: 1px solid blue; */
     position: relative;
     /* z-index: 2; */
@@ -101,4 +101,250 @@
     width: 200px;
     z-index: 10;
     /* border: 1px solid orange; */
+}
+
+@media (min-width: 200px) and (max-width: 480px) {
+    .hero{
+        padding-top: 90px;
+        /* border: 1px solid red; */
+    }
+
+    .star, .planet, .love{
+        width: 130px;
+    }
+
+    .top-left{
+        top: 40px;
+        left: 0;
+    }
+
+    .top-right{
+        top: 60px;
+        right: 0;
+        display: none;
+    }
+
+    .bottom-right{
+        right: 0;
+        width: 90px;
+    }
+
+    .hero-content h5{
+        font-size: 2.5rem;
+    }
+
+    .hero-content p{
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .sendlove-image{
+        width: 40px;
+    }
+
+    .hero .cta .create,
+    .hero .cta .schedule{
+        padding: 6px 15px;
+        width: 50%;
+    }
+    .hero .cta{
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid black; */
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .hero .giftbox img{
+        width: 60%;
+    }
+
+    .hero .giftbox .top-img{
+        top: 30px;
+        width: 120px;
+        /* display: none; */
+        /* border: 1px solid black; */
+    }
+
+}
+
+/* @media (max-width: 768px) {
+    .star, .planet, .love{
+        width: 140px;
+    }
+    .top-right{
+        display: none;
+    }
+    .bottom-right{
+        right: 10px;
+        width: 120px;
+    }
+
+    .sendlove-image{
+        width: 60px;
+    }
+
+    .hero-content h5{
+        font-size: 3rem;
+    }
+    .hero-content p{
+        font-size: 15px;
+    }
+    .hero .giftbox img{
+        width: 60%;
+    }
+    .hero .giftbox .top-img{
+        width: 120px;
+        top:40px;
+    }
+} */
+
+@media (min-width:481px) and (max-width: 768px) {
+    .hero{
+        padding-top: 80px;
+        padding-bottom: 20px;
+    }
+
+    .star, .planet, .love{
+        width: 130px;
+    }
+
+    .top-left{
+        top: 60px;
+        left: 5px;
+    }
+
+    .top-right{
+        top: 80px;
+        right: 5px;
+    }
+
+    .bottom-right{
+        right: 5px;
+        width: 120px;
+    }
+
+    .hero-content{
+        padding-top: 60px;
+    }
+
+    .hero-content h5{
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p{
+        font-size: 15px;
+        padding: 0 20px;
+    }
+
+    .sendlove-image{
+        width: 50px;
+    }
+
+    .hero .cta{
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero .cta .create,
+    .hero .cta .schedule{
+        margin-right: 0;
+        padding: 10px 20px;
+        font-size: 16px;
+        width: 70%;
+        max-width: 280px;
+    }
+
+    .hero .giftbox{
+        margin-top: 20px;
+    }
+
+    .hero .giftbox img{
+        width: 40%;
+    }
+
+    .hero .giftbox .top-img{
+        top: 30px;
+        width: 150px;
+    }
+}
+
+/* @media (min-width: 768px) and (max-width: 1024px) {
+    .star, .planet, .love{
+        width: 160px;
+    }
+    .top-right{
+        top: 60px;
+    }
+    .bottom-right{
+        right: 10px;
+    }
+
+    .sendlove-image{
+        width: 80px;
+    }
+
+    .hero-content h5{
+        font-size: 4.5rem;
+    }
+    .hero-content p{
+        font-size: 20px;
+    }
+    .hero .giftbox img{
+        width: 50%;
+    }
+    .hero .giftbox .top-img{
+        width: 180px;
+        top:60px;
+    }
+} */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero{
+        padding-top: 100px;
+    }
+
+    .star, .planet, .love{
+        width: 130px;
+    }
+
+    .top-left{
+        top: 40px;
+        left: 10px;
+    }
+
+    .top-right{
+        top: 120px;
+        right: 15px;
+    }
+
+    .bottom-right{
+        right: 15px;
+    }
+
+    .hero-content h5{
+        font-size: 3.5rem;
+    }
+
+    .hero-content p{
+        font-size: 16px;
+    }
+
+    .sendlove-image{
+        width: 65px;
+    }
+
+    .hero .giftbox .top-img{
+        top: 50px;
+        width: 130px;
+    }
+
+    .hero .giftbox img{
+        width: 30%;
+    }
 }
