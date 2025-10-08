@@ -226,6 +226,7 @@ const Signup = () => {
               Sign up
             </button>
             
+            <p>Want to be a vendor? <a href="/vendorsignup" className="login-btn">Click here</a></p><br />
             <p>Already have an account? <a href="/signin" className="login-btn">Click here</a></p>
           </div>
 

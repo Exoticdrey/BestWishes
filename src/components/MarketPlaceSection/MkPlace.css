@@ -31,7 +31,7 @@
 .marketplace-cards-1, .marketplace-cards-2, .marketplace-cards-3{
     /* border: 1px solid blue; */
     border-radius: 12px;
-    box-shadow: 0 4px 7px;
+    box-shadow: 0 3px 7px rgb(190, 189, 189);
     padding: 15px;
 }
 .marketplace-cards-image{
@@ -78,4 +78,52 @@
     background: var(--primary-color);
     padding: 10px 25px;
     border-radius: 12px;
+}
+
+@media (min-width: 200px) and (max-width: 480px) {
+    .marketplace-head h3{
+        font-size: 30px;
+        /* border: 1px solid red; */
+        width: 100vw;
+    }
+    .marketplace{
+        /* border: 1px solid red; */
+    }
+    .marketplace-head p{
+        font-size: 11px;
+    }
+    .marketplace-cards{
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid red; */
+        width: 100vw;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .marketplace-head h3{
+        font-size: 40px;
+    }
+    .marketplace-head p{
+        font-size: 12px;
+    }
+    .marketplace-cards{
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid red; */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .marketplace-head h3{
+        font-size: 40px;
+    }
+    .marketplace-head p{
+        font-size: 13px;
+    }
+    .marketplace-cards{
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid red; */
+    }
 }

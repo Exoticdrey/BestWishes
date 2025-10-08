@@ -45,3 +45,84 @@
 .mission-image img{
     width: 100%;
 }
+
+@media (min-width: 200px) and (max-width: 480px) {
+    .mission-title h3{
+        font-size: 30px;
+    }
+    .mission-writeup{
+        /* border: 1px solid black; */
+        height: 300px;
+        width: 350px;
+        margin-left: 0;
+        margin-top: -20px;
+        text-align: center;
+    }
+    .mission-writeup h3{
+        font-size: 30px;
+    }
+    .mission-main{
+        flex-direction: column-reverse;
+    }
+    .mission-image{
+    /* border: 1px solid red; */
+    width: 50%;
+}
+.mission-image img{
+    width: 100%;
+}
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .mission-title h3{
+        font-size: 30px;
+    }
+    .mission-writeup{
+        /* border: 1px solid black; */
+        height: 300px;
+        width: 350px;
+        margin-left: 0;
+        margin-top: -20px;
+        text-align: center;
+    }
+    .mission-writeup h3{
+        font-size: 30px;
+    }
+    .mission-main{
+        /* flex-direction: column-reverse; */
+    }
+    .mission-image{
+    /* border: 1px solid red; */
+    width: 40%;
+}
+.mission-image img{
+    width: 100%;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mission-title h3{
+        font-size: 30px;
+    }
+    .mission-writeup{
+        /* border: 1px solid black; */
+        height: 300px;
+        width: 350px;
+        margin-left: 0;
+        margin-top: -20px;
+        text-align: center;
+    }
+    .mission-writeup h3{
+        font-size: 30px;
+    }
+    .mission-main{
+        /* flex-direction: column-reverse; */
+    }
+    .mission-image{
+    /* border: 1px solid red; */
+    width: 50%;
+}
+.mission-image img{
+    width: 100%;
+}
+}

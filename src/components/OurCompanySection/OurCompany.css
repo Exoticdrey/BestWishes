@@ -66,3 +66,31 @@
     transform: translateX(-50%);
   }
 }
+
+
+@media (min-width: 200px) and (max-width: 480px) {
+  .company-title h3{
+    font-size: 30px;
+  }
+  .company-title p{
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .company-title h3{
+    font-size: 30px;
+  }
+  .company-title p{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .company-title h3{
+    font-size: 30px;
+  }
+  .company-title p{
+    font-size: 13px;
+  }
+}

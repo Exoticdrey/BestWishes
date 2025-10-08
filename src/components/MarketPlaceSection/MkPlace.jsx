@@ -61,7 +61,7 @@ const MkPlace = () => {
             </div>
 
             <div className="view-marketplace">
-                <Link to="/Marketplace" className="view-marketplace-button">View Marketplace</Link>
+                <Link to="/marketplace" className="view-marketplace-button">View Marketplace</Link>
             </div>
       </section>
     );

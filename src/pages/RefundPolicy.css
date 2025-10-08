@@ -1,0 +1,52 @@
+.refund-head{
+    /* border: 1px solid red; */
+    margin-top: 9%;
+    margin-bottom: 50px;
+    background: #FFD4FF26;
+    padding: 15px;
+}
+.refund-head h3{
+    font-size: 45px;
+    font-family: 'Life Savers';
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.refund-head p{
+    font-size: 14px;
+}
+
+.refunds-info{
+    display: flex;
+    /* flex-direction: column; */
+    /* border: 1px solid black; */
+    justify-content: center;
+    margin-top: 70px;
+}
+.refund-column1, .refund-column2, .refund-column3{
+    /* border: 1px solid red; */
+    width: 22%;
+    margin-left: 70px;
+    text-align: left;
+}
+.refund-info{
+    /* border: 1px solid blue; */
+    margin-bottom: 30px;
+}
+.refund-info h5{
+    font-family: 'Life Savers';
+    font-size: 20px;
+    margin-bottom: 10px;
+
+}
+.refund-info span{
+    color: var(--primary-color);
+    font-weight: bolder;
+    /* border: 1px solid red; */
+}
+.refund-info p{
+    font-family: sans-serif;
+    line-height: 20px;
+    font-size: 14px;
+    color: #606773;
+}
