@@ -131,6 +131,45 @@
   cursor: pointer;
   padding: 4px;
 }
+.cart-row {
+  display: grid;
+  grid-template-columns: 1.6fr 120px 140px 120px 44px;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+  gap: 12px;
+  padding: 18px 0;
+  position: relative;
+}
+
+/* Delete button */
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+.delete-btn svg {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
 
 /* order summary */
 .cart-right {
