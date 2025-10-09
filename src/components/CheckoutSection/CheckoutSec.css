@@ -1,0 +1,512 @@
+.checkout-page {
+  width: 100%;
+  padding: 90px 20px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.checkout-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Left section */
+.checkout-left {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right section */
+.checkout-right {
+  flex: 0.8;
+  padding: 30px 20px;
+}
+
+/* Back button */
+.back-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.back-btn:hover {
+  color: #000;
+}
+
+/* Delivery options */
+.delivery-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.delivery-options .option {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+}
+
+.delivery-options .option input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #f34dbd;
+  border-radius: 50%;
+  margin-right: 12px;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.delivery-options .option input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px; /* size of inner pink dot */
+  height: 8px;
+  background-color: #f34dbd;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.delivery-options .option input[type="radio"]:checked::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.delivery-options .option span {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between svg and text */
+  line-height: 1.2;
+}
+
+.delivery-options .option svg {
+  flex-shrink: 0;
+  margin-top: 1px; /* fine tune icon vertical alignment */
+}
+
+.delivery-options .option.active span {
+  color: #f34dbd;
+  font-weight: 500;
+}
+
+.delivery-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.delivery-options .option {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delivery-options .option.active {
+  border-color: #ff5bb4;
+  background: #fff0f7;
+}
+
+/* Shipping */
+.shipping-txt {
+  text-align: left;
+}
+
+.shipping-box {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.shipping-box h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.address-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.address-input input {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Payment box */
+.payment-box {
+  margin-top: 25px;
+}
+
+.payment-box h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Payment methods */
+.payment-methods {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.method-btn {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.method-btn.active {
+  border-color: #ff5bb4;
+  background: #fff0f7;
+}
+
+/* Card fields */
+.card-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-fields input {
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.card-number {
+  position: relative;
+}
+
+.card-number input {
+  width: 80%;
+  border-color: #ffb2d3;
+  padding-right: 40px;
+  float: left;
+}
+
+.card-logo {
+  position: absolute;
+  right: 23%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+.exp-cvv {
+  width: 80%;
+  display: flex;
+  gap: 12px;
+}
+
+.exp-cvv input {
+  flex: 1;
+}
+
+/* Buttons */
+.btn-row {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.confirm-btn {
+  background: #ff5bb4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.confirm-btn:hover {
+  background: #ff3fa2;
+}
+
+/* Summary */
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.delete-btn svg {
+  width: 17px;
+  height: 17px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.delete-btn:hover svg {
+  opacity: 1;
+}
+
+/* Coupon input icon */
+.coupon-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.coupon-input-wrapper input {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.coupon-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.coupon-icon svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
+
+.summary {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fff;
+}
+
+.summary h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  background: #eee;
+}
+
+.item-info p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.item-info span {
+  color: #666;
+  font-size: 13px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 30px; /* ⬅ moves qty control left to create space for delete */
+}
+
+.qty-control button {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #333;
+}
+
+.qty-control span {
+  padding: 0 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0; /* ⬅ keep perfectly aligned to the right end of the row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.delete-btn svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.delete-btn:hover svg {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.qty-control button {
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Summary totals */
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.summary-divider {
+  border-bottom: 1px solid #eee;
+  margin: 12px 0;
+}
+
+.summary-total span:last-child {
+  font-weight: 600;
+  font-size: 17px;
+  color: #000;
+}
+
+/* Coupon */
+.coupon-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.coupon-row input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.apply-btn {
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .checkout-right {
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .btn-row {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .confirm-btn {
+    width: 100%;
+  }
+}
