@@ -40,14 +40,14 @@
     /* border: 1px solid red; */
 }
 .marketplace-cards-1 .card-title, .marketplace-cards-2 .card-title, .marketplace-cards-3 .card-title{
-    font-family: 'Lato';
+    font-family: 'Life Savers';
     font-size: 18px;
     font-weight: 700;
     color: var(--text-color);
 }
 .marketplace-cards-1 .card-subtitle, .marketplace-cards-2 .card-subtitle, .marketplace-cards-3 .card-subtitle{
     /* border: 1px solid red; */
-    margin-top: -10px;
+    margin-top: -7px;
     font-size: 12px;
     color: var(--text-subtitle);
     margin-bottom: 3px;
@@ -108,8 +108,10 @@
         font-size: 12px;
     }
     .marketplace-cards{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+        /* flex-direction: column; */
         /* border: 1px solid red; */
     }
 }
@@ -123,7 +125,12 @@
     }
     .marketplace-cards{
         display: flex;
-        flex-direction: column;
+        gap: 0;
+        /* width: 100vw; */
+        /* flex-direction: column; */
         /* border: 1px solid red; */
+    }
+    .marketplace-cards .block{
+        display: none;
     }
 }

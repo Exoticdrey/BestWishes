@@ -55,9 +55,9 @@ const VendorSignup = () => {
 
           {/* Form */}
           <div className="login-form">
-            {/* Full Name Field */}
+{/* First Name Field */}
             <div className="form-group">
-              <label htmlFor="fullName">Full name</label>
+              <label htmlFor="firstName">First name</label>
               <div className="input-container">
                 <div className="input-icon">
                   <svg
@@ -73,12 +73,12 @@ const VendorSignup = () => {
                   </svg>
                 </div>
                 <input
-                  id="fullName"
+                  id="firstName"
                   type="text"
-                  placeholder="John Doe"
-                  className={errors.fullName ? "error" : ""}
-                  {...register("fullName", {
-                    required: "Full name is required",
+                  placeholder="John"
+                  className={errors.firstName ? "error" : ""}
+                  {...register("firstName", {
+                    required: "First name is required",
                     minLength: {
                       value: 2,
                       message: "Name must be at least 2 characters",
@@ -86,10 +86,48 @@ const VendorSignup = () => {
                   })}
                 />
               </div>
-              {errors.fullName && (
-                <span className="error-message">{errors.fullName.message}</span>
+              {errors.firstName && (
+                <span className="error-message">{errors.firstName.message}</span>
               )}
             </div>
+
+              {/* Last Name field */}
+
+            <div className="form-group">
+              <label htmlFor="lastName">Last name</label>
+              <div className="input-container">
+                <div className="input-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <input
+                  id="lastName"
+                  type="text"
+                  placeholder="Doe"
+                  className={errors.lastName ? "error" : ""}
+                  {...register("lastName", {
+                    required: "Last name is required",
+                    minLength: {
+                      value: 2,
+                      message: "Name must be at least 2 characters",
+                    },
+                  })}
+                />
+              </div>
+              {errors.lastName && (
+                <span className="error-message">{errors.lastName.message}</span>
+              )}
+            </div>
+
 
             {/* Email Field */}
             <div className="form-group">
@@ -124,6 +162,48 @@ const VendorSignup = () => {
               </div>
               {errors.email && (
                 <span className="error-message">{errors.email.message}</span>
+              )}
+            </div>
+
+            {/* phone field*/}
+
+              <div className="form-group">
+              <label htmlFor="phone">Phone Number</label>
+              <div className="input-container">
+                <div className="input-icon">
+                  <svg
+    // xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="currentColor"
+    // className="w-5 h-5 text-gray-500 mr-2"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M2.25 4.5l3.75-1.5a.75.75 0 01.95.35l2.1 4.2a.75.75 0 01-.17.89l-1.95 1.56a11.25 11.25 0 005.58 5.58l1.56-1.95a.75.75 0 01.89-.17l4.2 2.1a.75.75 0 01.35.95l-1.5 3.75a.75.75 0 01-.71.46A16.5 16.5 0 013.21 5.21a.75.75 0 01.46-.71z"
+    />
+  </svg>
+                </div>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  className={errors.phone ? "error" : ""}
+                  {...register("phone", {
+                    required: "Phone Number is required",
+                    minLength: {
+                      value: 2,
+                      message: "Number must be at least 2 characters",
+                    },
+                  })}
+                />
+              </div>
+              {errors.phone && (
+                <span className="error-message">{errors.phone.message}</span>
               )}
             </div>
 

@@ -80,6 +80,13 @@ padding-top: 20px;
         width: 99.5vw;
         margin-left: 0;
     }
+    .send-love-bottom h3{
+        font-size: 30px;
+    }
+    .send-love-bottom p{
+        font-size: 15px;
+        line-height: 20px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {

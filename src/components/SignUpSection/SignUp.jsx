@@ -80,7 +80,7 @@ const Signup = () => {
 
           {/* Form */}
           <div className="login-form">
-            {/* Full Name Field */}
+            {/* First Name Field */}
             <div className="form-group">
               <label htmlFor="firstName">First name</label>
               <div className="input-container">
