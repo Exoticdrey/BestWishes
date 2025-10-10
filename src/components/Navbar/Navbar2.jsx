@@ -40,6 +40,8 @@ function Navbar2() {
           <li>
             <a href="/spinwin">Spin & Win</a>
           </li>
+
+          
         </ul>
 
 
@@ -120,9 +122,9 @@ function Navbar2() {
           <li>
             <a href="/spinwin" onClick={closeMenu}>Spin & Win</a>
           </li>
-        </ul>
 
-        <div className="mobile-nav-icons">
+          
+          <div className="mobile-nav-icons">
           <Link to="/cart" onClick={closeMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -159,6 +161,9 @@ function Navbar2() {
             <span>Profile</span>
           </Link>
         </div>
+        </ul>
+
+        
       </div>
     </nav>
   );
