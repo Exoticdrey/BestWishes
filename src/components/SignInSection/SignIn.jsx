@@ -1,4 +1,3 @@
-// SignUp.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -6,6 +5,7 @@ import "./SignIn.css";
 
 const Signin = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(""); // <-- added error state
   const navigate = useNavigate();
 
   const {
@@ -14,10 +14,26 @@ const Signin = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Form submitted:", data);
-    // after successful signup, navigate to dashboard (or any page)
-    navigate("/");
+  const onSubmit = async (data) => {
+    setError(""); // reset previous errors
+    try {
+      const response = await fetch("https://bestwishes.ng/api/login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        localStorage.setItem("token", result.token); // save token
+        navigate("/dashboard"); // redirect on success
+      } else {
+        setError(result.message || "Login failed. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -26,15 +42,11 @@ const Signin = () => {
 
   const handleGoogleSignup = () => {
     console.log("Google signup clicked");
-    // You can trigger Google SDK here
-    // then redirect after success:
     navigate("/dashboard");
   };
 
   const handleFacebookSignup = () => {
     console.log("Facebook signup clicked");
-    // You can trigger Facebook SDK here
-    // then redirect after success:
     navigate("/dashboard");
   };
 
@@ -55,42 +67,6 @@ const Signin = () => {
 
           {/* Form */}
           <div className="login-form">
-            {/* Full Name Field */}
-            {/* <div className="form-group">
-              <label htmlFor="fullName">Full name</label>
-              <div className="input-container">
-                <div className="input-icon">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </div>
-                <input
-                  id="fullName"
-                  type="text"
-                  placeholder="John Doe"
-                  className={errors.fullName ? "error" : ""}
-                  {...register("fullName", {
-                    required: "Full name is required",
-                    minLength: {
-                      value: 2,
-                      message: "Name must be at least 2 characters",
-                    },
-                  })}
-                />
-              </div>
-              {errors.fullName && (
-                <span className="error-message">{errors.fullName.message}</span>
-              )}
-            </div> */}
-
             {/* Email Field */}
             <div className="form-group">
               <label htmlFor="email">Email</label>
@@ -195,27 +171,8 @@ const Signin = () => {
               )}
             </div>
 
-            {/* Terms Checkbox */}
-            {/* <div className="form-group checkbox-group">
-              <label className="checkbox-container">
-                <input
-                  type="checkbox"
-                  {...register("terms", {
-                    required: "You must accept the terms",
-                  })}
-                />
-                <span className="checkmark"></span>
-                <span className="checkbox-text">
-                  Yes, I understand and agree to the BestWishes{" "}
-                  <a href="#" className="terms-link">
-                    Terms of Service
-                  </a>
-                </span>
-              </label>
-              {errors.terms && (
-                <span className="error-message">{errors.terms.message}</span>
-              )}
-            </div> */}
+            {/* Error message from API */}
+            {error && <p className="error-message">{error}</p>}
 
             {/* Submit Button */}
             <button
@@ -226,7 +183,8 @@ const Signin = () => {
               Sign In
             </button>
             
-            <p>Don't have an acount? <a href="/signup" className="login-btn">Click here</a></p>
+            <p>Don't have an account? <a href="/signup" className="login-btn">Click here</a></p> <br />
+            <p><a href="/signup" className="login-btn">Forgot Password?</a></p>
           </div>
 
           {/* Divider */}

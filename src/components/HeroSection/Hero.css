@@ -126,38 +126,42 @@
 
     .bottom-right{
         right: 0;
-        width: 90px;
+        width: 120px;
+    }
+    .hero-content{
+        /* border: 1px solid black; */
+        margin: 10px;
     }
 
     .hero-content h5{
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .hero-content p{
-        font-size: 12px;
+        font-size: 18px;
         line-height: 1.6;
     }
 
     .sendlove-image{
-        width: 40px;
+        width: 60px;
     }
 
     .hero .cta .create,
     .hero .cta .schedule{
-        padding: 6px 15px;
-        width: 50%;
+        padding: 6px 20px;
+        /* width: 50%; */
     }
     .hero .cta{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         /* border: 1px solid black; */
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        /* gap: 1rem; */
     }
 
     .hero .giftbox img{
-        width: 60%;
+        width: 70%;
     }
 
     .hero .giftbox .top-img{
@@ -222,20 +226,22 @@
 
     .bottom-right{
         right: 5px;
-        width: 120px;
+        width: 150px;
     }
 
     .hero-content{
         padding-top: 60px;
+        /* border: 1px solid black; */
+        margin: 20px;
     }
 
     .hero-content h5{
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         line-height: 1.2;
     }
 
     .hero-content p{
-        font-size: 15px;
+        font-size: 18px;
         padding: 0 20px;
     }
 
@@ -254,9 +260,9 @@
     .hero .cta .create,
     .hero .cta .schedule{
         margin-right: 0;
-        padding: 10px 20px;
+        padding: 6px 20px;
         font-size: 16px;
-        width: 70%;
+        /* width: 70%; */
         max-width: 280px;
     }
 
@@ -265,7 +271,7 @@
     }
 
     .hero .giftbox img{
-        width: 40%;
+        width: 50%;
     }
 
     .hero .giftbox .top-img{
