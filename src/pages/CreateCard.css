@@ -409,8 +409,27 @@
 }
 
 /* ==========================Step Meadi */
+@media (min-width: 200px) and (max-width: 480px) {
+  .schedule-container{
+    /* border: 1px solid red; */
+  }
+  .form-container{
+    /* border: 1px solid blue; */
+    width: 400px;
+  }
+  .create-card-headline{
+    padding: 1rem;
+  }
+  .create-card-headline h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .create-card-headline p{
+    font-size: 0.8rem;
+  }
+}
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .multi-step-container {
     padding: 10px;
   }
@@ -439,5 +458,39 @@
 
   .preview-actions {
     flex-direction: column;
+  }
+
+
+  .form-container{
+    /* border: 1px solid blue; */
+    width: 700px;
+  }
+  .create-card-headline{
+    padding: 2rem;
+  }
+  .create-card-headline h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .create-card-headline p{
+    font-size: 0.8rem;
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .form-container{
+    /* border: 1px solid blue; */
+    width: 800px;
+  }
+  .create-card-headline{
+    padding: 2rem;
+  }
+  .create-card-headline h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .create-card-headline p{
+    font-size: 0.8rem;
   }
 }

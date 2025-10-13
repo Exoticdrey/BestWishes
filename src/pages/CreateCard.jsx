@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import CardStep1 from "../components/cards/CardStep1";
 import CardStep2 from "../components/cards/CardStep2";
 import CardStep3 from "../components/cards/CardStep3";
-import Navbar from "../ui/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import Footer from "../ui/Footer";
 import "./CreateCard.css";
 

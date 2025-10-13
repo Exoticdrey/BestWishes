@@ -59,7 +59,7 @@ function CardStep1({ register, errors, onNext, onBack }) {
           </div>
 
           {/* Event type */}
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Event Type</label>
             <select
               {...register("eventType", {
@@ -77,7 +77,7 @@ function CardStep1({ register, errors, onNext, onBack }) {
             {errors.eventType && (
               <span className="error-message">{errors.eventType.message}</span>
             )}
-          </div>
+          </div> */}
 
           {/* Recipient */}
           <div className="form-group">
