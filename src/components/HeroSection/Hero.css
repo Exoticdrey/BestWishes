@@ -134,11 +134,11 @@
     }
 
     .hero-content h5{
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .hero-content p{
-        font-size: 18px;
+        font-size: 0.9rem;
         line-height: 1.6;
     }
 
@@ -148,7 +148,7 @@
 
     .hero .cta .create,
     .hero .cta .schedule{
-        padding: 6px 20px;
+        padding: 4px 20px;
         /* width: 50%; */
     }
     .hero .cta{
