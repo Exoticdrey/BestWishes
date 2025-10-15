@@ -119,16 +119,21 @@
 
   }
   .works-bottom{
-    width: 99.5vw;
+    width: 100vw;
     margin-left: 0;
+    /* border: 1px solid red; */
   }
   .works-bottom h2{
     font-size: 30px;
+    /* border: 1px solid red; */
   }
   .works-bottom p{
     font-size: 14px;
     line-height: 20px;
     margin: 8px;
+    font-weight: lighter;
+    /* border: 1px solid red; */
+    /* width: 80vw; */
   }
 }
 
@@ -163,6 +168,7 @@
   }
   .works-bottom p{
     line-height: 20px;
+    font-weight: lighter;
   }
 }
 
@@ -181,7 +187,7 @@
   }
   .works-head .works-number{
     /* border: 1px solid red; */
-    width: 45%;
+    width: 50%;
   }
   .works-head .works-number h1{
     margin-left: 70px;
@@ -194,5 +200,8 @@
   .works-bottom{
     width: 96.5%;
     margin-left: 13px;
+  }
+  .works-bottom p{
+    font-weight: lighter;
   }
 }

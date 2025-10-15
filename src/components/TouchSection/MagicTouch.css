@@ -120,6 +120,13 @@
     .magic-touch-bottom h3{
         font-size: 28px;
     }
+    .magic-touch-bottom p{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: lighter;
+        margin-top: 20px;
+        /* border: 1px solid red; */
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -145,6 +152,13 @@
     .magic-touch-bottom p{
         line-height: 20px;
     }
+    .magic-touch-bottom p{
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: lighter;
+        margin-top: 20px;
+        /* border: 1px solid red; */
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -166,5 +180,12 @@
     .magic-touch-bottom{
         width: 100vw;
         margin-left: 0;
+    }
+    .magic-touch-bottom p{
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: lighter;
+        margin-top: 20px;
+        /* border: 1px solid red; */
     }
 }

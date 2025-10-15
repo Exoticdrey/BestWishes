@@ -12,7 +12,7 @@ const Footer = () => {
         </p>
         <div className="newsletter-form">
           <input type="email" placeholder="Enter your email" />
-          <button className="news-btn">Subscribe Now</button>
+          <button className="news-btn">Subscribe</button>
         </div>
       </div>
 

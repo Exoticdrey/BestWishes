@@ -48,6 +48,17 @@
     margin-top: 15px;
     font-size: 17px;
 }
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
 .hero .cta{
     margin-top: 20px;
     /* border: 1px solid pink; */
@@ -60,7 +71,7 @@
     background: #F34DBD;
     text-decoration: none;
     color: var(--text-color);
-    padding: 5px 10px;
+    padding: 7px 20px;
     border-radius: 50px;
     font-size: 15px;
     cursor: pointer;
@@ -72,7 +83,7 @@
     background: #B3E0FF;
     text-decoration: none;
     color: var(--primary-color);
-    padding: 5px 10px;
+    padding: 7px 20px;
     border-radius: 50px;
     font-size: 15px;
     cursor: pointer;
@@ -148,7 +159,7 @@
 
     .hero .cta .create,
     .hero .cta .schedule{
-        padding: 4px 20px;
+        padding: 7px 20px;
         /* width: 50%; */
     }
     .hero .cta{
@@ -260,7 +271,7 @@
     .hero .cta .create,
     .hero .cta .schedule{
         margin-right: 0;
-        padding: 6px 20px;
+        padding: 7px 20px;
         font-size: 16px;
         /* width: 70%; */
         max-width: 280px;

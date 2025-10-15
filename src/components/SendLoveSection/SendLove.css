@@ -84,8 +84,9 @@ padding-top: 20px;
         font-size: 30px;
     }
     .send-love-bottom p{
-        font-size: 15px;
+        font-size: 14px;
         line-height: 20px;
+        font-weight: lighter;
     }
 }
 
@@ -110,6 +111,10 @@ padding-top: 20px;
         width: 100vw;
         margin-left: 0;
     }
+    .send-love-bottom p{
+        font-size: 16px;
+        font-weight: lighter;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -132,5 +137,9 @@ padding-top: 20px;
     .send-love-bottom{
         width: 100vw;
         margin-left: 0;
+    }
+    .send-love-bottom p{
+        font-weight: lighter;
+        font-size: 16px;
     }
 }
