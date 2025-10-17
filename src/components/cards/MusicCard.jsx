@@ -298,7 +298,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
 
                 {/* Quote / Message */}
                 {slide.message && (
-                  <p style={{ fontSize: slide.fontSize - 4, marginBottom: "20px"}}>{slide.message}</p>
+                  <p style={{ fontSize: slide.fontSize - 4, marginBottom: "20px", marginTop: "10px"}}>{slide.message}</p>
                 )}
 
                 {/* Audio / Spotify */}
@@ -313,7 +313,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                       title="Spotify Preview"
                      className="spot"></iframe>
                   ) : (
-                    <audio controls style={{border: "1px solid red", width: "90%", marginTop: "20px"}}>
+                    <audio controls style={{border: "", width: "110%", marginTop: "20px"}}>
                       <source src={slide.musicUrl} type="audio/mpeg" />
                       Your browser does not support the audio element.
                    </audio>

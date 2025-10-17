@@ -44,7 +44,8 @@
 }
 .spot{
   /* border: 1px solid red; */
-  /* margin-top: 50px; */
+  overflow: hidden;
+  margin-top: 20px;
   /* width: 19vw; */
   /* height: 90vh; */
 }
