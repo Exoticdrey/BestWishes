@@ -1,0 +1,61 @@
+.loyalty-hero {
+  margin-top: 60px;
+  background: linear-gradient(180deg, #ffe8f6 0%, rgba(255,255,255,0) 100%);
+  text-align: center;
+  padding: 28px 16px 24px;
+}
+.loyalty-hero h2 { font-family: "Life Savers", serif; margin: 0 0 6px; }
+.loyalty-hero p { margin: 0; color: #6b7280; font-size: 0.9rem; }
+
+.loyalty-container { max-width: 920px; margin: 28px auto 60px; padding: 0 16px; }
+
+.loyalty-panel {
+  background: linear-gradient(135deg, #ff5bbd 0%, #b34bff 100%);
+  border-radius: 12px;
+  color: #fff;
+  padding: 26px 24px 24px;
+  text-align: center;
+}
+.panel-caption { margin: 0 0 10px; opacity: 0.95; }
+.rate-pill {
+  display: inline-block;
+  background: #fff;
+  color: #ff2b9a;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.balance-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 16px 0 10px; }
+.balance-title { font-family: "Life Savers", serif; font-size: 1.3rem; }
+.sparkles { opacity: 0.9; }
+
+.point-dots { display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; }
+.dot { width: 22px; height: 22px; border-radius: 999px; border: 2px solid #ffd2f0; background: transparent; }
+.dot.full { background: #fff; border-color: #fff; }
+.free-gift { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.2); border-radius: 999px; padding: 4px 10px; position: absolute; right: 10px; }
+
+.progress-card {
+  margin: 20px auto 0;
+  background: #fff4fb;
+  border: 1px solid #ffd9ef;
+  border-radius: 10px;
+  padding: 16px;
+}
+.progress-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.ph-left { display: inline-flex; align-items: center; gap: 10px; color: #6b7280; }
+.ph-left img { width: 28px; height: 28px; }
+.ph-right { color: #6b7280; font-size: 0.9rem; }
+
+.progress-bar { width: 100%; height: 10px; background: #ffd1f0; border-radius: 999px; overflow: hidden; }
+.progress-inner { height: 100%; background: linear-gradient(90deg, #ff5bbd, #b34bff); width: 0; }
+
+.progress-foot { margin-top: 8px; color: #111827; font-weight: 600; }
+
+.cta-row { display: flex; justify-content: center; margin-top: 24px; }
+.get-card-btn { background: #ff5bbd; color: #fff; border: none; padding: 12px 22px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+.get-card-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (max-width: 520px) {
+  .free-gift { position: static; }
+}
+

@@ -16,6 +16,10 @@ import Terms from "./pages/TermsofService";
 import Faq from "./pages/FrequentQuestions";
 import Privacy from "./pages/PrivacyPolicy";
 import Refund from "./pages/RefundPolicy";
+import TrackItem from "./pages/TrackItem";
+import TrackItemList from "./pages/TrackItemList";
+import LoyaltyCard from "./pages/LoyaltyCard";
+import ProductDetails from "./pages/ProductDetails";
 
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -43,6 +47,10 @@ function App() {
         <Route path="/refund" element={<Refund />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/track-item" element={<TrackItem />} />
+        <Route path="/track-items" element={<TrackItemList />} />
+        <Route path="/loyalty-card" element={<LoyaltyCard />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   );
