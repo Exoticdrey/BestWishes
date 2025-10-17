@@ -607,7 +607,7 @@ import "./CardStep3.css";
 import MusicCard from "./MusicCard";
 import confetti from "canvas-confetti";
 
-function CardStep3({ onFinish, formData }) {
+function CardStep3({ onFinish, formData, onBack}) {
   const [showPreview, setShowPreview] = useState(false);
   const [currentPage, setCurrentPage] = useState(0); // 0 = gift box, 1–5 = card pages
   const [imagePreview, setImagePreview] = useState(null);
@@ -736,6 +736,15 @@ function CardStep3({ onFinish, formData }) {
 
   return (
     <div>
+    
+      {/* 🔙 Back Button */}
+      <button type="button" className="back-btns" onClick={onBack} aria-label="Back" style={{ display: "flex", alignItems: "center" }}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="icon" style={{ width: "2rem" }}>
+          <path fillRule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
+        </svg>
+        <strong className="step-title">Media</strong>
+      </button>
+
       <div className="preview-container">
         <h2>ADD POP PREVIEW</h2>
         <p>Choose a template below to customize. You can customize every design!</p>

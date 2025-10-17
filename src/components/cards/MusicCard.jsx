@@ -156,41 +156,16 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   // Helper to convert normal Spotify URLs to embed
-  // const getSpotifyEmbedUrl = (url) => {
-  //   if (!url) return null;
-  //   if (url.includes("open.spotify.com/track/")) {
-  //     return url.replace(
-  //       "open.spotify.com/track/",
-  //       "open.spotify.com/embed/track/"
-  //     );
-  //   }
-  //   return null;
-  // };
-
   const getSpotifyEmbedUrl = (url) => {
-  if (!url) return null;
-
-  // Handle open.spotify.com track URLs
-  if (url.includes("open.spotify.com/track/")) {
-    return url.replace(
-      "open.spotify.com/track/",
-      "open.spotify.com/embed/track/"
-    );
-  }
-
-  // Handle spotify.link URLs
-  if (url.includes("spotify.link/")) {
-    // Replace spotify.link with open.spotify.com/embed/track/
-    // Note: you'll need the track ID from the URL
-    // Example spotify.link URL: https://spotify.link/JOhIXVhzxXb
-    // We’ll just append it to embed/track/ assuming it's the track ID
-    const trackId = url.split("/").pop(); // gets 'JOhIXVhzxXb'
-    return `https://open.spotify.com/embed/track/${trackId}`;
-  }
-
-  return null;
-};
-
+    if (!url) return null;
+    if (url.includes("open.spotify.com/track/")) {
+      return url.replace(
+        "open.spotify.com/track/",
+        "open.spotify.com/embed/track/"
+      );
+    }
+    return null;
+  };
 
   const generateSlides = () => {
     const slides = [];
@@ -222,7 +197,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
     if (formData.voiceUrl) {
       slides.push({
         design: "voice",
-        title: "Voice Note",
+        title: "Voice Note!💖",
         musicUrl: formData.voiceUrl,
         backgroundColor: formData.backgroundColor || "#ffffff",
         fontFamily: formData.fontFamily || "inherit",
@@ -307,7 +282,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
             >
               <div className={`card-preview ${slide.design}`}>
                 {/* Image */}
-                {slide.image && <img style={{ marginTop: "50%"}} src={slide.image} alt="" />}
+                {slide.image && <img style={{ marginTop: "60%"}} src={slide.image} alt="" />}
 
                 {/* Title / Recipient */}
                 {slide.title && (
@@ -338,10 +313,10 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                       title="Spotify Preview"
                      className="spot"></iframe>
                   ) : (
-                    <audio controls>
+                    <audio controls style={{border: "1px solid red", width: "90%", marginTop: "20px"}}>
                       <source src={slide.musicUrl} type="audio/mpeg" />
                       Your browser does not support the audio element.
-                    </audio>
+                   </audio>
                   )
                 )}
               </div>
