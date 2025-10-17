@@ -1,9 +1,27 @@
 import { useState } from "react";
 import SlideUp from "../../ui/SlideUp";
 
-function CardStep1({ register, errors, onNext, onBack }) {
+function CardStep1({ register, errors, onNext, onBack, watch }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSendYourself, setIsSendYourself] = useState(false);
+
+  // Watch current font selections so preview updates live
+  const selectedFont = watch("fontFamily");
+  const selectedFontSize = watch("fontSize");
+
+  // Font options with live font previews
+  const fonts = [
+    "Roboto",
+    "Open Sans",
+    "Lato",
+    "Montserrat",
+    "Oswald",
+    "Raleway",
+    "Dancing Script",
+    "Playfair Display",
+    "Poppins",
+    "Pacifico",
+  ];
 
   return (
     <SlideUp delay={0.6}>
@@ -58,27 +76,6 @@ function CardStep1({ register, errors, onNext, onBack }) {
             </label>
           </div>
 
-          {/* Event type */}
-          {/* <div className="form-group">
-            <label>Event Type</label>
-            <select
-              {...register("eventType", {
-                required: "Please select an event type",
-              })}
-              className={errors.eventType ? "error" : ""}
-            >
-              <option value="">Select an event</option>
-              <option value="birthday">Birthday</option>
-              <option value="wedding">Wedding</option>
-              <option value="anniversary">Anniversary</option>
-              <option value="graduation">Graduation</option>
-              <option value="others">Others</option>
-            </select>
-            {errors.eventType && (
-              <span className="error-message">{errors.eventType.message}</span>
-            )}
-          </div> */}
-
           {/* Recipient */}
           <div className="form-group">
             <label>To (Recipient name)</label>
@@ -119,15 +116,14 @@ function CardStep1({ register, errors, onNext, onBack }) {
             <div className="fonts-inputs">
               <select {...register("fontFamily")}>
                 <option value="">Select font</option>
-                {[
-                  "Roboto",
-                  "Open Sans",
-                  "Lato",
-                  "Montserrat",
-                  "Oswald",
-                  "Raleway",
-                ].map((font, index) => (
-                  <option key={index} value={font}>
+                {fonts.map((font, index) => (
+                  <option
+                    key={index}
+                    value={font}
+                    style={{
+                      fontFamily: font,
+                    }}
+                  >
                     {font}
                   </option>
                 ))}
@@ -152,9 +148,20 @@ function CardStep1({ register, errors, onNext, onBack }) {
             </div>
           </div>
 
+          {/* Effect */}
           <div className="form-group">
             <label>Effect</label>
-            <input type="text" {...register("effect")} />
+            <select {...register("effect", { required: "Please select an effect" })}>
+              <option value="">Select an effect</option>
+              <option value="confetti">🎉 Confetti</option>
+              <option value="balloons">🎈 Balloons</option>
+              <option value="fireworks">💥 Fireworks</option>
+              <option value="petals">🌸 Petals</option>
+              <option value="snow">❄️ Snow</option>
+            </select>
+            {errors?.effect && (
+              <span className="error-message">{errors.effect.message}</span>
+            )}
           </div>
 
           {/* Color scheme */}
@@ -202,6 +209,8 @@ function CardStep1({ register, errors, onNext, onBack }) {
                 borderRadius: "8px",
                 height: "6rem",
                 padding: "1rem",
+                fontFamily: selectedFont || "inherit",
+                fontSize: selectedFontSize || "16px",
               }}
             ></textarea>
             {errors?.message && (

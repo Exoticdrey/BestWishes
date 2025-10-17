@@ -10,16 +10,19 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
-    // if a redirect path exists, send them there
+
+    // navigate after login
     if (redirectPath) {
-      navigate(redirectPath);
-      setRedirectPath(null);
+      navigate(redirectPath, { replace: true });
+      setRedirectPath(null); // clear after navigating
+    } else {
+      navigate("/", { replace: true }); // fallback
     }
   };
 
   const logout = () => {
     setUser(null);
-    navigate("/");
+    navigate("/", { replace: true });
   };
 
   return (
@@ -31,5 +34,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook for using auth data
 export const useAuth = () => useContext(AuthContext);
