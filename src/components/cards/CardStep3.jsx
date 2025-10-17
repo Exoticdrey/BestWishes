@@ -602,7 +602,7 @@
 
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CardStep3.css";
 import MusicCard from "./MusicCard";
 import confetti from "canvas-confetti";
@@ -610,6 +610,22 @@ import confetti from "canvas-confetti";
 function CardStep3({ onFinish, formData }) {
   const [showPreview, setShowPreview] = useState(false);
   const [currentPage, setCurrentPage] = useState(0); // 0 = gift box, 1–5 = card pages
+  const [imagePreview, setImagePreview] = useState(null);
+  const [audioPreview, setAudioPreview] = useState(null);
+
+  // Create preview URLs for image and audio
+  useEffect(() => {
+    if (formData.image) {
+      setImagePreview(
+        formData.image instanceof File ? URL.createObjectURL(formData.image) : formData.image
+      );
+    }
+    if (formData.voiceNote) {
+      setAudioPreview(
+        formData.voiceNote instanceof Blob ? URL.createObjectURL(formData.voiceNote) : formData.voiceNote
+      );
+    }
+  }, [formData.image, formData.voiceNote]);
 
   const handleLivePreview = () => {
     setShowPreview(true);
@@ -621,54 +637,33 @@ function CardStep3({ onFinish, formData }) {
     setCurrentPage(0);
   };
 
-  // 🎁 When user taps the box
   const handleTapBox = () => {
     triggerEffect(formData.effect);
     setCurrentPage(1);
   };
 
-  // ⚙️ Function to trigger chosen visual effect
   const triggerEffect = (effect) => {
     switch (effect) {
       case "confetti":
-        confetti({
-          particleCount: 200,
-          spread: 100,
-          origin: { y: 0.6 },
-        });
+        createFloatingElements("🎊", 45, "confetti");
         break;
-
       case "balloons":
         createFloatingElements("🎈", 25, "balloon");
         break;
-
       case "fireworks":
-        for (let i = 0; i < 4; i++) {
-          setTimeout(() => {
-            confetti({
-              particleCount: 100,
-              angle: 60 + i * 20,
-              spread: 80,
-              origin: { x: Math.random(), y: Math.random() * 0.5 },
-            });
-          }, i * 500);
-        }
+        createFloatingElements("🎆", 45, "fireworks");
         break;
-
       case "petals":
         createFloatingElements("🌸", 30, "petal");
         break;
-
       case "snow":
         createFloatingElements("❄️", 40, "snowflake");
         break;
-
       default:
         break;
     }
   };
 
-  // 🎈 Helper for floating emoji animations
   const createFloatingElements = (emoji, count, className) => {
     for (let i = 0; i < count; i++) {
       const el = document.createElement("div");
@@ -677,7 +672,6 @@ function CardStep3({ onFinish, formData }) {
       el.style.left = Math.random() * 100 + "vw";
       el.style.animationDuration = 4 + Math.random() * 3 + "s";
       document.body.appendChild(el);
-
       setTimeout(() => el.remove(), 6000);
     }
   };
@@ -722,7 +716,11 @@ function CardStep3({ onFinish, formData }) {
       default:
         return (
           <MusicCard
-            formData={formData}
+            formData={{
+              ...formData,
+              image: imagePreview,
+              voiceNote: audioPreview,
+            }}
             showTemplateCover={true}
             nextPage={nextPage}
             prevPage={prevPage}

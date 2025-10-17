@@ -15,7 +15,8 @@
 .floating {
   position: fixed;
   top: -10vh;
-  font-size: 2rem;
+  /* right: 50px; */
+  font-size: 3rem;
   z-index: 9999;
   animation: fall linear forwards;
   pointer-events: none;

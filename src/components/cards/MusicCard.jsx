@@ -166,14 +166,14 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
         image: formData.template?.preview || "/535.png",
         title: "",
         message: "",
-        isCover: true, // flag to prevent background color
+        isCover: true,
       });
     }
 
     // Main card slide (image + name + quote)
     slides.push({
       design: formData.eventType || "default",
-      image: formData.image,
+      image: formData.imageUrl || formData.image,
       title: formData.recipient || "Your Friend",
       message: formData.quote || "",
       musicUrl: formData.musicUrl,
@@ -183,34 +183,40 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
     });
 
     // Voice slide
-    slides.push({
-      design: "voice",
-      title: "Voice Note",
-      musicUrl: formData.voiceUrl,
-      backgroundColor: formData.backgroundColor || "#ffffff",
-      fontFamily: formData.fontFamily || "inherit",
-      fontSize: formData.fontSize || 24,
-    });
+    if (formData.voiceUrl) {
+      slides.push({
+        design: "voice",
+        title: "Voice Note",
+        musicUrl: formData.voiceUrl,
+        backgroundColor: formData.backgroundColor || "#ffffff",
+        fontFamily: formData.fontFamily || "inherit",
+        fontSize: formData.fontSize || 24,
+      });
+    }
 
-    // Music slide
-    slides.push({
-      design: "music",
-      title: "Music",
-      musicUrl: formData.musicUrl,
-      backgroundColor: formData.backgroundColor || "#ffffff",
-      fontFamily: formData.fontFamily || "inherit",
-      fontSize: formData.fontSize || 24,
-    });
+    // Music slide (only if not already added as main)
+    if (formData.musicUrl) {
+      slides.push({
+        design: "music",
+        title: "Music",
+        musicUrl: formData.musicUrl,
+        backgroundColor: formData.backgroundColor || "#ffffff",
+        fontFamily: formData.fontFamily || "inherit",
+        fontSize: formData.fontSize || 24,
+      });
+    }
 
     // Message slide
-    slides.push({
-      design: "message",
-      title: "Message",
-      message: formData.message || "",
-      backgroundColor: formData.backgroundColor || "#ffffff",
-      fontFamily: formData.fontFamily || "inherit",
-      fontSize: formData.fontSize || 24,
-    });
+    if (formData.message) {
+      slides.push({
+        design: "message",
+        title: "Message",
+        message: formData.message,
+        backgroundColor: formData.backgroundColor || "#ffffff",
+        fontFamily: formData.fontFamily || "inherit",
+        fontSize: formData.fontSize || 24,
+      });
+    }
 
     return slides;
   };
@@ -219,14 +225,19 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
 
   const handlePrevSlide = () =>
     setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  const handleNextSlide = () => setActiveSlide((prev) => (prev + 1) % slides.length);
+  const handleNextSlide = () =>
+    setActiveSlide((prev) => (prev + 1) % slides.length);
 
   const getSlideStyle = (index) => {
     const offset = index - activeSlide;
     const absOffset = Math.abs(offset);
 
     if (absOffset > 2) {
-      return { opacity: 0, transform: "translateX(200px) scale(0.5)", pointerEvents: "none" };
+      return {
+        opacity: 0,
+        transform: "translateX(200px) scale(0.5)",
+        pointerEvents: "none",
+      };
     }
 
     const translateX = offset * 9;
@@ -234,7 +245,12 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
     const scale = index === activeSlide ? 1 : 0.85;
     const zIndex = slides.length - absOffset;
 
-    return { transform: `translateX(${translateX}px) rotate(${rotate}deg) scale(${scale})`, zIndex, opacity: 1, transition: "all 0.2s ease" };
+    return {
+      transform: `translateX(${translateX}px) rotate(${rotate}deg) scale(${scale})`,
+      zIndex,
+      opacity: 1,
+      transition: "all 0.2s ease",
+    };
   };
 
   return (
@@ -248,7 +264,9 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
               style={{
                 ...getSlideStyle(index),
                 backgroundColor: slide.isCover ? "transparent" : slide.backgroundColor,
-                fontFamily: slide.fontFamily, width: "250px", height: "300px",
+                fontFamily: slide.fontFamily,
+                width: "250px",
+                height: "300px",
               }}
             >
               <div className={`card-preview ${slide.design}`}>
@@ -266,11 +284,24 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                 {slide.message && (
                   <p style={{ fontSize: slide.fontSize - 4 }}>{slide.message}</p>
                 )}
+
+                {/* Spotify embed or regular audio */}
                 {slide.musicUrl && (
-                  <audio controls>
-                    <source src={slide.musicUrl} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
+                  slide.musicUrl.includes("embed.spotify.com") ? (
+                    <iframe
+                      src={slide.musicUrl}
+                      width="100%"
+                      height="80"
+                      frameBorder="0"
+                      allow="encrypted-media"
+                      title="Spotify Preview"
+                    ></iframe>
+                  ) : (
+                    <audio controls>
+                      <source src={slide.musicUrl} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  )
                 )}
               </div>
             </div>
@@ -282,7 +313,9 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
         <button className="prev-btn-card swiper-btn" onClick={handlePrevSlide}>
           &#8249;
         </button>
-        <span>{activeSlide + 1} out of {slides.length}</span>
+        <span>
+          {activeSlide + 1} out of {slides.length}
+        </span>
         <button className="next-btn-card swiper-btn" onClick={handleNextSlide}>
           &#8250;
         </button>
