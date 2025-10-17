@@ -149,12 +149,23 @@
 
 // export default MusicCard;
 
-
 import React, { useState } from "react";
 import "./MusicCard.css";
 
 const MusicCard = ({ formData, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
+
+  // Helper to convert normal Spotify URLs to embed
+  const getSpotifyEmbedUrl = (url) => {
+    if (!url) return null;
+    if (url.includes("open.spotify.com/track/")) {
+      return url.replace(
+        "open.spotify.com/track/",
+        "open.spotify.com/embed/track/"
+      );
+    }
+    return null;
+  };
 
   const generateSlides = () => {
     const slides = [];
@@ -194,7 +205,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
       });
     }
 
-    // Music slide (only if not already added as main)
+    // Music slide (Spotify or other)
     if (formData.musicUrl) {
       slides.push({
         design: "music",
@@ -270,7 +281,10 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
               }}
             >
               <div className={`card-preview ${slide.design}`}>
+                {/* Image */}
                 {slide.image && <img src={slide.image} alt="" />}
+
+                {/* Title / Recipient */}
                 {slide.title && (
                   <h2
                     style={{
@@ -281,15 +295,17 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                     {slide.title}
                   </h2>
                 )}
+
+                {/* Quote / Message */}
                 {slide.message && (
                   <p style={{ fontSize: slide.fontSize - 4 }}>{slide.message}</p>
                 )}
 
-                {/* Spotify embed or regular audio */}
+                {/* Audio / Spotify */}
                 {slide.musicUrl && (
-                  slide.musicUrl.includes("embed.spotify.com") ? (
+                  getSpotifyEmbedUrl(slide.musicUrl) ? (
                     <iframe
-                      src={slide.musicUrl}
+                      src={getSpotifyEmbedUrl(slide.musicUrl)}
                       width="100%"
                       height="80"
                       frameBorder="0"
@@ -325,6 +341,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
 };
 
 export default MusicCard;
+
 
 
 

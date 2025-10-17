@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent; /* No background color */
+  background: none; /* No background color */
   /* border: 1px solid red; */
 }
 
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
   cursor: grab;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
   overflow: hidden;
   transform-origin: center center;
   /* border: 1px solid #fff; */
