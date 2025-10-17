@@ -156,16 +156,50 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   // Helper to convert normal Spotify URLs to embed
-  const getSpotifyEmbedUrl = (url) => {
-    if (!url) return null;
-    if (url.includes("open.spotify.com/track/")) {
-      return url.replace(
-        "open.spotify.com/track/",
-        "open.spotify.com/embed/track/"
-      );
+
+  
+  // const getSpotifyEmbedUrl = (url) => {
+  //   if (!url) return null;
+  //   if (url.includes("open.spotify.com/track/")) {
+  //     return url.replace(
+  //       "open.spotify.com/track/",
+  //       "open.spotify.com/embed/track/"
+  //     );
+  //   }
+  //   return null;
+  // };
+
+  const getSpotifyEmbedUrl = async (url) => {
+  if (!url) return null;
+
+  // If it's already an open.spotify.com track URL
+  if (url.includes("open.spotify.com/track/")) {
+    return url.replace(
+      "open.spotify.com/track/",
+      "open.spotify.com/embed/track/"
+    );
+  }
+
+  // If it's a spotify.link short URL, resolve it
+  if (url.includes("spotify.link")) {
+    try {
+      const response = await fetch(url, { method: "HEAD", redirect: "follow" });
+      const finalUrl = response.url; // this will be the open.spotify.com/track/ URL
+      if (finalUrl.includes("open.spotify.com/track/")) {
+        return finalUrl.replace(
+          "open.spotify.com/track/",
+          "open.spotify.com/embed/track/"
+        );
+      }
+    } catch (err) {
+      console.error("Failed to resolve spotify.link URL", err);
+      return null;
     }
-    return null;
-  };
+  }
+
+  return null;
+};
+
 
   const generateSlides = () => {
     const slides = [];
@@ -282,7 +316,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
             >
               <div className={`card-preview ${slide.design}`}>
                 {/* Image */}
-                {slide.image && <img src={slide.image} alt="" />}
+                {slide.image && <img style={{ marginTop: "50%"}} src={slide.image} alt="" />}
 
                 {/* Title / Recipient */}
                 {slide.title && (
@@ -298,7 +332,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
 
                 {/* Quote / Message */}
                 {slide.message && (
-                  <p style={{ fontSize: slide.fontSize - 4 }}>{slide.message}</p>
+                  <p style={{ fontSize: slide.fontSize - 4, marginBottom: "20px"}}>{slide.message}</p>
                 )}
 
                 {/* Audio / Spotify */}
