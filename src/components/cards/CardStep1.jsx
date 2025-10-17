@@ -169,12 +169,12 @@ function CardStep1({ register, errors, onNext, onBack, watch }) {
             <label>Color Scheme</label>
             <div className="color-options">
               {[
-                "#F34DBD",
-                "#7B61FF",
-                "#FC5555",
-                "#29CC6A",
-                "#0099FF",
-                "#222222",
+                "#C5C5F7",
+                "#FFFFFF",
+                "#EEA3DD",
+                "#DDF9E4",
+                "#DDEBF3",
+                "#FFD8C2",
               ].map((color) => (
                 <input
                   key={color}
