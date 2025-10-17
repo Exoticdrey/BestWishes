@@ -156,8 +156,6 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   // Helper to convert normal Spotify URLs to embed
-
-  
   // const getSpotifyEmbedUrl = (url) => {
   //   if (!url) return null;
   //   if (url.includes("open.spotify.com/track/")) {
@@ -169,10 +167,10 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
   //   return null;
   // };
 
-  const getSpotifyEmbedUrl = async (url) => {
+  const getSpotifyEmbedUrl = (url) => {
   if (!url) return null;
 
-  // If it's already an open.spotify.com track URL
+  // Handle open.spotify.com track URLs
   if (url.includes("open.spotify.com/track/")) {
     return url.replace(
       "open.spotify.com/track/",
@@ -180,21 +178,14 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
     );
   }
 
-  // If it's a spotify.link short URL, resolve it
-  if (url.includes("spotify.link")) {
-    try {
-      const response = await fetch(url, { method: "HEAD", redirect: "follow" });
-      const finalUrl = response.url; // this will be the open.spotify.com/track/ URL
-      if (finalUrl.includes("open.spotify.com/track/")) {
-        return finalUrl.replace(
-          "open.spotify.com/track/",
-          "open.spotify.com/embed/track/"
-        );
-      }
-    } catch (err) {
-      console.error("Failed to resolve spotify.link URL", err);
-      return null;
-    }
+  // Handle spotify.link URLs
+  if (url.includes("spotify.link/")) {
+    // Replace spotify.link with open.spotify.com/embed/track/
+    // Note: you'll need the track ID from the URL
+    // Example spotify.link URL: https://spotify.link/JOhIXVhzxXb
+    // We’ll just append it to embed/track/ assuming it's the track ID
+    const trackId = url.split("/").pop(); // gets 'JOhIXVhzxXb'
+    return `https://open.spotify.com/embed/track/${trackId}`;
   }
 
   return null;
