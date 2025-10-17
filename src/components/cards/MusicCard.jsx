@@ -307,11 +307,11 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                     <iframe
                       src={getSpotifyEmbedUrl(slide.musicUrl)}
                       width="100%"
-                      height="80"
+                      height="100"
                       frameBorder="0"
                       allow="encrypted-media"
                       title="Spotify Preview"
-                    ></iframe>
+                     className="spot"></iframe>
                   ) : (
                     <audio controls>
                       <source src={slide.musicUrl} type="audio/mpeg" />

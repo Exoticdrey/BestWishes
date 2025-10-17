@@ -170,7 +170,7 @@ function CardStep1({ register, errors, onNext, onBack, watch }) {
             <div className="color-options">
               {[
                 "#C5C5F7",
-                "#FFFFFF",
+                "#9AF7F7",
                 "#EEA3DD",
                 "#DDF9E4",
                 "#DDEBF3",
