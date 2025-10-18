@@ -15,9 +15,9 @@ function Navbar2() {
 
   const handleSelect = (type) => {
     if (type === "vendor") {
-      navigate("/vendor-signup");
+      navigate("/vendorsignup");
     } else if (type === "user") {
-      navigate("/createcard");
+      navigate("/create-template");
     }
     setShowModal(false);
   };
