@@ -276,8 +276,8 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                 ...getSlideStyle(index),
                 backgroundColor: slide.isCover ? "transparent" : slide.backgroundColor,
                 fontFamily: slide.fontFamily,
-                width: "250px",
-                height: "300px",
+                width: "350px",
+                height: "350px",
               }}
             >
               <div className={`card-preview ${slide.design}`}>

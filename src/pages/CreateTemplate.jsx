@@ -39,6 +39,9 @@ function CreateTemplate() {
     "Christmas",
     "Easter Cards",
     "Special Occasion",
+    "Situationships",
+    "Boyfriend's Day",
+    "Postpartum",
   ];
 
   const [activeCategory, setActiveCategory] = useState("All");

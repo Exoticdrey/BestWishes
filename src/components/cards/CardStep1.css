@@ -1,0 +1,66 @@
+.anon-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.anon-popup-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 330px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: popUp 0.25s ease;
+}
+
+.anon-popup-content h3 {
+  margin-bottom: 10px;
+}
+
+.anon-popup-content p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.ok-btn {
+  background: #f04c74;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ddd;
+  color: black;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -62,6 +62,112 @@
   opacity: 0.7;
 }
 
+.get-started-btn,
+.get-started-btn-mobile {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* .get-started-btn:hover,
+.get-started-btn-mobile:hover {
+  background-color: #9c74ff;
+} */
+
+/* Modal Overlay */
+.getstarted-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.getstarted-modal {
+  background: linear-gradient(145deg, #fff, #f7f5ff);
+  padding: 40px 50px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(176, 140, 255, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.getstarted-modal h2 {
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-family: "Life Savers";
+  font-weight: 700;
+}
+
+/* Role Cards */
+.role-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.role-card {
+  background: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 14px;
+  padding: 18px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.role-card:hover {
+  /* border-color: #b08cff; */
+  box-shadow: 0 6px 18px rgba(249, 140, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.role-card h3 {
+  margin: 0 0 6px 0;
+  color: var(--primary-color);
+  font-family: "Life Savers";
+  font-size: 1.2rem;
+}
+
+.role-card p {
+  margin: 0;
+  color: #5b5568;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Close Button */
+.close-modal {
+  background: none;
+  border: none;
+  color: #7a6ea6;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #3c2a63;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
 /* Hamburger Menu Button */
 .hamburger-menu {
   display: none;
