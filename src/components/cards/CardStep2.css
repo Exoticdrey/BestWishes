@@ -8,6 +8,44 @@
   color: var(--text-color);
   box-shadow: var(--box-shadow);
 }
+.recording-visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 30px;
+  margin-right: 12px;
+}
+
+.recording-visualizer .bar {
+  width: 4px;
+  background: var(--primary-color);
+  border-radius: 4px;
+  animation: bounce 0.8s infinite ease-in-out;
+}
+
+.recording-visualizer .bar:nth-child(1) { animation-delay: 0s; }
+.recording-visualizer .bar:nth-child(2) { animation-delay: 0.1s; }
+.recording-visualizer .bar:nth-child(3) { animation-delay: 0.2s; }
+.recording-visualizer .bar:nth-child(4) { animation-delay: 0.3s; }
+.recording-visualizer .bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 100% { height: 6px; }
+  50% { height: 25px; }
+}
+
+.recording-text {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 8px;
+  animation: fadePulse 1s infinite alternate;
+}
+
+@keyframes fadePulse {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
 
 /* back arrow */
 .back-btns {

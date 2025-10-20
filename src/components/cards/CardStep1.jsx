@@ -237,6 +237,7 @@ import { useState } from "react";
 import SlideUp from "../../ui/SlideUp";
 import "./CardStep1.css";
 
+
 function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSendYourself, setIsSendYourself] = useState(false);
@@ -270,7 +271,8 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
     setShowAnonWarning(false);
     setIsAnonymous(true);
     setIsSendYourself(false);
-    setValue("senderName", ""); // clear sender name when anonymous
+    setValue("senderName", "");
+    setValue("senderEmail", "");
   };
 
   const handleAnonCancel = () => {
@@ -355,39 +357,86 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
             )}
           </div>
 
+          {/* Recipient Email */}
+          <div className="form-group">
+            <label>Recipient Email</label>
+            <input
+              type="email"
+              placeholder="Enter recipient email"
+              {...register("recipientEmail", {
+                required: "Recipient email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Enter a valid email",
+                },
+              })}
+              className={errors?.recipientEmail ? "error" : ""}
+            />
+            {errors?.recipientEmail && (
+              <span className="error-message">
+                {errors.recipientEmail.message}
+              </span>
+            )}
+          </div>
+
           {/* Sender */}
-          {isSendYourself && (
-            <div className="form-group">
-              <label>From (Sender name)</label>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                {...register("senderName", {
-                  required: "Sender name is required",
-                })}
-                className={errors?.senderName ? "error" : ""}
-              />
-              {errors?.senderName && (
-                <span className="error-message">
-                  {errors.senderName.message}
-                </span>
-              )}
-            </div>
+          {!isAnonymous && isSendYourself && (
+            <>
+              <div className="form-group">
+                <label>From (Sender name)</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  {...register("senderName", {
+                    required: "Sender name is required",
+                  })}
+                  className={errors?.senderName ? "error" : ""}
+                />
+                {errors?.senderName && (
+                  <span className="error-message">
+                    {errors.senderName.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Sender Email */}
+              <div className="form-group">
+                <label>Sender Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  {...register("senderEmail", {
+                    required: "Sender email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Enter a valid email",
+                    },
+                  })}
+                  className={errors?.senderEmail ? "error" : ""}
+                />
+                {errors?.senderEmail && (
+                  <span className="error-message">
+                    {errors.senderEmail.message}
+                  </span>
+                )}
+              </div>
+            </>
           )}
 
           {/* Fonts */}
           <div className="form-group">
             <label>Fonts</label>
             <div className="fonts-inputs">
-              <select {...register("fontFamily")}>
+              <select
+                {...register("fontFamily")}
+                style={{ fontFamily: selectedFont || "inherit" }}
+              >
                 <option value="">Select font</option>
-                {fonts.map((font, index) => (
+                {fonts.map((font) => (
                   <option
-                    key={index}
+                    key={font}
                     value={font}
-                    style={{
-                      fontFamily: font,
-                    }}
+                    style={{ fontFamily: font }}
                   >
                     {font}
                   </option>
@@ -404,8 +453,8 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
                   "24px",
                   "28px",
                   "32px",
-                ].map((size, index) => (
-                  <option key={index} value={size}>
+                ].map((size) => (
+                  <option key={size} value={size}>
                     {size}
                   </option>
                 ))}
@@ -431,23 +480,23 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
             )}
           </div>
 
-          {/* Color Scheme */}
+          {/* Text Color */}
           <div className="form-group">
-            <label>Color Scheme</label>
+            <label>Text Color</label>
             <div className="color-options">
               {[
-                "#C5C5F7",
-                "#9AF7F7",
-                "#EEA3DD",
-                "#DDF9E4",
-                "#DDEBF3",
-                "#FFD8C2",
+                "#f02c2c",
+                "#000000",
+                "#f649cd",
+                "#81fca0",
+                "#55b8f1",
+                "#f35b04",
               ].map((color) => (
                 <input
                   key={color}
                   type="radio"
                   value={color}
-                  {...register("backgroundColor")}
+                  {...register("textColor")}
                   style={{
                     appearance: "none",
                     width: "30px",
@@ -478,6 +527,7 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
                 padding: "1rem",
                 fontFamily: selectedFont || "inherit",
                 fontSize: selectedFontSize || "16px",
+                color: watch("textColor") || "#000",
               }}
             ></textarea>
             {errors?.message && (
@@ -500,9 +550,8 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
           <div className="anon-popup-content">
             <h3>⚠️ Send Anonymously?</h3>
             <p>
-              If you send anonymously, your name will not appear anywhere on the
-              card. The recipient won’t know who sent it. Are you sure you want
-              to continue?
+              If you send anonymously, your name and email will not appear
+              anywhere on the card. The recipient won’t know who sent it.
             </p>
             <div className="popup-buttons">
               <button onClick={handleAnonCancel} className="cancel-btn">
