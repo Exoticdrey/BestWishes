@@ -5,7 +5,7 @@ import './Products.css';
 const Products = () => {
     return (
         <section className="products">
-
+            <div className="soon"><h2>Coming soon...</h2></div>
             <div className="products-filter">
 
                 <div className="filter-item">

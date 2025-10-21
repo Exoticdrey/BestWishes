@@ -10,7 +10,7 @@ const Pricing = () => {
     <>
         <Navbar />
         <SpinHead />
-        <Loyalty />
+        {/* <Loyalty /> */}
         <SpinWin />
         <Footer />
     </>

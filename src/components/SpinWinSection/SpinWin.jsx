@@ -50,6 +50,7 @@ const SpinWin = () => {
 
   return (
     <section className="spin-win">
+      <div className="soon"><h2>Coming Soon...</h2></div>
       <div className="spin-container">
         
         <div className="wheel-container">

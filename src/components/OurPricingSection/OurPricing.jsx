@@ -23,7 +23,7 @@ const OurPricing = () => {
                                 <p>Get started without commitment</p>
                             </div>
                             <div className="free-week">
-                                <p>1 Week Free</p>
+                                <p>1 Day Free</p>
                             </div>
                         </div>
                         <div className="free-trial-bottom">

@@ -2,8 +2,15 @@
     /* border: 1px solid black; */
     margin-top: 30px;
 }
+.soon{
+    font-size: 45px;
+    margin-top: 150px;
+    font-family: "Life Savers";
+    color: var(--primary-color);
+}
 .products-filter{
     /* border: 1px solid red; */
+    display: none;
 }
 .filter-item{
     /* border: 1px solid blue; */
@@ -56,6 +63,7 @@
     padding: 200px;
     padding-top: 20px;
     margin-bottom: -170px;
+    display: none;
     
 }
 .marketplace-cards-1{
@@ -83,8 +91,12 @@
     /* margin-bottom: -170px; */
     justify-content: center;
     align-items: center;
+    display: none;
 
     
+}
+.soon{
+    font-size: 30px;
 }
 .marketplace-cards-1{
     width: 300px;
@@ -121,7 +133,7 @@
 
     /* justify-content: center; */
     /* align-items: center; */
-
+        display: none;
     
 }
 .marketplace-cards-1{
@@ -159,7 +171,7 @@
 
     /* justify-content: center; */
     /* align-items: center; */
-
+        display: none;
     
 }
 .marketplace-cards-1{

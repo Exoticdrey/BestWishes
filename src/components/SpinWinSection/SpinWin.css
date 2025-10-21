@@ -12,6 +12,7 @@
   justify-content: center;
   gap: 5rem;
   margin-top: 60px;
+  display: none;
 }
 
 .wheel-container {
@@ -122,6 +123,7 @@
   .spin-container{
     flex-direction: column;
     width: 100vw;
+    display: none;
   }
   .wheel-wrapper{
     width: 300px;
@@ -139,6 +141,7 @@
     .spin-container{
     /* flex-direction: column; */
     width: 100vw;
+    display: none;
   }
   .wheel-wrapper{
     width: 300px;
@@ -156,6 +159,7 @@
     .spin-container{
     /* flex-direction: column; */
     width: 100vw;
+    display: one;
   }
   .wheel-wrapper{
     width: 300px;

@@ -13,7 +13,7 @@ const Marketplace = () => {
     
     <Navbar />
     <MkHead />
-    <Loyalty />
+    {/* <Loyalty /> */}
     <Products />
     <Footer />
       
