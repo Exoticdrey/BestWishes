@@ -664,18 +664,19 @@ function CardStep2({ register, errors, setValue, watch, formData = {}, onNext, o
         />
       </div>
 
-      {/* ✍️ Quote */}
+      {/* ✍️ nickname */}
       <div className="form-group">
-        <label>Add Favorite Quote</label>
+        <label>Add Sweet Nickname</label>
         <input
           type="text"
-          placeholder="Enter quote"
+          placeholder="Enter nickname"
           className="input-field"
           value={quote}
           onChange={(e) => setValue("quote", e.target.value)}
           style={{
             fontFamily: selectedFont || "inherit",
             fontSize: selectedFontSize || "16px",
+            color: watch("textColor") || "#000",
           }}
         />
       </div>

@@ -282,7 +282,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
             >
               <div className={`card-preview ${slide.design}`}>
                 {/* Image */}
-                {slide.image && <img style={{ marginTop: "60%"}} src={slide.image} alt="" />}
+                {slide.image && <img style={{ marginTop: "30%"}} src={slide.image} alt="" />}
 
                 {/* Title / Recipient */}
                 {slide.title && (
@@ -296,7 +296,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                   </h2>
                 )}
 
-                {/* Quote / Message */}
+                {/* Nickname / Message */}
                 {slide.message && (
                   <p style={{ fontSize: slide.fontSize - 4, marginBottom: "20px", marginTop: "10px"}}>{slide.message}</p>
                 )}
