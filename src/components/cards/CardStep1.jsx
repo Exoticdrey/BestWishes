@@ -217,8 +217,6 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
                   "16px",
                   "18px",
                   "20px",
-                  "24px",
-                  "28px",
                 ].map((size) => (
                   <option key={size} value={size}>
                     {size}
