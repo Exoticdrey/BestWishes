@@ -19,11 +19,11 @@ const Home = () => {
     
     <Navbar2 />
     <Hero />
+    <RealTime />
     <Features />
     <Works />
     <MagicTouch />
     <SendLove />
-    <RealTime />
     <MkPlace />
     <Testimonials />
     <Callta />
