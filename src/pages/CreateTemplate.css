@@ -30,7 +30,7 @@
 .template-card {
   /* border: 1px solid #ddd; */
   width: 100%;
-  max-width: 220px;
+  max-width: 260px;
   cursor: pointer;
   text-align: center;
   transition: 0.3s;
@@ -45,7 +45,7 @@
 .template-img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
 /* ===== CATEGORY CAROUSEL ===== */
@@ -185,4 +185,31 @@
     scroll-padding-left: 0.8rem;
     gap: 10px;
   }
+  .template-card {
+  /* border: 1px solid red; */
+  width: 90%;
+  max-width: 260px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  background: none;
+}
+
+.template-card:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.15); */
+}
+
+.template-img {
+  width: 100%;
+  height: auto;
+  /* border-radius: 8px; */
+}
+.templates{
+  /* border: 1px solid blue; */
+  margin: auto;
+  gap: 30px;
+  padding: 10px;
+  margin-top:30px;
+}
 }
