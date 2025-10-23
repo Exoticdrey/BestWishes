@@ -2,9 +2,9 @@
 
 
 import React, { useState } from "react";
-import "./MusicCard.css";
+import "./MusicBox.css";
 
-const MusicCard = ({ formData, showTemplateCover = false }) => {
+const MusicBox = ({ formData = {}, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   // Convert Spotify URL to embed form
@@ -236,4 +236,4 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
   );
 };
 
-export default MusicCard;
+export default MusicBox;

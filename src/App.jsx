@@ -125,6 +125,7 @@ import SignIn from "./pages/Signin";
 import VendorSignUp from "./pages/VendorSignup";
 import VendorComplete from "./pages/VendorComplete";
 import ScheduleCard from "./pages/ScheduleCard";
+import ScheduleTemplate from "./pages/ScheduleTemplate";
 import Terms from "./pages/TermsofService";
 import Faq from "./pages/FrequentQuestions";
 import Privacy from "./pages/PrivacyPolicy";
@@ -149,6 +150,7 @@ function App() {
       <Route path="/vendorsignup" element={<VendorSignUp />} />
       <Route path="/vendorproceed" element={<VendorComplete />} />
       <Route path="/create-card" element={<CreateCard />} />
+      <Route path="/schedule-template" element={<ScheduleTemplate />} />
       <Route
         path="/create-template"
         element={

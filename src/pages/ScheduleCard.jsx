@@ -3,13 +3,18 @@ import { useForm } from "react-hook-form";
 import ScheduleCard1 from "../components/schedule/ScheduleCard1";
 import ScheduleCard2 from "../components/schedule/ScheduleCard2";
 import ScheduleCard3 from "../components/schedule/ScheduleCard3";
-import Navbar from "../ui/Navbar";
+import ScheduleCard4 from "../components/schedule/ScheduleCard4";
+import Navbar2 from "../components/Navbar/Navbar2";
 import Footer from "../ui/Footer";
 import "./ScheduleCard.css";
+import { useLocation } from "react-router-dom";
 
 function ScheduleCard() {
+  const location = useLocation();
+  const selectedTemplate = location.state?.template || null;
+
   const [currentScheduleStep, setCurrentScheduleStep] = useState(0);
-  const [scheduleFormData, setScheduleFormData] = useState({});
+  const [scheduleFormData, setScheduleFormData] = useState({template: selectedTemplate });
 
   const {
     register,
@@ -36,7 +41,8 @@ function ScheduleCard() {
   const steps = [
     { title: "Anniversary Details", Component: ScheduleCard1 },
     { title: "Additional Info", Component: ScheduleCard2 },
-    { title: "Preview Selection", Component: ScheduleCard3 },
+    { title: "More Info", Component: ScheduleCard3 },
+    { title: "Preview Selection", Component: ScheduleCard4 },
   ];
 
   const isLastStep = currentScheduleStep === steps.length - 1;
@@ -63,7 +69,7 @@ function ScheduleCard() {
 
   return (
     <>
-      <Navbar />
+      <Navbar2 />
 
       <div className="schedule">
         <div className="schedule-headline">

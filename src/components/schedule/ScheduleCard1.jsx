@@ -1,12 +1,46 @@
 import { useState } from "react";
 import SlideUp from "../../ui/SlideUp";
 import "./ScheduleCard1.css";
-function ScheduleStep1({ register, onNext }) {
+
+
+
+function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSendYourself, setIsSendYourself] = useState(false);
+    const [showAnonWarning, setShowAnonWarning] = useState(false);
 
-  const handleAnonymousChange = () => setIsAnonymous(!isAnonymous);
-  const handleSendYourselfChange = () => setIsSendYourself(!isSendYourself);
+  // const handleAnonymousChange = () => setIsAnonymous(!isAnonymous);
+  // const handleSendYourselfChange = () => setIsSendYourself(!isSendYourself);
+
+
+    const handleAnonymousToggle = () => {
+    if (!isAnonymous) {
+      setShowAnonWarning(true);
+    } else {
+      setIsAnonymous(false);
+    }
+  };
+
+  const handleAnonConfirm = () => {
+    setShowAnonWarning(false);
+    setIsAnonymous(true);
+    setIsSendYourself(false);
+    setValue("senderName", "");
+    setValue("senderEmail", "");
+  };
+
+  const handleAnonCancel = () => {
+    setShowAnonWarning(false);
+    setIsAnonymous(false);
+  };
+
+  const handleSendYourselfToggle = () => {
+    const nextState = !isSendYourself;
+    setIsSendYourself(nextState);
+    if (nextState) {
+      setIsAnonymous(false);
+    }
+  };
 
   return (
     <SlideUp delay={0.06}>
@@ -29,7 +63,7 @@ function ScheduleStep1({ register, onNext }) {
                   <input
                     type="checkbox"
                     checked={isAnonymous}
-                    onChange={handleAnonymousChange}
+                    onChange={handleAnonymousToggle}
                     className="toggle-input"
                   />
                   <div className="toggle-bg"></div>
@@ -53,7 +87,7 @@ function ScheduleStep1({ register, onNext }) {
                     <input
                       type="checkbox"
                       checked={isSendYourself}
-                      onChange={handleSendYourselfChange}
+                      onChange={handleSendYourselfToggle}
                       className="toggle-input"
                     />
                     <div className="toggle-bg"></div>
@@ -106,8 +140,22 @@ function ScheduleStep1({ register, onNext }) {
                 />
               </div>
 
-              {/* Sender Name */}
               <div className="schedule-flex-col">
+                <label>To (Recipient Email)</label>
+                <input
+                  type="email"
+                  placeholder="recipient@example.com"
+                  {...register("recipientEmail", {
+                    required: "Email is required",
+                  })}
+                  style={{ padding: "1rem 1rem" }}
+                />
+              </div>
+
+              {/* Sender Name */}
+              {!isAnonymous && isSendYourself && (
+                <>
+                  <div className="schedule-flex-col">
                 <label>From (Sender name)</label>
                 <input
                   type="text"
@@ -117,6 +165,32 @@ function ScheduleStep1({ register, onNext }) {
                   placeholder="Adebayo Israel"
                 />
               </div>
+
+
+              {/* Sender Email */}
+              <div className="form-group">
+                <label>Sender Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  {...register("senderEmail", {
+                    required: "Sender email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Enter a valid email",
+                    },
+                  })}
+                  className={errors?.senderEmail ? "error" : ""}
+                />
+                {errors?.senderEmail && (
+                  <span className="error-message">
+                    {errors.senderEmail.message}
+                  </span>
+                )}
+              </div>
+                </>
+              )}
+              
 
               <div className="schedule-flex-col">
                 <label>Time Zone</label>
@@ -134,14 +208,14 @@ function ScheduleStep1({ register, onNext }) {
               </div>
 
               {/* Schedule for */}
-              <div className="schedule-flex-col">
+              {/* <div className="schedule-flex-col">
                 <label>Schedule for ?</label>
                 <input
                   type="text"
                   placeholder="1-200 people"
                   {...register("audience", { required: "Required" })}
                 />
-              </div>
+              </div> */}
 
               {/* Date & Time */}
               <div className="row">
@@ -165,17 +239,9 @@ function ScheduleStep1({ register, onNext }) {
                 </div>
               </div>
 
-              <div className="schedule-flex-col">
-                <label>To (Recipient Email)</label>
-                <input
-                  type="email"
-                  placeholder="recipient@example.com"
-                  {...register("recipientEmail", {
-                    required: "Email is required",
-                  })}
-                  style={{ padding: "2rem 1rem" }}
-                />
-              </div>
+                    
+
+              
 
               {/* Button */}
               <div className="schedule-form-btn">
@@ -191,6 +257,27 @@ function ScheduleStep1({ register, onNext }) {
           </div>
         </div>
       </div>
+
+      {/* Anonymous warning modal */}
+      {showAnonWarning && (
+        <div className="anon-popup">
+          <div className="anon-popup-content">
+            <h3>⚠️ Send Anonymously?</h3>
+            <p>
+              If you send anonymously, your name and email will not appear
+              anywhere on the card. The recipient won’t know who sent it.
+            </p>
+            <div className="popup-buttons">
+              <button onClick={handleAnonCancel} className="cancel-btn">
+                Cancel
+              </button>
+              <button onClick={handleAnonConfirm} className="ok-btn">
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </SlideUp>
   );
 }

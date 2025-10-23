@@ -56,7 +56,7 @@ const Hero = () => {
         <Link to="/create-template" className="create">
           Create Your Card
         </Link>
-        <Link to="/schedule-card" className="schedule">
+        <Link to="/schedule-template" className="schedule">
           Schedule A Card
         </Link>
       </div>

@@ -73,7 +73,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>
           📧 Email us :{" "}
-          <a href="mailto:support@bestwishes.com">Support@bestwishes.com</a>
+          <a href="mailto:info@bestwishes.com">Support@bestwishes.com</a>
         </p>
       </div>
     </footer>

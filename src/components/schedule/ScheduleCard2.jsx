@@ -1,60 +1,176 @@
 import SlideUp from "../../ui/SlideUp";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef,useCallback } from "react";
 
 function ScheduleCard2({
   register,
   errors,
   onNext,
   setValue,
-  formData,
+  formData = {},
+  watch,
   onBack,
 }) {
-  const [recording, setRecording] = useState(false);
-  const [mediaRecorder, setMediaRecorder] = useState(null);
-  const [audioURL, setAudioURL] = useState(null);
-  const [chunks, setChunks] = useState([]);
+
+  const fileInputRef = useRef(null);
+    const [previewName, setPreviewName] = useState(formData.image?.name || "");
+    const [previewUrl, setPreviewUrl] = useState(formData.imageUrl || "");
+    const [dragActive, setDragActive] = useState(false);
+
+  // const [recording, setRecording] = useState(false);
+  // const [mediaRecorder, setMediaRecorder] = useState(null);
+  // const [audioURL, setAudioURL] = useState(null);
+  // const [chunks, setChunks] = useState([]);
+
+    const selectedFont = watch("fontFamily");
+  const selectedFontSize = watch("fontSize");
+
+  const fonts = [
+    "Roboto",
+    "Open Sans",
+    "Lato",
+    "Montserrat",
+    "Oswald",
+    "Raleway",
+    "Dancing Script",
+    "Playfair Display",
+    "Poppins",
+    "Pacifico",
+  ];
+
+    // 🎙️ Voice Recording States
+    const [isRecording, setIsRecording] = useState(false);
+    const [audioUrl, setAudioUrl] = useState(formData.voiceUrl || null);
+    const [recordSeconds, setRecordSeconds] = useState(0);
+    const mediaRecorderRef = useRef(null);
+    const audioChunksRef = useRef([]);
+    const recordIntervalRef = useRef(null);
+
+      // ✅ Watch values
+  const musicUrl = watch?.("musicUrl") || "";
+  const recipient = watch?.("recipient") || formData.recipient || "";
+  const quote = watch?.("quote") || formData.quote || "";
+
+    // 🎵 Spotify embed
+  const getSpotifyEmbedUrl = (url) => {
+    if (!url) return null;
+    if (url.includes("open.spotify.com/track/")) {
+      return url.replace("open.spotify.com/track/", "open.spotify.com/embed/track/");
+    }
+    return null;
+  };
 
   // If formData.voiceNote comes from parent (for preview), generate object URL when it changes
-  useEffect(() => {
-    if (formData?.voiceNote instanceof Blob) {
-      const url = URL.createObjectURL(formData.voiceNote);
-      setAudioURL(url);
+
+
+  // useEffect(() => {
+  //   if (formData?.voiceNote instanceof Blob) {
+  //     const url = URL.createObjectURL(formData.voiceNote);
+  //     setAudioURL(url);
 
       // Cleanup to avoid memory leaks
-      return () => URL.revokeObjectURL(url);
-    }
-  }, [formData?.voiceNote]);
 
-  const handleStartRecording = async () => {
-    setChunks([]);
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream);
+  //     return () => URL.revokeObjectURL(url);
+  //   }
+  // }, [formData?.voiceNote]);
 
-      recorder.ondataavailable = (e) => {
-        if (e.data.size > 0) setChunks((prev) => [...prev, e.data]);
+  // const handleStartRecording = async () => {
+  //   setChunks([]);
+  //   try {
+  //     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  //     const recorder = new MediaRecorder(stream);
+
+  //     recorder.ondataavailable = (e) => {
+  //       if (e.data.size > 0) setChunks((prev) => [...prev, e.data]);
+  //     };
+
+  //     recorder.onstop = () => {
+  //       const blob = new Blob(chunks, { type: "audio/webm" });
+  //       setAudioURL(URL.createObjectURL(blob));
+  //       setValue("voiceNote", blob); // Save to form
+  //     };
+
+  //     recorder.start();
+  //     setMediaRecorder(recorder);
+  //     setRecording(true);
+  //   } catch (err) {
+  //     alert("Microphone access denied or not available.");
+  //   }
+  // };
+
+  // const handleStopRecording = () => {
+  //   if (mediaRecorder) {
+  //     mediaRecorder.stop();
+  //     setRecording(false);
+  //   }
+  // };
+
+
+  // 🎙️ Voice note recording
+    const handleRecord = async () => {
+      if (isRecording) {
+        mediaRecorderRef.current.stop();
+        setIsRecording(false);
+        clearInterval(recordIntervalRef.current);
+        recordIntervalRef.current = null;
+      } else {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          const mediaRecorder = new MediaRecorder(stream);
+          mediaRecorderRef.current = mediaRecorder;
+          audioChunksRef.current = [];
+  
+          mediaRecorder.ondataavailable = (event) => {
+            audioChunksRef.current.push(event.data);
+          };
+  
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+            const audioURL = URL.createObjectURL(audioBlob);
+            setAudioUrl(audioURL);
+            setValue("voiceUrl", audioURL, { shouldDirty: true });
+            setValue("voiceNote", audioBlob, { shouldDirty: true });
+            stream.getTracks().forEach((track) => track.stop());
+          };
+  
+          mediaRecorder.start();
+          setIsRecording(true);
+          setRecordSeconds(0);
+  
+          recordIntervalRef.current = setInterval(() => {
+            setRecordSeconds((prev) => {
+              if (prev + 1 >= 120) {
+                mediaRecorder.stop();
+                clearInterval(recordIntervalRef.current);
+                recordIntervalRef.current = null;
+                setIsRecording(false);
+                return 120;
+              }
+              return prev + 1;
+            });
+          }, 1000);
+        } catch (error) {
+          alert("Microphone access denied or unavailable.");
+          console.error(error);
+        }
+      }
+    };
+  
+    // 🧹 Cleanup timer when unmounting
+    useEffect(() => {
+      return () => {
+        if (recordIntervalRef.current) {
+          clearInterval(recordIntervalRef.current);
+        }
       };
-
-      recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: "audio/webm" });
-        setAudioURL(URL.createObjectURL(blob));
-        setValue("voiceNote", blob); // Save to form
-      };
-
-      recorder.start();
-      setMediaRecorder(recorder);
-      setRecording(true);
-    } catch (err) {
-      alert("Microphone access denied or not available.");
-    }
-  };
-
-  const handleStopRecording = () => {
-    if (mediaRecorder) {
-      mediaRecorder.stop();
-      setRecording(false);
-    }
-  };
+    }, []);
+  
+    const formatTime = (seconds) => {
+      const mins = Math.floor(seconds / 60)
+        .toString()
+        .padStart(2, "0");
+      const secs = (seconds % 60).toString().padStart(2, "0");
+      return `${mins}:${secs}`;
+    };
 
   return (
     <SlideUp delay={0.2}>
@@ -97,16 +213,49 @@ function ScheduleCard2({
                 {/* Font Selection */}
                 <div className="col">
                   <label htmlFor="font">Fonts</label>
-                  <select id="font" {...register("font")}>
+                  {/* <select id="font" {...register("font")}>
                     <option value="arial">Arial</option>
                     <option value="times">Times New Roman</option>
                     <option value="courier">Courier New</option>
                     <option value="verdana">Verdana</option>
-                  </select>
+                  </select> */}
+
+
+                  <div className="fonts-inputs">
+              <select
+                {...register("fontFamily")}
+                style={{ fontFamily: selectedFont || "inherit" }}
+              >
+                <option value="">Select font</option>
+                {fonts.map((font) => (
+                  <option
+                    key={font}
+                    value={font}
+                    style={{ fontFamily: font }}
+                  >
+                    {font}
+                  </option>
+                ))}
+              </select>
+              <select {...register("fontSize")}>
+                <option value="">Size</option>
+                {[
+                  "12px",
+                  "14px",
+                  "16px",
+                  "18px",
+                  "20px",
+                ].map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+            </div>
                 </div>
 
                 {/* Font Size */}
-                <div className="col">
+                {/* <div className="col">
                   <label htmlFor="fontSize">Font Size</label>
                   <select id="fontSize" {...register("fontSize")}>
                     <option value="12">12</option>
@@ -115,36 +264,46 @@ function ScheduleCard2({
                     <option value="18">18</option>
                     <option value="20">20</option>
                   </select>
-                </div>
+                </div> */}
               </div>
+
+
               {/* Effect */}
               <div className="form-group">
                 <label htmlFor="effect">Effect</label>
-                <select id="effect" {...register("effect")}>
-                  <option value="none">None</option>
-                  <option value="fade">Fade In/Out</option>
-                  <option value="slide">Slide In</option>
-                  <option value="zoom">Zoom In</option>
-                </select>
+                <select
+              {...register("effect", { required: "Please select an effect" })}
+            >
+              <option value="">Select an effect</option>
+              <option value="confetti">🎉 Confetti</option>
+              <option value="balloons">🎈 Balloons</option>
+              <option value="fireworks">💥 Fireworks</option>
+              <option value="petals">🌸 Petals</option>
+              <option value="snow">❄️ Snow</option>
+            </select>
+                  {errors?.effect && (
+              <span className="error-message">{errors.effect.message}</span>
+            )}
+
               </div>
 
-              {/* Color Scheme */}
+              {/* Text Color Scheme */}
               <div className="form-group">
-                <label>Color Scheme</label>
+                <label>Text Color</label>
                 <div className="color-options">
                   {[
-                    "#F34DBD",
-                    "#7B61FF",
-                    "#FC5555",
-                    "#29CC6A",
-                    "#0099FF",
-                    "#222222",
+                    "#f02c2c",
+                "#000000",
+                "#f649cd",
+                "#81fca0",
+                "#55b8f1",
+                "#f35b04",
                   ].map((color) => (
                     <input
                       key={color}
                       type="radio"
                       value={color}
-                      {...register("color")}
+                      {...register("textColor")}
                       style={{
                         appearance: "none",
                         width: "30px",
@@ -173,7 +332,7 @@ function ScheduleCard2({
                   Your heartfelt Message
                 </label>
                 <textarea
-                  {...register("recipient", {
+                  {...register("message", {
                     required: "Message is required",
                   })}
                   placeholder="Enter Your heartfelt Message"
@@ -182,99 +341,96 @@ function ScheduleCard2({
                     border: "1px solid #cccccc",
                     borderRadius: "8px",
                     height: "6rem",
-                    padding: "1rem",
+                    padding: "1rem", fontFamily: selectedFont || "inherit",
+                fontSize: selectedFontSize || "16px",
+                color: watch("textColor") || "#000",
                   }}
                 ></textarea>
+                {errors?.message && (
+              <span className="error-message">{errors.message.message}</span>
+            )}
               </div>
 
-              {/* Music URL */}
-              <div className="form-group">
-                <label>Attach music</label>
-                <input
-                  type="text"
-                  placeholder="Paste Spotify URL"
-                  className="input-field"
-                  {...register("musicUrl")}
+              {/* 🎵 Music */}
+      <div className="form-group">
+        <label>Attach music</label>
+        <input
+          type="text"
+          placeholder="Paste Spotify URL"
+          className="input-field"
+          value={musicUrl}
+          onChange={(e) => setValue("musicUrl", e.target.value)}
+        />
+        {errors?.musicUrl && <div className="error">{errors.musicUrl.message}</div>}
+        {getSpotifyEmbedUrl(musicUrl) && (
+          <div className="spotify-preview" style={{ marginTop: "10px" }}>
+            <iframe
+              src={getSpotifyEmbedUrl(musicUrl)}
+              width="100%"
+              height="80"
+              frameBorder="0"
+              allow="encrypted-media"
+              title="Spotify Preview"
+            ></iframe>
+          </div>
+        )}
+      </div>
+
+{/* 🎙️ Voice Note */}
+      <div className="form-group voice-section">
+        <label>Voicenote</label>
+        <div className="voice-container">
+          <div className="voice-left">
+            <div className="voice-icon" aria-hidden>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                style={{ width: "2rem" }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 
+                  6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 
+                  0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 
+                  3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
                 />
-                {errors?.musicUrl && (
-                  <div className="error">{errors.musicUrl.message}</div>
-                )}
-              </div>
+              </svg>
+            </div>
+            <div className="voice-text">
+              <div className="bold">Add a personal voice note</div>
+              <div className="muted">Max 2mins</div>
+            </div>
+          </div>
 
-              {/* Voice Note Section */}
-              <div className="form-group voice-section">
-                <label>Voicenote</label>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "1rem",
-                    marginBottom: "1rem",
-                    border: "1px solid #cccccc",
-                    padding: "0.2rem 1rem",
-                    borderRadius: "8px",
-                  }}
-                >
-                  <button
-                    type="button"
-                    className="record-btn"
-                    onClick={
-                      recording ? handleStopRecording : handleStartRecording
-                    }
-                    style={{
-                      backgroundColor: "#eee",
-                      color: "#d600a3",
-                      border: "none",
-                      borderRadius: "50%",
-                      width: "48px",
-                      height: "48px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1rem",
-                      cursor: "pointer",
-                      textAlign: "center",
-                    }}
-                  >
-                    {recording ? (
-                      "Stop"
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        style={{ width: "24px", height: "24px" }}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
-                        />
-                      </svg>
-                    )}
-                  </button>
-                  <div>
-                    <small>Add a personal voice note</small>
-                    <br />
-                    <small>Max 2 mins</small>
-                  </div>
-                </div>
-                <div>
-                  {audioURL && (
-                    <audio
-                      controls
-                      src={audioURL}
-                      style={{ marginLeft: "1rem" }}
-                    />
-                  )}
+          {isRecording && (
+            <div className="recording-visualizer">
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <span className="recording-text">{formatTime(recordSeconds)}</span>
+            </div>
+          )}
 
-                  {errors?.voiceNote && (
-                    <div className="error">{errors.voiceNote.message}</div>
-                  )}
-                </div>
-              </div>
+          <button
+            type="button"
+            className={`record-btn ${isRecording ? "recording" : ""}`}
+            onClick={handleRecord}
+          >
+            {isRecording ? "Stop" : "Record"}
+          </button>
+        </div>
+        {audioUrl && (
+          <div className="audio-preview" style={{ marginTop: "10px" }}>
+            <audio controls src={audioUrl}></audio>
+          </div>
+        )}
+      </div>
 
               <div className="schedule-form-btn">
                 <button
