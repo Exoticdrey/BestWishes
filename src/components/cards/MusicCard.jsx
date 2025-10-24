@@ -59,7 +59,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
     if (formData.musicUrl) {
       slides.push({
         design: "music",
-        title: "Music",
+        title: "Music?🎵",
         musicUrl: formData.musicUrl,
         backgroundColor: "#fcfbef",
         fontFamily: formData.fontFamily || "inherit",
@@ -72,7 +72,7 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
     if (formData.message) {
       slides.push({
         design: "message",
-        title: "Message",
+        title: "Message^_^",
         message: formData.message,
         backgroundColor: "#fcfbef",
         fontFamily: formData.fontFamily || "inherit",
@@ -140,9 +140,9 @@ const MusicCard = ({ formData, showTemplateCover = false }) => {
                 {/* Image */}
                 {slide.image && (
                   <img
-                    style={{ marginTop: "20%" }}
+                    style={{ marginTop: "" }}
                     src={slide.image}
-                    alt="Card Visual"
+                    alt="Card Visual" className="preview-img"
                   />
                 )}
 

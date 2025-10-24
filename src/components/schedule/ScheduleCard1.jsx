@@ -9,6 +9,8 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSendYourself, setIsSendYourself] = useState(false);
     const [showAnonWarning, setShowAnonWarning] = useState(false);
+    const [showOptionAlert, setShowOptionAlert] = useState(false);
+
 
   // const handleAnonymousChange = () => setIsAnonymous(!isAnonymous);
   // const handleSendYourselfChange = () => setIsSendYourself(!isSendYourself);
@@ -133,12 +135,16 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
               <div className="schedule-flex-col">
                 <label>To (Recipient Name)</label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Recipient name"
                   {...register("recipientName", {
                     required: "Recipient name  is required",
                   })}
+                  className={errors?.recipientName ? "error" : ""}
                 />
+                {errors?.recipient && (
+              <span className="error-message">{errors.recipientName.message}</span>
+            )}
               </div>
 
               <div className="schedule-flex-col">
@@ -148,9 +154,19 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
                   placeholder="recipient@example.com"
                   {...register("recipientEmail", {
                     required: "Email is required",
+                     pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Enter a valid email",
+                    },
                   })}
                   style={{ padding: "1rem 1rem" }}
+                  className={errors?.recipientEmail ? "error" : ""}
                 />
+                {errors?.recipientEmail && (
+                  <span className="error-message">
+                    {errors.recipientEmail.message}
+                  </span>
+                )}
               </div>
 
               {/* Sender Name */}
@@ -245,7 +261,7 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
               
 
               {/* Button */}
-              <div className="schedule-form-btn">
+              {/* <div className="schedule-form-btn">
                 <button
                   type="button"
                   onClick={onNext}
@@ -253,7 +269,24 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
                 >
                   Next
                 </button>
-              </div>
+              </div> */}
+
+              <div className="schedule-form-btn">
+  <button
+    type="button"
+    onClick={() => {
+      if (!isAnonymous && !isSendYourself) {
+        setShowOptionAlert(true);
+        return;
+      }
+      onNext();
+    }}
+    className="schedule-next-btn"
+  >
+    Next
+  </button>
+</div>
+
             </form>
           </div>
         </div>
@@ -279,6 +312,57 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
           </div>
         </div>
       )}
+
+      {/* Choose Option Warning Modal */}
+{showOptionAlert && (
+  <div className="anon-popup">
+    <div className="anon-popup-content">
+      <h3>⚠️ Choose a Sending Option</h3>
+      <p>You must either send this card anonymously or send it yourself before continuing.</p>
+      <div className="popup-buttons">
+        <button onClick={() => setShowOptionAlert(false)} className="ok-btn">
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
+      {/* {showAnonWarning && (
+  <div className="anon-popup">
+    <div className="anon-popup-content">
+      {!isAnonymous && !isSendYourself ? (
+        <>
+          <h3>⚠️ Choose a Sending Option</h3>
+          <p>You must either send this card anonymously or send it yourself before continuing.</p>
+          <div className="popup-buttons">
+            <button onClick={() => setShowAnonWarning(false)} className="ok-btn">
+              OK
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <h3>⚠️ Send Anonymously?</h3>
+          <p>
+            If you send anonymously, your name and email will not appear
+            anywhere on the card. The recipient won’t know who sent it.
+          </p>
+          <div className="popup-buttons">
+            <button onClick={handleAnonCancel} className="cancel-btn">
+              Cancel
+            </button>
+            <button onClick={handleAnonConfirm} className="ok-btn">
+              OK
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  </div>
+)} */}
+
     </SlideUp>
   );
 }
