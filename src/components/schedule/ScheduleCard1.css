@@ -19,6 +19,9 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+.schedule-flex-col label{
+  font-weight: lighter;
+}
 .schedule-form input {
   padding: 1rem;
   border: 1px solid #cccccc;
@@ -27,7 +30,12 @@
   outline-color: #d600a3;
   border-radius: 8px;
 }
-
+.col{
+  /* border: 1px solid red; */
+}
+.col label{
+  font-weight: lighter;
+}
 .schedule-form select {
   padding: 1rem;
   border: 1px solid #cccccc;
@@ -50,6 +58,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+
 
 @media (min-width:200px) and (max-width:480px) {
   .schedule-card{

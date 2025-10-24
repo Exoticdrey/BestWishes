@@ -133,7 +133,7 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
             {/* Form-like content (no actual <form> to avoid nesting) */}
             <form className="schedule-form">
               <div className="schedule-flex-col">
-                <label>To (Recipient Name)</label>
+                <label>Recipient Name</label>
                 <input
                   type="text"
                   placeholder="Recipient name"
@@ -148,7 +148,7 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
               </div>
 
               <div className="schedule-flex-col">
-                <label>To (Recipient Email)</label>
+                <label>Recipient Email</label>
                 <input
                   type="email"
                   placeholder="recipient@example.com"
@@ -173,7 +173,7 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
               {!isAnonymous && isSendYourself && (
                 <>
                   <div className="schedule-flex-col">
-                <label>From (Sender name)</label>
+                <label>Sender Name</label>
                 <input
                   type="text"
                   {...register("senderName", {
@@ -185,7 +185,7 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
 
 
               {/* Sender Email */}
-              <div className="form-group">
+              <div className="schedule-flex-col">
                 <label>Sender Email</label>
                 <input
                   type="email"
@@ -243,6 +243,13 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
                     {...register("scheduleDate", {
                       required: "Date is required",
                     })}
+                    style={{
+                background: "none",
+                border: "1px solid #cccccc",
+                borderRadius: "8px",
+                height: "3rem",
+                padding: "1rem",
+              }}
                   />
                 </div>
                 <div className="col">
@@ -252,6 +259,13 @@ function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
                     {...register("scheduleTime", {
                       required: "Time is required",
                     })}
+                    style={{
+                background: "none",
+                border: "1px solid #cccccc",
+                borderRadius: "8px",
+                height: "3rem",
+                padding: "1rem",
+              }}
                   />
                 </div>
               </div>
