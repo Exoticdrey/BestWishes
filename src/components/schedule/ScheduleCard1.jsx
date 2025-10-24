@@ -4,6 +4,7 @@ import "./ScheduleCard1.css";
 
 
 
+
 function ScheduleStep1({  register, errors, onNext, onBack, watch, setValue }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSendYourself, setIsSendYourself] = useState(false);

@@ -1,10 +1,8 @@
 
-
-
 import React, { useState } from "react";
 import "./MusicBox.css";
 
-const MusicBox = ({ formData = {}, showTemplateCover = false }) => {
+const MusicBox = ({ scheduleFormData = {}, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   // Convert Spotify URL to embed form
@@ -26,65 +24,65 @@ const MusicBox = ({ formData = {}, showTemplateCover = false }) => {
     if (showTemplateCover) {
       slides.push({
         design: "template-cover",
-        image: formData.template?.preview || "/535.png",
+        image: scheduleFormData.template?.preview || "/535.png",
         isCover: true,
       });
     }
 
     // Main card slide
     slides.push({
-      design: formData.eventType || "default",
-      image: formData.imageUrl || formData.image,
-      title: formData.recipient || "Your Friend",
-      message: formData.quote || "",
-      musicUrl: formData.musicUrl,
+      design: scheduleFormData.eventType || "default",
+      image: scheduleFormData.imageUrl || scheduleFormData.image,
+      title: scheduleFormData.recipient || "Your Friend",
+      message: scheduleFormData.quote || "",
+      musicUrl: scheduleFormData.musicUrl,
       backgroundColor: "#fcfbef",
-      fontFamily: formData.fontFamily || "inherit",
-      fontSize: formData.fontSize || 24,
-      textColor: formData.textColor || "#000",
+      fontFamily: scheduleFormData.fontFamily || "inherit",
+      fontSize: scheduleFormData.fontSize || 24,
+      textColor: scheduleFormData.textColor || "#000",
     });
 
     // Voice slide
-    if (formData.voiceUrl) {
+    if (scheduleFormData.voiceUrl) {
       slides.push({
         design: "voice",
         title: "Voice Note!💖",
-        musicUrl: formData.voiceUrl,
+        musicUrl: scheduleFormData.voiceUrl,
         backgroundColor: "#fcfbef",
-        fontFamily: formData.fontFamily || "inherit",
-        fontSize: formData.fontSize || 24,
-        textColor: formData.textColor || "#000",
+        fontFamily: scheduleFormData.fontFamily || "inherit",
+        fontSize: scheduleFormData.fontSize || 24,
+        textColor: scheduleFormData.textColor || "#000",
       });
     }
 
     // Music slide
-    if (formData.musicUrl) {
+    if (scheduleFormData.musicUrl) {
       slides.push({
         design: "music",
-        title: "Music",
-        musicUrl: formData.musicUrl,
+        title: "Music?🎵",
+        musicUrl: scheduleFormData.musicUrl,
         backgroundColor: "#fcfbef",
-        fontFamily: formData.fontFamily || "inherit",
-        fontSize: formData.fontSize || 24,
-        textColor: formData.textColor || "#000",
+        fontFamily: scheduleFormData.fontFamily || "inherit",
+        fontSize: scheduleFormData.fontSize || 24,
+        textColor: scheduleFormData.textColor || "#000",
       });
     }
 
     // Heartfelt message slide
-    if (formData.message) {
+    if (scheduleFormData.message) {
       slides.push({
         design: "message",
-        title: "Message",
-        message: formData.message,
+        title: "Message^_^",
+        message: scheduleFormData.message,
         backgroundColor: "#fcfbef",
-        fontFamily: formData.fontFamily || "inherit",
-        fontSize: formData.fontSize || 24,
-        textColor: formData.textColor || "#000",
+        fontFamily: scheduleFormData.fontFamily || "inherit",
+        fontSize: scheduleFormData.fontSize || 24,
+        textColor: scheduleFormData.textColor || "#000",
         senderName:
-          formData.isAnonymous === true
+          scheduleFormData.isAnonymous === true
             ? "~anon"
-            : formData.senderName
-            ? `~${formData.senderName}`
+            : scheduleFormData.senderName
+            ? `~${scheduleFormData.senderName}`
             : "",
       });
     }
@@ -142,9 +140,9 @@ const MusicBox = ({ formData = {}, showTemplateCover = false }) => {
                 {/* Image */}
                 {slide.image && (
                   <img
-                    style={{ marginTop: "20%" }}
+                    style={{ marginTop: "" }}
                     src={slide.image}
-                    alt="Card Visual"
+                    alt="Card Visual" className="preview-img"
                   />
                 )}
 
@@ -209,7 +207,7 @@ const MusicBox = ({ formData = {}, showTemplateCover = false }) => {
                   ) : (
                     <audio
                       controls
-                      style={{ width: "110%", marginTop: "20px" }}
+                      style={{ width: "300px", marginTop: "20px", justifyContent: "", border: "2px solid var(--primary-color)", borderRadius: "50px" }}
                     >
                       <source src={slide.musicUrl} type="audio/mpeg" />
                       Your browser does not support the audio element.

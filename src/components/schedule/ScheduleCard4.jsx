@@ -162,7 +162,7 @@ function ScheduleCard4({ onFinish, scheduleFormData, onBack}) {
             Live Preview
           </button>
           <button type="button" onClick={onFinish} className="finish-btn">
-            Send Now
+            Schedule Now
           </button>
         </div>
       </div>
@@ -171,7 +171,7 @@ function ScheduleCard4({ onFinish, scheduleFormData, onBack}) {
         <div className="preview-overlay">
           <div className="preview-popup">
             <button className="close-btn" onClick={handleClosePreview}>
-              Cancel
+              X
             </button>
 
             <div

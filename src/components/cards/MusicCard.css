@@ -12,7 +12,10 @@
 .swiper{
   /* border: 1px solid pink; */
 }
-
+.close-btn{
+  color: black;
+  font-family: serif;
+}
 .card-preview.template-cover {
   width: 90%;
   height:79%;
@@ -23,6 +26,24 @@
   /* border: 1px solid blue; */
   box-shadow: none;
 }
+.card-preview{
+  /* border: 1px solid green; */
+}
+.card-preview img{
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+}
+.card-preview .preview-img{
+  width: 250px;
+  height: 250px;
+  margin-top: 50%;
+  margin-bottom: 10px;
+}
+.preview-img{
+  /* border: 1px solid blue; */
+  width: 100%;
+}
 
 .card-preview.template-cover img {
   width: 100%;
@@ -30,6 +51,7 @@
   object-fit: contain;
   /* border: 1px solid red; */
   margin-bottom: 60px;
+  margin-top: 60px;
 }
 
 .swiper {

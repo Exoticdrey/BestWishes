@@ -1,4 +1,5 @@
 import SlideUp from "../../ui/SlideUp";
+import "../cards/CardStep1.css"
 import React, { useState, useEffect, useRef,useCallback } from "react";
 
 function ScheduleCard2({
@@ -208,7 +209,7 @@ function ScheduleCard2({
               <h4>Media</h4>
             </div>
 
-            <form className="schedule-form">
+            <form className="form-group">
               <div className="row" style={{ gap: "2rem" }}>
                 {/* Font Selection */}
                 <div className="col">
@@ -269,7 +270,7 @@ function ScheduleCard2({
 
 
               {/* Effect */}
-              <div className="form-group">
+              <div className="form-group"><br />
                 <label htmlFor="effect">Effect</label>
                 <select
               {...register("effect", { required: "Please select an effect" })}
@@ -352,7 +353,7 @@ function ScheduleCard2({
               </div>
 
               {/* 🎵 Music */}
-      <div className="form-group">
+      <div className="form-group"><br />
         <label>Attach music</label>
         <input
           type="text"
