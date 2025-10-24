@@ -37,7 +37,9 @@
 .card-preview .preview-img{
   width: 250px;
   height: 250px;
-  margin-top: 50%;
+  /* border: 1px solid pink; */
+  border-radius: 12px;
+  margin-top: auto;
   margin-bottom: 10px;
 }
 .preview-img{
