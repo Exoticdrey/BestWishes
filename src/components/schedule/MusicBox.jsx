@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import "./MusicBox.css";
+import "../cards/MusicCard.css";
 
 const MusicBox = ({ scheduleFormData = {}, showTemplateCover = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -33,7 +33,7 @@ const MusicBox = ({ scheduleFormData = {}, showTemplateCover = false }) => {
     slides.push({
       design: scheduleFormData.eventType || "default",
       image: scheduleFormData.imageUrl || scheduleFormData.image,
-      title: scheduleFormData.recipient || "Your Friend",
+      title: scheduleFormData.recipientName || "Your Friend",
       message: scheduleFormData.quote || "",
       musicUrl: scheduleFormData.musicUrl,
       backgroundColor: "#fcfbef",
@@ -172,10 +172,7 @@ const MusicBox = ({ scheduleFormData = {}, showTemplateCover = false }) => {
                       }}
                     >
                       {slide.message}
-                    </p>
-
-                    {/* Sender/Anon signature under message */}
-                    {slide.senderName && (
+                       {slide.senderName && (
                       <p
                         style={{
                           fontStyle: "italic",
@@ -189,6 +186,10 @@ const MusicBox = ({ scheduleFormData = {}, showTemplateCover = false }) => {
                         {slide.senderName}
                       </p>
                     )}
+                    </p>
+
+                    {/* Sender/Anon signature under message */}
+                   
                   </>
                 )}
 

@@ -171,7 +171,7 @@ function ScheduleCard4({ onFinish, scheduleFormData, onBack}) {
         <div className="preview-overlay">
           <div className="preview-popup">
             <button className="close-btn" onClick={handleClosePreview}>
-              X
+              ✕
             </button>
 
             <div

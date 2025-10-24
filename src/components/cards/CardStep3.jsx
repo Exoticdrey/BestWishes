@@ -171,7 +171,7 @@ function CardStep3({ onFinish, formData, onBack}) {
         <div className="preview-overlay">
           <div className="preview-popup">
             <button className="close-btn" onClick={handleClosePreview}>
-              X
+              ✕
             </button>
 
             <div
