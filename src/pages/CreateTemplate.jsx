@@ -3,22 +3,23 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../ui/Footer";
 import "./CreateTemplate.css";
-
+import Referral from "../components/referral";
 function CreateTemplate() {
   const navigate = useNavigate();
 
   // Your template images (in /public/templates/)
   const templates = [
-    { id: 1, preview: "/templates/christmas1.webp", category: "Christmas" },
-    { id: 2, preview: "/templates/christmas2.webp", category: "Christmas" },
-    { id: 3, preview: "/templates/christmas3.webp", category: "Christmas" },
-    { id: 4, preview: "/templates/christmas4.webp", category: "Christmas" },
+
+        { id: 98, preview: "/templatesmain/christmas1.webp", category: "Christmas" },
+    { id: 99, preview: "/templatesmain/christmas2.jpg", category: "Christmas" },
+    { id: 100, preview: "/templatesmain/christmas3.webp", category: "Christmas" },
+    { id: 101, preview: "/templatesmain/christmas4.jpg", category: "Christmas" },
     { id: 5, preview: "/templates/christmas5.webp", category: "Christmas" },
-    { id: 6, preview: "/templates/boyfriend1.webp", category: "Boyfriend's Day" },
-    { id: 7, preview: "/templates/boyfriend2.webp", category: "Boyfriend's Day" },
-    { id: 8, preview: "/templates/boyfriend3.webp", category: "Boyfriend's Day" },
-    { id: 9, preview: "/templates/boyfriend4.webp", category: "Boyfriend's Day" },
-    { id: 10, preview: "/templates/boyfriend5.webp", category: "Boyfriend's Day" },
+    { id: 6, preview: "/templates/valentine1.webp", category: "Valentine's Day" },
+    { id: 7, preview: "/templates/valentine2.webp", category: "Valentine's Day" },
+    { id: 8, preview: "/templates/valentine3.webp", category: "Valentine's Day" },
+    { id: 9, preview: "/templates/valentine4.webp", category: "Valentine's Day" },
+    { id: 10, preview: "/templates/valentine5.webp", category: "Valentine's Day" },
     { id: 11, preview: "/templates/easter1.webp", category: "Easter Cards" },
     { id: 12, preview: "/templates/easter2.webp", category: "Easter Cards" },
     { id: 13, preview: "/templates/easter3.webp", category: "Easter Cards" },
@@ -52,17 +53,18 @@ function CreateTemplate() {
     { id: 40, preview: "/templates/congrats4.webp", category: "Congratulations" },
     { id: 41, preview: "/templates/congrats5.webp", category: "Congratulations" },
     { id: 42, preview: "/templates/easter6.webp", category: "Easter Cards" },
-    { id: 43, preview: "/templates/love1.webp", category: "Love & Romance" },
+    { id: 43, preview: "/templates/love1.webp", category: "Valentine's Day" },
     { id: 44, preview: "/templates/love2.webp", category: "Love & Romance" },
     { id: 45, preview: "/templates/love3.webp", category: "Love & Romance" },
-    { id: 46, preview: "/templates/love4.webp", category: "Love & Romance" },
-    { id: 47, preview: "/templates/love5.webp", category: "Love & Romance" },
-    { id: 48, preview: "/templates/thanks1.webp", category: "Thank You" },
-    { id: 49, preview: "/templates/thanks2.webp", category: "Thank You" },
-    { id: 50, preview: "/templates/thanks3.webp", category: "Thank You" },
-    { id: 51, preview: "/templates/thanks4.webp", category: "Thank You" },
-    { id: 52, preview: "/templates/thanks5.webp", category: "Thank You" },
-    { id: 53, preview: "/templates/thanks6.webp", category: "Thank You" },
+    { id: 46, preview: "/templates/love4.webp", category: "Situationships" },
+    { id: 47, preview: "/templates/love5.webp", category: "Valentine's Day" },
+  
+       { id: 88, preview: "/templatesmain/thanks1.webp", category: "Thank You" },
+    { id: 89, preview: "/templatesmain/thanks2.webp", category: "Thank You" },
+    { id: 90, preview: "/templatesmain/thanks3.webp", category: "Thank You" },
+    { id: 91, preview: "/templatesmain/thanks4.jpg", category: "Thank You" },
+    { id: 92, preview: "/templatesmain/thanks5.jpg", category: "Thank You" },
+    { id: 93, preview: "/templatesmain/thanks6.webp", category: "Thank You" },
     { id: 54, preview: "/templates/well1.webp", category: "Get Well Soon" },
     { id: 55, preview: "/templates/well2.webp", category: "Get Well Soon" },
     { id: 56, preview: "/templates/well3.webp", category: "Get Well Soon" },
@@ -78,6 +80,44 @@ function CreateTemplate() {
     { id: 66, preview: "/templates/occasion1.webp", category: "Special Occasion" },
     { id: 67, preview: "/templates/occasion2.webp", category: "Special Occasion" },
     { id: 68, preview: "/templates/occasion3.webp", category: "Special Occasion" },
+    { id: 69, preview: "/templates/fathers1.webp", category: "Father's Day" },
+    { id: 70, preview: "/templates/fathers2.webp", category: "Father's Day" },
+    { id: 71, preview: "/templates/fathers3.webp", category: "Father's Day" },
+    { id: 72, preview: "/templates/fathers4.webp", category: "Father's Day" },
+    { id: 73, preview: "/templatesmain/valentine1.webp", category: "Valentine's Day" },
+    { id: 74, preview: "/templatesmain/valentine2.webp", category: "Valentine's Day" },
+    { id: 75, preview: "/templatesmain/valentine3.jpg", category: "Valentine's Day" },
+    // { id: 76, preview: "/templatesmain/valentine5.webp", category: "Valentine's Day" },
+    { id: 76, preview: "/templatesmain/valentine6.webp", category: "Valentine's Day" },
+    { id: 77, preview: "/templatesmain/love1.webp", category: "Love & Romance" },
+    { id: 78, preview: "/templatesmain/love2.webp", category: "Love & Romance" },
+    { id: 79, preview: "/templatesmain/love3.webp", category: "Love & Romance" },
+    { id: 80, preview: "/templatesmain/love4.webp", category: "Love & Romance" },
+    { id: 81, preview: "/templatesmain/love5.webp", category: "Love & Romance" },
+    { id: 82, preview: "/templatesmain/birthday1.webp", category: "Birthday" },
+    { id: 83, preview: "/templatesmain/birthday2.webp", category: "Birthday" },
+    { id: 84, preview: "/templatesmain/birthday3.webp", category: "Birthday" },
+    { id: 85, preview: "/templatesmain/birthday4.webp", category: "Birthday" },
+    { id: 86, preview: "/templatesmain/birthday5.webp", category: "Birthday" },
+    { id: 87, preview: "/templatesmain/birthday6.webp", category: "Birthday" },
+      { id: 48, preview: "/templates/thanks1.webp", category: "Thank You" },
+    { id: 49, preview: "/templates/thanks2.webp", category: "Thank You" },
+    { id: 50, preview: "/templates/thanks3.webp", category: "Thank You" },
+    { id: 51, preview: "/templates/thanks4.webp", category: "Thank You" },
+    { id: 52, preview: "/templates/thanks5.webp", category: "Thank You" },
+    { id: 53, preview: "/templates/thanks6.webp", category: "Thank You" },
+    { id: 94, preview: "/templatesmain/congrats1.webp", category: "Congratulations" },
+    { id: 95, preview: "/templatesmain/congrats2.webp", category: "Congratulations" },
+    { id: 96, preview: "/templatesmain/anniversary1.webp", category: "Anniversary" },
+    { id: 97, preview: "/templatesmain/anniversary2.webp", category: "Anniversary" },
+        { id: 1, preview: "/templates/christmas1.webp", category: "Christmas" },
+    { id: 2, preview: "/templates/christmas2.webp", category: "Christmas" },
+    { id: 3, preview: "/templates/christmas3.webp", category: "Christmas" },
+    { id: 4, preview: "/templates/christmas4.webp", category: "Christmas" },
+    { id: 102, preview: "/templatesmain/love6.jpg", category: "Love & Romance" },
+    { id: 103, preview: "/templatesmain/love7.webp", category: "Love & Romance" },
+    { id: 104, preview: "/templatesmain/love8.jpg", category: "Love & Romance" },
+
   ];
 
   const categories = [
@@ -93,7 +133,8 @@ function CreateTemplate() {
     "Easter Cards",
     "Special Occasion",
     "Situationships",
-    "Boyfriend's Day",
+    "Valentine's Day",
+    "Father's Day",
     "Postpartum",
   ];
 
@@ -110,7 +151,9 @@ function CreateTemplate() {
 
   return (
     <>
+        <Referral/>
       <Navbar />
+      <div style={{ height: "60px" }}></div>
 
       <div className="create-template">
         <div className="create-template-head">

@@ -27,7 +27,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="nav-container">
           <a href="/" className="nav-logo">
-            <img src="/bwlogo.png" alt="Best Wishes Logo" />
+             <img src="/bwlogolongcrop.png" alt="Best Wishes Logo" className="logo" />
           </a>
 
           {/* Desktop Navigation */}
@@ -41,7 +41,7 @@ function Navbar() {
 
           {/* Desktop Icons */}
           <div className="nav-icons desktop-nav">
-            <Link to="/cart">
+            {/* <Link to="/cart">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -63,7 +63,7 @@ function Navbar() {
                   0 .75.75 0 0 1 1.5 0Z"
                 />
               </svg>
-            </Link>
+            </Link> */}
 
             <button className="get-started-btn" onClick={handleGetStarted}>
               Get Started
@@ -88,7 +88,7 @@ function Navbar() {
             <li><a href="/spinwin" onClick={closeMenu}>Spin & Win</a></li>
 
             <div className="mobile-nav-icons">
-              <Link to="/cart" onClick={closeMenu}>
+              {/* <Link to="/cart" onClick={closeMenu}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -113,7 +113,7 @@ function Navbar() {
                   />
                 </svg>
                 <span>Cart</span>
-              </Link>
+              </Link> */}
 
               <button
                 className="get-started-btn-mobile"

@@ -217,7 +217,6 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
                   "14px",
                   "16px",
                   "18px",
-                  "20px",
                 ].map((size) => (
                   <option key={size} value={size}>
                     {size}
@@ -253,8 +252,8 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
                 "#f02c2c",
                 "#000000",
                 "#f649cd",
-                "#81fca0",
-                "#55b8f1",
+                "#17a53b",
+                "#27a9f5",
                 "#f35b04",
               ].map((color) => (
                 <input
@@ -279,7 +278,7 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
           </div>
 
           {/* Message */}
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Your heartfelt Message</label>
             <textarea
               {...register("message", { required: "Message is required" })}
@@ -298,7 +297,50 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
             {errors?.message && (
               <span className="error-message">{errors.message.message}</span>
             )}
-          </div>
+          </div> */}
+
+
+          {/* Message */}
+<div className="form-group">
+  <label>Your heartfelt Message</label>
+  <textarea
+    {...register("message", {
+      required: "Message is required",
+      validate: (value) => {
+        const words = value.trim().split(/\s+/).filter(Boolean);
+        if (words.length < 25) return "Your message must be at least 25 words.";
+        if (words.length > 60) return "Your message cannot exceed 60 words.";
+        return true;
+      },
+    })}
+    onInput={(e) => {
+      const words = e.target.value.trim().split(/\s+/).filter(Boolean);
+      if (words.length > 60) {
+        e.target.value = words.slice(0, 60).join(" ");
+      }
+    }}
+    placeholder="Enter your heartfelt message"
+    style={{
+      background: "none",
+      border: "1px solid #cccccc",
+      borderRadius: "8px",
+      height: "6rem",
+      padding: "1rem",
+      fontFamily: selectedFont || "inherit",
+      fontSize: selectedFontSize || "16px",
+      color: watch("textColor") || "#000",
+    }}
+  ></textarea>
+  <p style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>
+    {watch("message")
+      ? `${watch("message").trim().split(/\s+/).filter(Boolean).length} / 60 words`
+      : "0 / 60 words"}
+  </p>
+  {errors?.message && (
+    <span className="error-message">{errors.message.message}</span>
+  )}
+</div>
+
 
           {/* Next */}
           {/* <div style={{ textAlign: "right" }}>

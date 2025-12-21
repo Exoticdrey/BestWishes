@@ -6,6 +6,7 @@ import Features from "../components/FeaturesSection/Features";
 import Works from "../components/WorksSection/Works";
 import MagicTouch from "../components/TouchSection/MagicTouch";
 import Testimonials from "../components/TestimonialsSection/Testimonials";
+import Referral from "../components/referral";
 import SendLove from "../components/SendLoveSection/SendLove";
 import RealTime from "../components/RealTimeSection/RealTime";
 import MkPlace from "../components/MarketPlaceSection/MkPlace";
@@ -16,7 +17,7 @@ import './Home.css'
 const Home = () => {
   return (
     <>
-    
+    <Referral />
     <Navbar2 />
     <Hero />
     <RealTime />

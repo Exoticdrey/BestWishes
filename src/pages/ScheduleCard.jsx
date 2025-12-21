@@ -8,7 +8,7 @@ import Navbar2 from "../components/Navbar/Navbar2";
 import Footer from "../ui/Footer";
 import "./ScheduleCard.css";
 import { useLocation } from "react-router-dom";
-
+import Referral from "../components/referral";
 function ScheduleCard() {
   const location = useLocation();
   const selectedTemplate = location.state?.template || null;
@@ -69,7 +69,9 @@ function ScheduleCard() {
 
   return (
     <>
+        <Referral/>
       <Navbar2 />
+      <div style={{ height: "60px" }}></div>
 
       <div className="schedule">
         <div className="schedule-headline">

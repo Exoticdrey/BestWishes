@@ -6,12 +6,14 @@ import Loyalty from "../components/LoyaltySection/Loyalty";
 import Products from "../components/ProductsSection/Products";
 import Footer from "../components/Footer/Footer"
 // import './Marketplace.css'
+import Referral from "../components/referral";
 
 const Marketplace = () => {
   return (
     <>
-    
+        <Referral/>
     <Navbar />
+    <div style={{ height: "50px" }}></div>
     <MkHead />
     {/* <Loyalty /> */}
     <Products />

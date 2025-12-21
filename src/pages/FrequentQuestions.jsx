@@ -2,10 +2,11 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import "./FrequentQuestions.css";
 import { Link } from "react-router-dom";
-
+import Referral from "../components/referral";
 function Faq () {
     return (
         <>
+            <Referral/>
             <Navbar />
             <div className="faq">
 

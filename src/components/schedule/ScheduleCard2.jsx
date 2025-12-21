@@ -245,7 +245,6 @@ function ScheduleCard2({
                   "14px",
                   "16px",
                   "18px",
-                  "20px",
                 ].map((size) => (
                   <option key={size} value={size}>
                     {size}
@@ -293,11 +292,11 @@ function ScheduleCard2({
                 <label>Text Color</label>
                 <div className="color-options">
                   {[
-                    "#f02c2c",
+                "#f02c2c",
                 "#000000",
                 "#f649cd",
-                "#81fca0",
-                "#55b8f1",
+                "#17a53b",
+                "#27a9f5",
                 "#f35b04",
                   ].map((color) => (
                     <input
@@ -334,8 +333,20 @@ function ScheduleCard2({
                 </label>
                 <textarea
                   {...register("message", {
-                    required: "Message is required",
+      required: "Message is required",
+      validate: (value) => {
+        const words = value.trim().split(/\s+/).filter(Boolean);
+        if (words.length < 25) return "Your message must be at least 25 words.";
+        if (words.length > 60) return "Your message cannot exceed 60 words.";
+        return true;
+      },
                   })}
+                   onInput={(e) => {
+      const words = e.target.value.trim().split(/\s+/).filter(Boolean);
+      if (words.length > 60) {
+        e.target.value = words.slice(0, 60).join(" ");
+      }
+    }}
                   placeholder="Enter Your heartfelt Message"
                   style={{
                     background: "none",
@@ -347,6 +358,11 @@ function ScheduleCard2({
                 color: watch("textColor") || "#000",
                   }}
                 ></textarea>
+                 <p style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>
+    {watch("message")
+      ? `${watch("message").trim().split(/\s+/).filter(Boolean).length} / 60 words`
+      : "0 / 60 words"}
+  </p>
                 {errors?.message && (
               <span className="error-message">{errors.message.message}</span>
             )}

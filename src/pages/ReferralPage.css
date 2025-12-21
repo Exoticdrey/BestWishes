@@ -1,0 +1,70 @@
+.affiliate{
+    /* border: 1px solid red; */
+}
+.affiliate-bar{
+    /* border: 1px solid green; */
+    margin-bottom: 30px;
+}
+.affiliate-bar h2{
+    font-size: 40px;
+    font-family: "Life Savers";
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.affiliate-subtext{
+    /* border: 1px solid red; */
+    text-align: left;
+    width: 50%;
+    margin-left: 25%;
+    line-height: 30px;
+}
+a.apply-btn{
+    text-decoration: none;
+    color: var(--primary-color);
+      background: transparent;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 0 #dc62c6, 0 8px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 10px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+.apply-btn:hover{
+      background: #fb9adb;
+  color: #fff;
+}
+.before{
+    margin-bottom: 30px;
+}
+
+@media (min-width:200px) and (max-width:480px){
+    .affiliate-subtext{
+        /* border: 1px solid red; */
+        width: 100vw;
+        margin-left: auto;
+        padding: 10px;
+    }
+}
+
+
+
+@media (min-width:481px) and (max-width:768px){
+      .affiliate-subtext{
+        /* border: 1px solid red; */
+        width: 100vw;
+        margin-left: auto;
+        padding: 10px;
+    }
+}
+
+
+@media (min-width:769px) and (max-width:1024px){
+      .affiliate-subtext{
+        /* border: 1px solid red; */
+        width: 100vw;
+        margin-left: auto;
+        padding: 10px;
+    }
+}
