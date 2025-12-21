@@ -10,18 +10,18 @@
 
 .sign-up{
   /* border: 1px solid black; */
-  margin-top: 75px;
+  margin-top: 0px;
 }
 
 .login-card {
   border-radius: 16px;
-  padding: 40px 32px;
+  padding: 0px 32px;
   width: 100%;
 }
 
 .logo {
   text-align: left;
-  margin-bottom: 32px;
+  margin-bottom: 0px;
 }
 
 .title-login {

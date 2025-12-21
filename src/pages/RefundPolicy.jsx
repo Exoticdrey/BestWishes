@@ -1,11 +1,12 @@
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import "./RefundPolicy.css";
-
+import Referral from "../components/referral";
 
 function Refund () {
     return (
         <>
+            <Referral/>
             <Navbar />
 
             <div className="refund">

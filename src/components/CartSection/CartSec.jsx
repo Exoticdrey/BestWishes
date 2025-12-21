@@ -323,6 +323,7 @@ export default function Cart() {
 
   return (
     <div className="cart-page">
+      
       {/* left side list */}
       <div className="cart-inner">
         <div className="cart-left">

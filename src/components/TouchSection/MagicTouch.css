@@ -1,6 +1,6 @@
 .magic-touch{
     /* border: 1px solid orange; */
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 .magic-touch-number h1{
     font-size: 170px;
@@ -10,6 +10,7 @@
     color: #ffffff;
     margin-left: 19%;
     background: #fbc8eb;
+    padding-top: 20px;
 }
 .magic-touch-middle{
     display: flex;

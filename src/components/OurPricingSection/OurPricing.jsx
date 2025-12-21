@@ -48,7 +48,7 @@ const OurPricing = () => {
                                 <p>After your trial period ends</p>
                             </div>
                             <div className="premium-week">
-                                <p>After 1 Week</p>
+                                <p>After 1 Day</p>
                             </div>
                         </div>
                         <div className="premium-bottom">

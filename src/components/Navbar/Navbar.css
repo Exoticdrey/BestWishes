@@ -15,14 +15,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0px 30px;
+  padding: 0 30px;
   margin: 0;
-  height: 5rem;
+  min-height: 5rem;
 }
 
+
+
 .nav-logo img {
-  height: 170px;
-  width: 170px;
+  height: 150px;
+  width: 150px;
+  margin-top: -2.5rem;
 }
 
 .nav-container ul {
@@ -210,6 +213,8 @@ nav {
 
   .hamburger-menu {
     display: flex;
+    /* border: 1px solid red; */
+    margin-right: 20px;
   }
 
   .mobile-menu {
@@ -232,6 +237,7 @@ nav {
 
   .hamburger-menu {
     display: flex;
+     margin-right: 20px;
   }
 
   .mobile-menu {
@@ -244,8 +250,12 @@ nav {
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
-  .nav-container ul {
-    gap: 2rem;
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .hamburger-menu {
+    display: flex;
   }
   
   .nav-container {

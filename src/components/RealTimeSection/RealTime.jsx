@@ -1,26 +1,175 @@
+// import React, { useState } from "react";
+// import "./RealTime.css";
+
+// const RealTime = () => {
+// const [showModal, setShowModal] = useState(false);
+// const [showCards, setShowCards] = useState(false);
+// const [activeSlide, setActiveSlide] = useState(0);
+
+// const cardImages = [
+// "/cards/card1.png",
+// "/cards/card2.png",
+// "/cards/card3.png",
+// "/cards/card4.png",
+// "/cards/card5.png",
+// ];
+
+// const handlePrevSlide = () =>
+// setActiveSlide((prev) => (prev - 1 + cardImages.length) % cardImages.length);
+
+// const handleNextSlide = () =>
+// setActiveSlide((prev) => (prev + 1) % cardImages.length);
+
+// const handleBoxClick = () => setShowCards(true);
+
+// return (
+// <section className="see-cards">
+// <div className="see-cards-head">
+// <h3>See Cards In Real Time</h3>
+// <p>
+// Every card tells a story, explore the latest card trends, favorite <br />
+// designs we have for you
+// </p>
+// </div>
+
+// <div className="realtime-middle">
+// <div className="click-card">
+// <a href="#" onClick={() => setShowModal(true)}>
+// Click Here
+// </a>
+// </div>
+// </div>
+
+// {showModal && (
+// <div className="realtime-overlay">
+// <div className="realtime-popup">
+// <button
+// className="realtime-close"
+// onClick={() => {
+// setShowModal(false);
+// setShowCards(false);
+// }}
+// >
+// ✕
+// </button>
+
+// {!showCards ? (
+// <div className="giftbox-section">
+// <img
+// src="/Gift Box.png"
+// alt="Gift Box"
+// className="giftbox-img"
+// onClick={handleBoxClick}
+// />
+// <p className="giftbox-text">Tap the box </p>
+// </div>
+// ) : (
+
+  
+// <div className="realtime-slider">
+// <div className="realtime-slider-wrapper">
+// {cardImages.map((img, index) => (
+// <div
+// key={index}
+// className={`realtime-slide ${
+// index === activeSlide ? "active" : ""
+// }`}
+// style={{
+// transform: `translateX(${(index - activeSlide) * 100}%)`,
+// }}
+// >
+// <img src={img} alt={`Card ${index + 1}`} />
+// </div>
+// ))}
+// </div>
+
+// <div className="realtime-nav">
+// <button onClick={handlePrevSlide} className="realtime-btn">
+// &#8249;
+// </button>
+// <span>
+// {activeSlide + 1} of {cardImages.length}
+// </span>
+// <button onClick={handleNextSlide} className="realtime-btn">
+// &#8250;
+// </button>
+// </div>
+// </div>
+// )}
+// </div>
+// </div>
+// )}
+// </section>
+// );
+// };
+
+// export default RealTime;
+
+
+
+
 import React, { useState } from "react";
 import "./RealTime.css";
+import MusicCard from "../cards/MusicCard"; 
+import confetti from "canvas-confetti";
 
 const RealTime = () => {
 const [showModal, setShowModal] = useState(false);
 const [showCards, setShowCards] = useState(false);
-const [activeSlide, setActiveSlide] = useState(0);
 
-const cardImages = [
-"/cards/card1.png",
-"/cards/card2.png",
-"/cards/card3.png",
-"/cards/card4.png",
-"/cards/card5.png",
-];
+// Demo data for the "Real Life Example"
+const demoData = {
+quote: "My Love💕",
+recipient: "Drey 💕",
+message:
+"Just a little something to make you smile today 💌 You’ve always been my calm, my chaos, and everything in between.",
+imageUrl: "/demo-image.jpg", // use any of your uploaded images
+template: { preview: "/templates/birthday1.webp" }, // your preferred template
+musicUrl: "https://open.spotify.com/track/6dOtVTDdiauQNBQEDOtlAB?si=82b0ceabf3134c76", // demo song
+voiceUrl: "/demo-audio.mp3", // sample voice note file in /public
+effect: "confetti",
+fontFamily: "Life Savers",
+fontSize: "18px",
+senderName: "Your D",textColor: "red",
+backgroundColor: "#ffffff"
+};
 
-const handlePrevSlide = () =>
-setActiveSlide((prev) => (prev - 1 + cardImages.length) % cardImages.length);
+// Trigger realistic celebration when gift box is tapped
+const handleBoxClick = () => {
+triggerEffect(demoData.effect);
+setTimeout(() => {
+setShowCards(true);
+}, 1000); // small delay for effect before card shows
+};
 
-const handleNextSlide = () =>
-setActiveSlide((prev) => (prev + 1) % cardImages.length);
+const triggerEffect = (effect) => {
+if (effect === "confetti") {
+const duration = 1.5 * 1000;
+const end = Date.now() + duration;
 
-const handleBoxClick = () => setShowCards(true);
+(function frame() {
+confetti({
+particleCount: 4,
+angle: 60,
+spread: 55,
+origin: { x: 0 },
+});
+confetti({
+particleCount: 4,
+angle: 120,
+spread: 55,
+origin: { x: 1 },
+});
+if (Date.now() < end) {
+requestAnimationFrame(frame);
+}
+})();
+
+// Add popping sound
+const audio = new Audio("/Voicy_Confetti.mp3"); // Add a fun pop sound in public folder
+audio.play().catch(() => {});
+}
+};
 
 return (
 <section className="see-cards">
@@ -61,39 +210,21 @@ alt="Gift Box"
 className="giftbox-img"
 onClick={handleBoxClick}
 />
-<p className="giftbox-text">Tap the box </p>
+<p className="giftbox-text">Tap the box</p>
 </div>
 ) : (
-
-  
-<div className="realtime-slider">
-<div className="realtime-slider-wrapper">
-{cardImages.map((img, index) => (
-<div
-key={index}
-className={`realtime-slide ${
-index === activeSlide ? "active" : ""
-}`}
-style={{
-transform: `translateX(${(index - activeSlide) * 100}%)`,
+<div className="realtime-card-preview">
+<MusicCard
+formData={demoData}
+showTemplateCover={true}
+nextPage={() => {}}
+prevPage={() => {}}
+customStyle={{
+fontFamily: demoData.fontFamily,
+fontSize: demoData.fontSize,
+color: "#000",
 }}
->
-<img src={img} alt={`Card ${index + 1}`} />
-</div>
-))}
-</div>
-
-<div className="realtime-nav">
-<button onClick={handlePrevSlide} className="realtime-btn">
-&#8249;
-</button>
-<span>
-{activeSlide + 1} of {cardImages.length}
-</span>
-<button onClick={handleNextSlide} className="realtime-btn">
-&#8250;
-</button>
-</div>
+/>
 </div>
 )}
 </div>

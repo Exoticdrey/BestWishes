@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../ui/Footer";
 import { getCardImages } from "../api/cards";
 import "./ScheduleTemplate.css";
-
+import Referral from "../components/referral";
 function ScheduleTemplate() {
   const navigate = useNavigate();
 
@@ -15,11 +15,11 @@ function ScheduleTemplate() {
     { id: 3, preview: "/templates/christmas3.webp", category: "Christmas" },
     { id: 4, preview: "/templates/christmas4.webp", category: "Christmas" },
     { id: 5, preview: "/templates/christmas5.webp", category: "Christmas" },
-    { id: 6, preview: "/templates/boyfriend1.webp", category: "Boyfriend's Day" },
-    { id: 7, preview: "/templates/boyfriend2.webp", category: "Boyfriend's Day" },
-    { id: 8, preview: "/templates/boyfriend3.webp", category: "Boyfriend's Day" },
-    { id: 9, preview: "/templates/boyfriend4.webp", category: "Boyfriend's Day" },
-    { id: 10, preview: "/templates/boyfriend5.webp", category: "Boyfriend's Day" },
+    { id: 6, preview: "/templates/valentine1.webp", category: "Valentine's Day" },
+    { id: 7, preview: "/templates/valentine2.webp", category: "Valentine's Day" },
+    { id: 8, preview: "/templates/valentine3.webp", category: "Valentine's Day" },
+    { id: 9, preview: "/templates/valentine4.webp", category: "Valentine's Day" },
+    { id: 10, preview: "/templates/valentine5.webp", category: "Valentine's Day" },
     { id: 11, preview: "/templates/easter1.webp", category: "Easter Cards" },
     { id: 12, preview: "/templates/easter2.webp", category: "Easter Cards" },
     { id: 13, preview: "/templates/easter3.webp", category: "Easter Cards" },
@@ -79,6 +79,10 @@ function ScheduleTemplate() {
     { id: 66, preview: "/templates/occasion1.webp", category: "Special Occasion" },
     { id: 67, preview: "/templates/occasion2.webp", category: "Special Occasion" },
     { id: 68, preview: "/templates/occasion3.webp", category: "Special Occasion" },
+    { id: 69, preview: "/templates/fathers1.webp", category: "Father's Day" },
+    { id: 70, preview: "/templates/fathers2.webp", category: "Father's Day" },
+    { id: 71, preview: "/templates/fathers3.webp", category: "Father's Day" },
+    { id: 72, preview: "/templates/fathers4.webp", category: "Father's Day" },
   ].map((template) => ({ ...template, image: template.preview }));
 
   const [templates, setTemplates] = useState(fallbackTemplates);
@@ -137,7 +141,9 @@ function ScheduleTemplate() {
 
   return (
     <>
+        <Referral/>
       <Navbar />
+      <div style={{ height: "60px" }}></div>
 
       <div className="create-template">
         <div className="create-template-head">

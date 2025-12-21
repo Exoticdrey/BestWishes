@@ -22,10 +22,10 @@ const Footer = () => {
         <div className="footer-logo">
           <img src="/images/logo.svg" alt="logo" />
           <p>Thoughtful cards. Perfect gifts. Delivered with care.</p>
-          <div className="app-links">
+          {/* <div className="app-links">
             <img src="/google-play.png" alt="Google Play" />
             <img src="/app-store.png" alt="App Store" />
-          </div>
+          </div> */}
         </div>
 
         {/* Links */}
@@ -73,7 +73,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>
           📧 Email us :{" "}
-          <a href="mailto:info@bestwishes.com">Support@bestwishes.com</a>
+          <a href="mailto:support@bestwishes.ng">support@bestwishes.ng</a>
         </p>
       </div>
     </footer>
