@@ -134,6 +134,7 @@ import Privacy from "./pages/PrivacyPolicy";
 import Refund from "./pages/RefundPolicy";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import RealTimeCards from "./pages/RealTimeCards";
 import Loader from "./components/Loader/Loader";
 // import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -160,6 +161,7 @@ function App() {
       <Route path="/marketplace" element={<Marketplace />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/realtime-cards" element={<RealTimeCards />} />
       <Route path="/refer" element={<Referrals />} />
       <Route path="/spinwin" element={<SpinWin />} />
       <Route path="/signup" element={<SignUp />} />

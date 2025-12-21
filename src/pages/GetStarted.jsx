@@ -1,4 +1,5 @@
 import SlideUp from "../ui/SlideUp";
+import { Link } from "react-router-dom";
 import "./GetStarted.css";
 import Referral from "../components/referral";
 function GetStarted() {
@@ -39,7 +40,7 @@ function GetStarted() {
                 <a href="#">Browse Gifts</a>
                 <a href="#">Easy Checkouts</a>
               </div>
-              <button className="btn ">Sign up as a Gifter</button>
+              <Link to="/signup" className="btn">Sign up as a Gifter</Link>
             </div>
 
             {/* Vendor */}
@@ -54,12 +55,12 @@ function GetStarted() {
                 <a href="#">Track Orders</a>
                 <a href="#">Grow Business</a>
               </div>
-              <button className="btn">Sign up as a vendor</button>
+              <Link to="/vendorsignup" className="btn">Sign up as a vendor</Link>
             </div>
           </div>
 
           <p className="signin">
-            Already have an account? <a href="#">Sign in</a>
+            Already have an account? <Link to="/signin">Sign in</Link>
           </p>
         </div>
       </div>{" "}
