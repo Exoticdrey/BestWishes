@@ -1,7 +1,7 @@
 // SignUp.jsx
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import "./VendorSignUp.css";
 
 const VendorSignup = () => {
@@ -12,13 +12,31 @@ const VendorSignup = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue
   } = useForm();
 
+  useEffect(() => {
+    const storedData = localStorage.getItem("vendorSignUpData");
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      setValue("firstName", data.firstName || "");
+      setValue("lastName", data.lastName || "");
+      setValue("email", data.email || "");
+      setValue("phone", data.phone || "");
+      setValue("password", data.password || "");
+      setValue("terms", data.terms || false);
+    }
+  }, [setValue]);
+
   const onSubmit = (data) => {
+    // Validate that all required fields are present
+    if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.password) {
+      console.error("Missing required fields");
+      return;
+    }
+
     console.log("Form submitted:", data);
-    // Save form data to localStorage for the next step
     localStorage.setItem("vendorSignUpData", JSON.stringify(data));
-    // Navigate to vendor proceed page
     navigate("/vendorproceed");
   };
 
@@ -44,10 +62,6 @@ const VendorSignup = () => {
     <section className="sign-up">
       <div className="login-container">
         <div className="login-card">
-          {/* Logo */}
-          <div className="logo">
-            <img src="/bwlogo.png" alt="logo" />
-          </div>
 
           {/* Title and Subtitle */}
           <h1 className="title-login">Create a Vendor Account</h1>

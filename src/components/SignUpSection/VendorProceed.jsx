@@ -6,9 +6,9 @@ import { registerVendor } from "../../api/auth";
 import "./VendorProceed.css";
 
 const VendorComplete = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [signUpData, setSignUpData] = useState(null);
   const navigate = useNavigate();
 
@@ -19,10 +19,8 @@ const VendorComplete = () => {
   } = useForm();
 
   useEffect(() => {
-    // Retrieve data from first form
     const storedData = localStorage.getItem("vendorSignUpData");
     if (!storedData) {
-      // If no data from first form, redirect back to signup
       navigate("/vendorsignup");
       return;
     }
@@ -30,7 +28,6 @@ const VendorComplete = () => {
   }, [navigate]);
 
   const parseCountryCity = (countryCityString) => {
-    // Parse "Country, City" format (e.g., "Nigeria, Lagos")
     if (!countryCityString) return { country: "", city: "" };
     
     const parts = countryCityString.split(",").map(part => part.trim());
@@ -40,7 +37,6 @@ const VendorComplete = () => {
         city: parts[1]
       };
     }
-    // If format is different, assume the whole string is the city
     return {
       country: "",
       city: countryCityString
@@ -55,12 +51,11 @@ const VendorComplete = () => {
 
     setIsLoading(true);
     setError("");
+    setSuccess("");
 
     try {
-      // Parse country and city from countryCity field
       const { country, city } = parseCountryCity(data.countryCity);
 
-      // Combine data from both forms
       const registrationData = {
         first_name: signUpData.firstName,
         last_name: signUpData.lastName,
@@ -74,46 +69,28 @@ const VendorComplete = () => {
         country: country || data.countryCity,
       };
 
-      console.log("Registration data:", registrationData);
-
-      // Call the API
       const response = await registerVendor(registrationData);
       
-      console.log("API Response:", response.data);
-
-      // Clear localStorage after successful registration
-      localStorage.removeItem("vendorSignUpData");
-
-      // Navigate to dashboard or success page
-      navigate("/vendordashboard");
+      if (response.data.success) {
+        setSuccess(response.data.message);
+        localStorage.removeItem("vendorSignUpData");
+        
+        // Redirect after 2 seconds to show success message
+        setTimeout(() => {
+          navigate("/signin");
+        }, 2000);
+      } else {
+        setError(response.data.message || "Registration failed");
+      }
     } catch (err) {
       console.error("Registration error:", err);
       setError(
         err.response?.data?.message || 
-        err.message || 
         "Registration failed. Please try again."
       );
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const handleGoogleSignup = () => {
-    console.log("Google signup clicked");
-    // You can trigger Google SDK here
-    // then redirect after success:
-    navigate("/vendordashboard");
-  };
-
-  const handleFacebookSignup = () => {
-    console.log("Facebook signup clicked");
-    // You can trigger Facebook SDK here
-    // then redirect after success:
-    navigate("/vendordashboard");
   };
 
   return (
@@ -127,6 +104,21 @@ const VendorComplete = () => {
 
           {/* Title and Subtitle */}
           <h1 className="title-login">Your Business Information</h1>
+
+          {/* Success Message */}
+          {success && (
+            <div className="success-message" style={{ 
+              marginBottom: "1rem", 
+              padding: "0.75rem", 
+              backgroundColor: "#d4edda", 
+              color: "#155724", 
+              borderRadius: "4px",
+              textAlign: "center",
+              border: "1px solid #c3e6cb"
+            }}>
+              {success}
+            </div>
+          )}
 
           {/* Error Message */}
           {error && (
@@ -482,9 +474,9 @@ const VendorComplete = () => {
               type="button"
               onClick={handleSubmit(onSubmit)}
               className="submit-btn"
-              disabled={isLoading}
+              disabled={isLoading || success}
             >
-              {isLoading ? "Processing..." : "Complete Sign Up"}
+              {isLoading ? "Processing..." : success ? "Registration Complete!" : "Complete Sign Up"}
             </button>
 
             {/* <a href="#" className="submit-btn">Complete Sign Up</a> */}

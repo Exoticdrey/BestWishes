@@ -112,6 +112,7 @@
 
 
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Marketplace from "./pages/Marketplace";
@@ -132,11 +133,25 @@ import Privacy from "./pages/PrivacyPolicy";
 import Refund from "./pages/RefundPolicy";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Loader from "./components/Loader/Loader";
 // import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <Routes>
       <Route path="/" element={<Home />} />

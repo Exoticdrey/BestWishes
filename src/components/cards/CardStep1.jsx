@@ -1,15 +1,11 @@
-
-
-import { useEffect, useState } from "react";
-import SlideUp from "../../ui/SlideUp";
+import React, { useEffect, useState } from "react";
 import "./CardStep1.css";
-
 
 function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isSendYourself, setIsSendYourself] = useState(false);
   const [showAnonWarning, setShowAnonWarning] = useState(false);
-      const [showOptionAlert, setShowOptionAlert] = useState(false);
+  const [showOptionAlert, setShowOptionAlert] = useState(false);
 
   const selectedFont = watch("fontFamily");
   const selectedFontSize = watch("fontSize");
@@ -67,11 +63,12 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
   }, [isAnonymous, isSendYourself, setValue]);
 
   return (
-    <SlideUp delay={0.6}>
+    <>
       <div className="schedule-container">
         <div className="form-container">
           <input type="hidden" value={isAnonymous} {...register("isAnonymous")} />
           <input type="hidden" value={isSendYourself} {...register("isSendYourself")} />
+          
           {/* Send Anonymously */}
           <div
             className="toggle-row"
@@ -313,59 +310,32 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
           </div>
 
           {/* Next */}
-          {/* <div style={{ textAlign: "right" }}>
-            <button type="button" onClick={onNext} className="next-btn">
+          <div style={{ textAlign: "right" }}>
+            <button
+              type="button"
+              onClick={() => {
+                if (!isAnonymous && !isSendYourself) {
+                  setShowOptionAlert(true);
+                  return;
+                }
+                onNext();
+              }}
+              className="next-btn"
+            >
               Next
             </button>
-          </div> */}
-
-                <div style={{ textAlign: "right" }}>
-  <button
-    type="button"
-    onClick={() => {
-      if (!isAnonymous && !isSendYourself) {
-        setShowOptionAlert(true);
-        return;
-      }
-      onNext();
-    }}
-    className="next-btn"
-  >
-    Next
-  </button>
-</div>
-
+          </div>
         </div>
       </div>
 
       {/* Anonymous warning modal */}
-      {/* {showAnonWarning && (
+      {showAnonWarning && (
         <div className="anon-popup">
           <div className="anon-popup-content">
             <h3>⚠️ Send Anonymously?</h3>
             <p>
               If you send anonymously, your name and email will not appear
-              anywhere on the card. The recipient won’t know who sent it.
-            </p>
-            <div className="popup-buttons">
-              <button onClick={handleAnonCancel} className="cancel-btn">
-                Cancel
-              </button>
-              <button onClick={handleAnonConfirm} className="ok-btn">
-                OK
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
-
-{showAnonWarning && (
-        <div className="anon-popup">
-          <div className="anon-popup-content">
-            <h3>⚠️ Send Anonymously?</h3>
-            <p>
-              If you send anonymously, your name and email will not appear
-              anywhere on the card. The recipient won’t know who sent it.
+              anywhere on the card. The recipient won't know who sent it.
             </p>
             <div className="popup-buttons">
               <button onClick={handleAnonCancel} className="cancel-btn">
@@ -380,23 +350,20 @@ function CardStep1({ register, errors, onNext, onBack, watch, setValue }) {
       )}
 
       {/* Choose Option Warning Modal */}
-{showOptionAlert && (
-  <div className="anon-popup">
-    <div className="anon-popup-content">
-      <h3>⚠️ Choose a Sending Option</h3>
-      <p>You must either send this card anonymously or send it yourself before continuing.</p>
-      <div className="popup-buttons">
-        <button onClick={() => setShowOptionAlert(false)} className="ok-btn">
-          OK
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
-
-
-    </SlideUp>
+      {showOptionAlert && (
+        <div className="anon-popup">
+          <div className="anon-popup-content">
+            <h3>⚠️ Choose a Sending Option</h3>
+            <p>You must either send this card anonymously or send it yourself before continuing.</p>
+            <div className="popup-buttons">
+              <button onClick={() => setShowOptionAlert(false)} className="ok-btn">
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

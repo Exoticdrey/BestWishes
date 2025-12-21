@@ -2,7 +2,7 @@
   background-color: var(--background-color);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  /* width: 100%; */
+  width: 100%;
   position: fixed;
   z-index: 3;
   top: 0;
@@ -16,6 +16,7 @@
   align-items: center;
   width: 100%;
   padding: 10px 30px;
+  margin: 0;
 }
 
 .nav-logo img {
@@ -348,6 +349,14 @@
 
 /* Desktop Styles */
 @media screen and (min-width: 1025px) {
+  .nav-container {
+    padding: 10px 50px;
+  }
+  
+  .nav-container ul {
+    gap: 3rem;
+  }
+  
   .mobile-menu {
     display: none !important;
   }

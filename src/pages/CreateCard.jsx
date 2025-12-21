@@ -20,6 +20,8 @@ function CreateCard() {
   const selectedTemplate = location.state?.template || null;
 
   const [currentStep, setCurrentStep] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isNextLoading, setIsNextLoading] = useState(false);
   const [formData, setFormData] = useState({
     template: selectedTemplate,
     isAnonymous: false,
@@ -30,6 +32,14 @@ function CreateCard() {
     message: "",
     error: "",
   });
+
+  // Simulate initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const {
     register,
@@ -90,24 +100,12 @@ function CreateCard() {
       recipient_email: data.recipientEmail,
       heartfelt_message: data.message,
       nickname: data.quote || "",
-      music_url: data.musicUrl || "",
+      font: data.fontFamily || "",
+      size: data.fontSize || "",
       effect: data.effect || "",
-      font_family: data.fontFamily || "",
-      font_size: data.fontSize || "",
-      text_color: data.textColor || "",
-      template_id: data.template?.id,
+      color: data.textColor || "",
+      music_url: data.musicUrl || "",
     };
-
-    const templateImage = data.template?.image || data.template?.preview;
-    if (templateImage) {
-      payload.card_image = normalizeImageUrl(templateImage);
-    }
-
-    if (data.image instanceof File) {
-      payload.card_image = await toDataUrl(data.image);
-    } else if (!payload.card_image && data.imageUrl) {
-      payload.card_image = data.imageUrl;
-    }
 
     if (data.voiceNote instanceof Blob) {
       payload.voice_note = await toDataUrl(data.voiceNote);
@@ -115,6 +113,7 @@ function CreateCard() {
       payload.voice_note = data.voiceNote;
     }
 
+    // Clean up empty values
     Object.keys(payload).forEach((key) => {
       if (
         payload[key] === "" ||
@@ -129,9 +128,14 @@ function CreateCard() {
   };
 
   const goNext = (data) => {
+    setIsNextLoading(true);
     setFormData((prev) => ({ ...prev, ...data }));
-    if (!isLastStep) setCurrentStep((s) => s + 1);
-    else finalize({ ...formData, ...data });
+    
+    setTimeout(() => {
+      if (!isLastStep) setCurrentStep((s) => s + 1);
+      else finalize({ ...formData, ...data });
+      setIsNextLoading(false);
+    }, 800);
   };
 
   const goBack = () => setCurrentStep((s) => Math.max(0, s - 1));
@@ -188,6 +192,32 @@ function CreateCard() {
 
   const { Component } = steps[currentStep];
 
+  // Circle Loader Component
+  const CircleLoader = () => (
+    <div className="circle-loader-container">
+      <div className="circle-loader"></div>
+    </div>
+  );
+
+  if (isLoading) {
+    return (
+      <>
+        <Navbar />
+        <div className="create-card">
+          <div className="create-card-headline">
+            <h2>Personalize your card</h2>
+            <p>
+              Express your emotions through personalized cards with images, music
+              and a lot more features to create a special experience
+            </p>
+          </div>
+          <CircleLoader />
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
@@ -201,19 +231,23 @@ function CreateCard() {
           </p>
         </div>
 
-        <Component
-          register={register}
-          errors={errors}
-          watch={watch}
-          formData={formData}
-          onNext={onNext}
-          onBack={goBack}
-          onFinish={onFinish}
-          isFirst={isFirstStep}
-          isLast={isLastStep}
-          setValue={setValue}
-          submitState={submitState}
-        />
+        {isNextLoading ? (
+          <CircleLoader />
+        ) : (
+          <Component
+            register={register}
+            errors={errors}
+            watch={watch}
+            formData={formData}
+            onNext={onNext}
+            onBack={goBack}
+            onFinish={onFinish}
+            isFirst={isFirstStep}
+            isLast={isLastStep}
+            setValue={setValue}
+            submitState={submitState}
+          />
+        )}
       </div>
 
       <Footer />

@@ -16,6 +16,7 @@ nav {
   align-items: center;
   width: 100%;
   padding: 10px 30px;
+  margin: 0;
 }
 
 .nav-logo img {
@@ -28,7 +29,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .nav-container ul li a {
@@ -58,6 +59,42 @@ nav {
 
 .nav-icons svg:hover {
   opacity: 0.7;
+}
+
+.get-started-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(214, 0, 163, 0.3);
+}
+
+.get-started-btn-mobile {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn-mobile:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(214, 0, 163, 0.3);
 }
 
 /* Hamburger Menu Button */
@@ -206,26 +243,21 @@ nav {
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
-  .desktop-nav {
-    display: none !important;
+  .nav-container ul {
+    gap: 2rem;
   }
-
-  .hamburger-menu {
-    display: flex;
-  }
-
-  .mobile-menu {
-    display: flex;
-    /* border: 1px solid red; */
-  }
-  .navbarr{
-    width: 100vw;
-    /* border: 1px solid blue; */
+  
+  .nav-container {
+    padding: 10px 20px;
   }
 }
 
 /* Desktop Styles */
 @media screen and (min-width: 1025px) {
+  .nav-container {
+    padding: 10px 50px;
+  }
+  
   .mobile-menu {
     display: none !important;
   }
@@ -233,4 +265,320 @@ nav {
   .hamburger-menu {
     display: none !important;
   }
+}
+
+/* Get Started Modal */
+.getstarted-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.getstarted-modal {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.modal-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.modal-logo {
+  margin-bottom: 2rem;
+}
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Life Savers', serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.logo-text {
+  color: #333;
+  font-style: italic;
+}
+
+.logo-heart {
+  color: var(--primary-color);
+  margin-left: 0.2rem;
+  font-size: 1.5rem;
+}
+
+.getstarted-modal h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: 'Life Savers', serif;
+}
+
+.modal-subtitle {
+  color: #999;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.role-options {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.role-card {
+  flex: 1;
+  max-width: 300px;
+  min-width: 280px;
+  padding: 2rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(214, 0, 163, 0.2);
+}
+
+.role-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(214, 0, 163, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--primary-color);
+}
+
+.role-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: 'Life Savers', serif;
+}
+
+.role-card p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.role-features {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.role-features span {
+  background: rgba(214, 0, 163, 0.1);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.role-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gifter-btn {
+  background: #9c27b0;
+  color: white;
+}
+
+.vendor-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.role-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-footer {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.modal-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.modal-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 769px) {
+  .role-options {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .role-card {
+    flex: 1;
+    max-width: 350px;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .role-options {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .getstarted-modal {
+    padding: 2rem 1.5rem;
+    width: 95%;
+    max-width: none;
+  }
+  
+  .getstarted-modal h2 {
+    font-size: 1.8rem;
+  }
+  
+  .role-card {
+    max-width: none;
+    padding: 1.5rem 1rem;
+  }
+  
+  .role-features {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .getstarted-modal {
+    padding: 1.5rem 1rem;
+    width: 98%;
+  }
+  
+  .modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+  }
+  
+  .modal-close svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .getstarted-modal h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .role-card {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .role-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .role-card p {
+    font-size: 0.8rem;
+  }
+  
+  .role-features span {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .role-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Body blur when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+body.modal-open nav,
+body.modal-open main,
+body.modal-open .home-container > *:not(.getstarted-modal-overlay),
+body.modal-open footer {
+  filter: blur(3px);
+  transition: filter 0.3s ease;
+}
+
+.getstarted-modal-overlay {
+  z-index: 9999 !important;
+}
+
+.getstarted-modal {
+  z-index: 10000 !important;
 }

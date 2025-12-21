@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar2 from "../components/Navbar/Navbar2";
 import Hero from "../components/HeroSection/Hero";
@@ -14,19 +14,38 @@ import Footer from "../components/Footer/Footer"
 import './Home.css'
 
 const Home = () => {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <>
-    
+    <div className="home-container">
     <Navbar2 />
-    <Hero />
-    <RealTime />
-    <Features />
-    <Works />
-    <MagicTouch />
-    <SendLove />
-    <MkPlace />
-    <Testimonials />
-    <Callta />
+    <div className="animate-on-scroll"><Hero /></div>
+    <div className="animate-on-scroll"><RealTime /></div>
+    <div className="animate-on-scroll"><Features /></div>
+    <div className="animate-on-scroll"><Works /></div>
+    <div className="animate-on-scroll"><MagicTouch /></div>
+    <div className="animate-on-scroll"><SendLove /></div>
+    <div className="animate-on-scroll"><MkPlace /></div>
+    <div className="animate-on-scroll"><Testimonials /></div>
+    <div className="animate-on-scroll"><Callta /></div>
     <Footer />
 
 
@@ -184,7 +203,7 @@ const Home = () => {
 
       {/* Newsletter */}
       
-    </>
+    </div>
   );
 };
 

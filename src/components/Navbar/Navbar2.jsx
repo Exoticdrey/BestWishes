@@ -10,8 +10,15 @@ function Navbar2() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
-  const handleGetStarted = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
+  const handleGetStarted = () => {
+    setShowModal(true);
+    document.body.classList.add('modal-open');
+  };
+  
+  const closeModal = () => {
+    setShowModal(false);
+    document.body.classList.remove('modal-open');
+  };
 
   const handleSelect = (type) => {
     if (type === "vendor") {
@@ -20,6 +27,7 @@ function Navbar2() {
       navigate("/create-template");
     }
     setShowModal(false);
+    document.body.classList.remove('modal-open');
   };
 
   return (
@@ -93,18 +101,55 @@ function Navbar2() {
       {showModal && (
         <div className="getstarted-modal-overlay" onClick={closeModal}>
           <div className="getstarted-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>Continue as</h2>
-            <div className="role-options">
-              <div className="role-card" onClick={() => handleSelect("user")}>
-                <h3>User</h3>
-                <p>Create and personalize heartfelt cards, share memories, and send messages that matter.</p>
-              </div>
-              <div className="role-card" onClick={() => handleSelect("vendor")}>
-                <h3>Vendor</h3>
-                <p>Sell your creative products, manage orders, and reach new customers through Best Wishes Marketplace.</p>
+            <button className="modal-close" onClick={closeModal}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>
+            <div className="modal-logo">
+              <div className="logo-container">
+                <span className="logo-text">B</span>
+                <span className="logo-heart">♥</span>
               </div>
             </div>
-            <button className="close-modal" onClick={closeModal}>Close</button>
+            <h2>Let's Get You Started</h2>
+            <p className="modal-subtitle">Please select the option that best describes you to continue...</p>
+            <div className="role-options">
+              <div className="role-card" onClick={() => handleSelect("user")}>
+                <div className="role-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M16 7V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  </svg>
+                </div>
+                <h3>Gifter</h3>
+                <p>Find unique gifts for the people you care about</p>
+                <div className="role-features">
+                  <span>Browse Gifts</span>
+                  <span>Easy Checkouts</span>
+                </div>
+                <button className="role-btn gifter-btn">Sign up as a Gifter</button>
+              </div>
+              <div className="role-card" onClick={() => handleSelect("vendor")}>
+                <div className="role-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  </svg>
+                </div>
+                <h3>Vendor</h3>
+                <p>Sell your products and service to customers looking for the Perfect Gift</p>
+                <div className="role-features">
+                  <span>Track Orders</span>
+                  <span>Grow Business</span>
+                </div>
+                <button className="role-btn vendor-btn">Sign up as a vendor</button>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <span>Already have an account? <a href="/signin">Sign in</a></span>
+            </div>
           </div>
         </div>
       )}

@@ -2,6 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lato&family=Montserrat&family=Oswald&family=Raleway&family=Dancing+Script&family=Playfair+Display&family=Poppins&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nohemi:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mestika:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
