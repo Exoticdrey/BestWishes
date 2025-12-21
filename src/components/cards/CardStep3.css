@@ -83,3 +83,178 @@
     opacity: 1;
   }
 }
+
+
+
+
+
+.pop-preview-grid {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+  justify-content: center;
+}
+
+.pop-preview-card {
+  width: 95px;
+  height: 115px;
+  border-radius: 12px;
+  background: #fff;
+  border: 2px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: .85rem;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+}
+
+.pop-preview-card.active {
+  border-color: #ff8bd0;
+  box-shadow: 0 0 10px rgba(255, 140, 200, 0.4);
+}
+
+.pop-emoji {
+  font-size: 34px;
+}
+
+.preview-anim {
+  animation: wavePop .7s ease;
+}
+
+@keyframes wavePop {
+  0% { transform: scale(1); }
+  40% { transform: rotate(-4deg) scale(1.15); }
+  80% { transform: rotate(3deg) scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Gift box shake on real preview */
+.shake-pop {
+  animation: shakeBox .7s ease;
+}
+
+@keyframes shakeBox {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(8deg); }
+  60% { transform: rotate(-8deg); }
+}
+
+/* Genie animation */
+.genie-pop {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 42px;
+  animation: genieRise 1.4s ease forwards;
+}
+
+@keyframes genieRise {
+  0% { opacity: 0; transform: translate(-50%, 40px) scale(.7); }
+  60% { opacity: 1; transform: translate(-50%, -20px) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -80px) scale(.9); }
+}
+
+
+/* ✅ Add in your CSS file: */
+.pop-preview-card.active-glow {
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+}
+
+.preview-anim {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+.shake-pop {
+  animation: shake 0.8s ease;
+}
+
+
+
+
+
+
+/* Shake loop */
+.shake-loop {
+  animation: shake 0.6s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Genie animation placeholders */
+.genie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+}
+
+.pink-cloud {
+  width: 200px;
+  height: 80px;
+  background: pink;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: puff 1s ease-in-out forwards;
+}
+
+.pink-smoke {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,182,193,0.3), transparent);
+  position: absolute;
+  top: 50px;
+  animation: swirl 2s ease-in-out forwards;
+}
+
+.genie-emoji {
+  font-size: 80px;
+  margin-top: 20px;
+  animation: float 2s ease-in-out forwards;
+}
+
+.sparkles {
+  position: absolute;
+  top: 0;
+  font-size: 30px;
+  animation: sparkle 2s ease-in-out forwards;
+}
+
+.genie-text {
+  margin-top: 20px;
+  font-family: "Life Savers", serif;
+  font-size: 1.2rem;
+  color: #d600a3;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+.genie-skip-btn {
+  margin-top: 15px;
+  background: #d600a3;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes puff { from { opacity:0; transform: scale(0); } to { opacity:0.6; transform: scale(1); } }
+@keyframes swirl { from { opacity:0; transform: translateY(20px) scale(0.5); } to { opacity:1; transform: translateY(0) scale(1); } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+@keyframes sparkle { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

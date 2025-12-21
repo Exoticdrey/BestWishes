@@ -1,0 +1,46 @@
+.cropper-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cropper-wrapper {
+  position: relative;
+  width: 90vw;
+  height: 70vh;
+  background: #333;
+}
+
+.cropper-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cropper-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.cropper-buttons button {
+  background: #d600a3;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.cancel-btn {
+  background: #555;
+}

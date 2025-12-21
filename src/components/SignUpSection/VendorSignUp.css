@@ -8,6 +8,12 @@
   /* margin-bottom: -3px; */
 }
 
+.auth-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
 .sign-up{
   /* border: 1px solid black; */
   margin-top: 75px;
@@ -29,7 +35,7 @@
 .title-login {
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-top: -8rem;
   text-align: left;
 }
 
@@ -282,6 +288,16 @@
 
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  
+  .auth-image {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .login-container {
     padding: 16px;

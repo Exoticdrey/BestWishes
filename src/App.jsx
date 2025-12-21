@@ -128,6 +128,7 @@ import VendorComplete from "./pages/VendorComplete";
 import ScheduleCard from "./pages/ScheduleCard";
 import ScheduleTemplate from "./pages/ScheduleTemplate";
 import Terms from "./pages/TermsofService";
+import Referrals from "./pages/ReferralPage";
 import Faq from "./pages/FrequentQuestions";
 import Privacy from "./pages/PrivacyPolicy";
 import Refund from "./pages/RefundPolicy";
@@ -159,6 +160,7 @@ function App() {
       <Route path="/marketplace" element={<Marketplace />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/refer" element={<Referrals />} />
       <Route path="/spinwin" element={<SpinWin />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/signin" element={<SignIn />} />
@@ -188,6 +190,7 @@ function App() {
       <Route path="/refund" element={<Refund />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
+      {/* <Route path="/preview" element={<PreviewPage />} /> */}
     </Routes>
   );
 }

@@ -1,6 +1,6 @@
 import SlideUp from "../ui/SlideUp";
 import "./GetStarted.css";
-
+import Referral from "../components/referral";
 function GetStarted() {
   return (
     <SlideUp delay={0.06}>

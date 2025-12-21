@@ -1,10 +1,11 @@
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import "./TermsofService.css";
-
+import Referral from "../components/referral";
 function Terms() {
     return(
         <>
+            <Referral/>
             <Navbar />
                 <div className="terms">
 

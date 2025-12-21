@@ -37,10 +37,11 @@ background: #fff;
 border-radius: 16px;
 padding: 25px;
 width: 580px;
-max-width: 90%;
+max-width: 98%;
 text-align: center;
 position: relative;
 box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+/* border: 1px solid red; */
 }
 
 .realtime-close {

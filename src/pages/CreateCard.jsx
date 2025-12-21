@@ -1,6 +1,6 @@
 
 
-
+import Referral from "../components/referral";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
@@ -220,7 +220,9 @@ function CreateCard() {
 
   return (
     <>
+        <Referral/>
       <Navbar />
+      <div style={{ height: "60px" }}></div>
 
       <div className="create-card">
         <div className="create-card-headline">

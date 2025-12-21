@@ -2,10 +2,11 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import "./PrivacyPolicy.css";
 import { FaInfoCircle, FaCog, FaLock, FaShareAlt, FaCookieBite, FaUser, FaStickyNote, FaHeadphones, FaEnvelope } from "react-icons/fa";
-
+import Referral from "../components/referral";
 function Privacy () {
     return (
         <>
+            <Referral/>
             <Navbar />
 
             <div className="privacy">

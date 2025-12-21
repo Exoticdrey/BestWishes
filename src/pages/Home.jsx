@@ -6,6 +6,7 @@ import Features from "../components/FeaturesSection/Features";
 import Works from "../components/WorksSection/Works";
 import MagicTouch from "../components/TouchSection/MagicTouch";
 import Testimonials from "../components/TestimonialsSection/Testimonials";
+import Referral from "../components/referral";
 import SendLove from "../components/SendLoveSection/SendLove";
 import RealTime from "../components/RealTimeSection/RealTime";
 import MkPlace from "../components/MarketPlaceSection/MkPlace";
@@ -35,7 +36,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
+    <>
+    <Referral />
     <Navbar2 />
     <div className="animate-on-scroll"><Hero /></div>
     <div className="animate-on-scroll"><RealTime /></div>
@@ -203,7 +205,7 @@ const Home = () => {
 
       {/* Newsletter */}
       
-    </div>
+    </>
   );
 };
 

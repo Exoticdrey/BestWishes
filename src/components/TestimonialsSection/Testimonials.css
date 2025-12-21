@@ -7,12 +7,16 @@
 .testimonials-head{
     /* border: 1px solid orange; */
 }
-.testimonials-title{
-    font-size: 14px;
-    margin-bottom: 10px;
+h3.testimonials-title{
+    font-size: 45px;
+    color: var(--primary-color);
+    font-family: 'Life Savers';
+    font-weight: bold;
+    padding-bottom: 20px;
 }
 .testimonials-subtitle{
-    font-size: 17px;
+        font-size: 13px;
+    color: var(--text-color);
 }
 .blue-highlight{
     color: #aecde1;
@@ -39,8 +43,11 @@
 
 @media (min-width: 200px) and (max-width: 480px) {
     .testimonials-subtitle{
-        font-size: 14px;
+        font-size: 11px;
     }  
+    h3.testimonials-title{
+        font-size: 30px;
+    }
     .testimonials{
         margin-top: 20px;
     }
