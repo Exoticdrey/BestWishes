@@ -49,7 +49,7 @@ const Signin = () => {
       <div className="login-container">
         <div className="login-card">
           <div className="logo">
-            <img src="/bwlogo.png" alt="logo" />
+            <img src="/images/logo.svg" alt="logo" />
           </div>
 
           <h1 className="title-login">Welcome Back</h1>

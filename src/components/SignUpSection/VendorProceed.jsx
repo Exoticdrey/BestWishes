@@ -99,7 +99,7 @@ const VendorComplete = () => {
         <div className="login-card">
           {/* Logo */}
           <div className="logo">
-            <img src="/bwlogo.png" alt="logo" />
+            <img src="/images/logo.svg" alt="logo" />
           </div>
 
           {/* Title and Subtitle */}

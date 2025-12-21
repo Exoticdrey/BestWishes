@@ -16,8 +16,8 @@
 }
 
 .loader-logo {
-  width: 100px;
-  height: 100px;
+  width: 350px;
+  height: 350px;
   animation: pulse 1.5s ease-in-out infinite;
 }
 

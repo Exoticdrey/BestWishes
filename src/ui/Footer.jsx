@@ -20,7 +20,7 @@ const Footer = () => {
       <div className="footer-main">
         {/* Logo */}
         <div className="footer-logo">
-          <img src="/bwlogo.png" alt="logo" />
+          <img src="/images/logo.svg" alt="logo" />
           <p>Thoughtful cards. Perfect gifts. Delivered with care.</p>
           <div className="app-links">
             <img src="/google-play.png" alt="Google Play" />

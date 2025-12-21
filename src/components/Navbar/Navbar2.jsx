@@ -35,7 +35,7 @@ function Navbar2() {
       <nav className="navbar">
         <div className="nav-container">
           <a href="/" className="nav-logo">
-            <img src="/bwlogo.png" alt="Best Wishes Logo" />
+            <img src="/images/logo.svg" alt="Best Wishes Logo" />
           </a>
 
           {/* Desktop Navigation */}
